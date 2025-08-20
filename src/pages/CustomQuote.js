@@ -4,10 +4,20 @@ import './CustomQuote.css';
 const CustomQuote = () => {
     // Form state
     const [formData, setFormData] = useState({
-        // ... existing fields ...
+        name: '',
+        email: '',
+        phone: '',
+        phone2: '',
+        phone2Type: '',
+        clientType: '',
+        otherCustomer: '',
+        companyName: '',
+        companyAddress: '',
+        companyPhone: '',
         purchased: '',
         fieldMeasure: '',
-        // Add all these new appliance fields:
+
+        // Appliance fields:
         appliances: {
             range: false,
             hood: false,
@@ -35,8 +45,34 @@ const CustomQuote = () => {
             disposal: { brand: '', model: '', notes: '', specifics: [] },
             trash: { brand: '', model: '', notes: '', specifics: [] },
             washer: { brand: '', model: '', notes: '', specifics: [], pedestalModel: '' }
-        }
+        },
+        // Additional fields
+        delivery: '',
+        pickupLocation: '',
+        pickupDate: '',
+        uninstall: '',
+        haulAway: '',
+        street: '',
+        unit: '',
+        city: '',
+        zip: '',
+        homeType: '',
+        floor: '',
+        stairs: '',
+        stairsNumber: '',
+        stairsTurns: '',
+        parking: '',
+        parkingNotes: '',
+        gateCode: '',
+        preferredDate: '',
+        preferredTime: [],
+        additionalDetails: ''
     });
+
+    // State for form submission
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
+
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -92,6 +128,84 @@ const CustomQuote = () => {
         });
     };
 
+    // Handle checkbox arrays (like preferred time)
+    const handleCheckboxArrayChange = (name, value) => {
+        setFormData(prev => {
+            const currentArray = prev[name] || [];
+            const newArray = currentArray.includes(value)
+                ? currentArray.filter(item => item !== value)
+                : [...currentArray, value];
+
+            return {
+                ...prev,
+                [name]: newArray
+            };
+        });
+    };
+
+    // Handle file uploads
+    const handleFileChange = (e, fileNumber) => {
+        const file = e.target.files[0];
+        if (file) {
+            // Check file size (5MB limit)
+            if (file.size > 5 * 1024 * 1024) {
+                alert('File size must be less than 5MB');
+                e.target.value = '';
+                return;
+            }
+
+            setFormData(prev => ({
+                ...prev,
+                [`uploadFile${fileNumber}`]: file
+            }));
+        }
+    };
+
+    // Remove uploaded file
+    const removeFile = (fileNumber) => {
+        setFormData(prev => {
+            const newData = { ...prev };
+            delete newData[`uploadFile${fileNumber}`];
+            return newData;
+        });
+
+        // Clear the file input
+        const fileInput = document.querySelector(`input[name="upload-file${fileNumber}"]`);
+        if (fileInput) {
+            fileInput.value = '';
+        }
+    };
+
+
+    // Handle form submission
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setSubmitStatus(null);
+
+        try {
+            // Here's where you'll integrate with Netlify Forms
+            // For now, we'll simulate the submission
+
+            console.log('Form data to submit:', formData);
+
+            // Simulate API call
+            await new Promise(resolve => setTimeout(resolve, 2000));
+
+            // Success!
+            setSubmitStatus('success');
+            setIsSubmitting(false);
+
+            // Scroll to top to show success message
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        } catch (error) {
+            console.error('Submission error:', error);
+            setSubmitStatus('error');
+            setIsSubmitting(false);
+        }
+    };
+
     return (
         <div className="quote-page">
             {/* Hero Section */}
@@ -119,7 +233,7 @@ const CustomQuote = () => {
                             </div>
 
                             <div className="quote-form-container">
-                                <form className="quote-form">
+                                <form className="quote-form" onSubmit={handleSubmit} netlify encType="multipart/form-data">
 
                                     {/* Client Information Section */}
                                     <div className="form-section">
@@ -1244,9 +1358,690 @@ const CustomQuote = () => {
                                         </div>
                                     </div>
 
-                                    {/* Placeholder for next sections */}
-                                    <div className="text-center mt-5">
-                                        <p className="text-muted">Next: Another section...</p>
+
+                                    {/* Services Section */}
+                                    <div className="form-section">
+                                        <div className="section-header">
+                                            <h3 className="form-section-title">Services</h3>
+                                        </div>
+                                        <hr className="section-divider" />
+
+                                        <div className="services-grid">
+
+                                            {/* Delivery Service */}
+                                            <div className="service-row">
+                                                <div className="service-question">
+                                                    <label className="form-label">
+                                                        <span className="required-asterisk">*</span> Delivery:
+                                                    </label>
+                                                    <div className="radio-group">
+                                                        <div className="form-check">
+                                                            <input
+                                                                type="radio"
+                                                                id="delivery-yes"
+                                                                name="delivery"
+                                                                value="Yes"
+                                                                className="form-check-input"
+                                                                checked={formData.delivery === 'Yes'}
+                                                                onChange={handleInputChange}
+                                                            />
+                                                            <label htmlFor="delivery-yes" className="form-check-label">Yes</label>
+                                                        </div>
+                                                        <div className="form-check">
+                                                            <input
+                                                                type="radio"
+                                                                id="delivery-no"
+                                                                name="delivery"
+                                                                value="No"
+                                                                className="form-check-input"
+                                                                checked={formData.delivery === 'No'}
+                                                                onChange={handleInputChange}
+                                                            />
+                                                            <label htmlFor="delivery-no" className="form-check-label">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                {/* Conditional Delivery Details */}
+                                                {formData.delivery === 'Yes' && (
+                                                    <div className="service-details">
+                                                        <div className="detail-field">
+                                                            <label className="form-label">Pick-Up Location:</label>
+                                                            <input
+                                                                type="text"
+                                                                name="pickupLocation"
+                                                                className="form-control"
+                                                                value={formData.pickupLocation}
+                                                                onChange={handleInputChange}
+                                                            />
+                                                        </div>
+                                                        <div className="detail-field">
+                                                            <label className="form-label">Availability Date:</label>
+                                                            <input
+                                                                type="text"
+                                                                name="pickupDate"
+                                                                className="form-control"
+                                                                placeholder="e.g., March 15th or Next Week"
+                                                                value={formData.pickupDate}
+                                                                onChange={handleInputChange}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+
+                                            {/* Uninstall Service */}
+                                            <div className="service-row">
+                                                <div className="service-question">
+                                                    <label className="form-label">
+                                                        <span className="required-asterisk">*</span> Uninstall:
+                                                    </label>
+                                                    <div className="radio-group">
+                                                        <div className="form-check">
+                                                            <input
+                                                                type="radio"
+                                                                id="uninstall-yes"
+                                                                name="uninstall"
+                                                                value="Yes"
+                                                                className="form-check-input"
+                                                                checked={formData.uninstall === 'Yes'}
+                                                                onChange={handleInputChange}
+                                                            />
+                                                            <label htmlFor="uninstall-yes" className="form-check-label">Yes</label>
+                                                        </div>
+                                                        <div className="form-check">
+                                                            <input
+                                                                type="radio"
+                                                                id="uninstall-no"
+                                                                name="uninstall"
+                                                                value="No"
+                                                                className="form-check-input"
+                                                                checked={formData.uninstall === 'No'}
+                                                                onChange={handleInputChange}
+                                                            />
+                                                            <label htmlFor="uninstall-no" className="form-check-label">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* Haul-away Service */}
+                                            <div className="service-row">
+                                                <div className="service-question">
+                                                    <label className="form-label">
+                                                        <span className="required-asterisk">*</span> Haul-away:
+                                                    </label>
+                                                    <div className="radio-group">
+                                                        <div className="form-check">
+                                                            <input
+                                                                type="radio"
+                                                                id="haulaway-yes"
+                                                                name="haulAway"
+                                                                value="Yes"
+                                                                className="form-check-input"
+                                                                checked={formData.haulAway === 'Yes'}
+                                                                onChange={handleInputChange}
+                                                            />
+                                                            <label htmlFor="haulaway-yes" className="form-check-label">Yes</label>
+                                                        </div>
+                                                        <div className="form-check">
+                                                            <input
+                                                                type="radio"
+                                                                id="haulaway-no"
+                                                                name="haulAway"
+                                                                value="No"
+                                                                className="form-check-input"
+                                                                checked={formData.haulAway === 'No'}
+                                                                onChange={handleInputChange}
+                                                            />
+                                                            <label htmlFor="haulaway-no" className="form-check-label">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                    {/* Installation Address & Site Details Section */}
+                                    <div className="form-section">
+                                        <div className="section-header">
+                                            <h3 className="form-section-title">Installation Address & Site Details</h3>
+                                        </div>
+                                        <hr className="section-divider" />
+
+                                        {/* Address Fields */}
+                                        <div className="address-grid">
+                                            <div className="row">
+                                                <div className="col-md-8 mb-3">
+                                                    <label className="form-label">
+                                                        <span className="required-asterisk">*</span> Street Address:
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        name="street"
+                                                        className="form-control"
+                                                        value={formData.street}
+                                                        onChange={handleInputChange}
+                                                        required
+                                                    />
+                                                </div>
+                                                <div className="col-md-4 mb-3">
+                                                    <label className="form-label">Address Line 2:</label>
+                                                    <input
+                                                        type="text"
+                                                        name="unit"
+                                                        className="form-control"
+                                                        placeholder="ie. Apartment Number"
+                                                        value={formData.unit}
+                                                        onChange={handleInputChange}
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            <div className="row">
+                                                <div className="col-md-6 mb-3">
+                                                    <label className="form-label">
+                                                        <span className="required-asterisk">*</span> City:
+                                                    </label>
+                                                    <div className="input-group">
+                                                        <input
+                                                            type="text"
+                                                            name="city"
+                                                            className="form-control"
+                                                            value={formData.city}
+                                                            onChange={handleInputChange}
+                                                            required
+                                                        />
+                                                        <span className="input-group-text">, California</span>
+                                                    </div>
+                                                </div>
+                                                <div className="col-md-6 mb-3">
+                                                    <label className="form-label">
+                                                        <span className="required-asterisk">*</span> Zip:
+                                                    </label>
+                                                    <input
+                                                        type="text"
+                                                        name="zip"
+                                                        className="form-control zip-input"
+                                                        value={formData.zip}
+                                                        onChange={handleInputChange}
+                                                        required
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <hr className="field-divider" />
+
+                                        {/* Site Details using compact style */}
+                                        <div className="site-details-grid">
+
+                                            {/* Home Type */}
+                                            <div className="site-detail-row">
+                                                <div className="site-question">
+                                                    <label className="form-label">Type of Residence/Building:</label>
+                                                    <div className="radio-group">
+                                                        {['Single-Family Home', 'Apartment/Condo', 'Other/Commercial'].map(type => (
+                                                            <div key={type} className="form-check">
+                                                                <input
+                                                                    type="radio"
+                                                                    id={`home-${type.toLowerCase().replace(/[^a-z]/g, '')}`}
+                                                                    name="homeType"
+                                                                    value={type}
+                                                                    className="form-check-input"
+                                                                    checked={formData.homeType === type}
+                                                                    onChange={handleInputChange}
+                                                                />
+                                                                <label htmlFor={`home-${type.toLowerCase().replace(/[^a-z]/g, '')}`} className="form-check-label">
+                                                                    {type}
+                                                                </label>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* Installation Floor */}
+                                            <div className="site-detail-row">
+                                                <div className="site-question">
+                                                    <label className="form-label">Installation Floor/Level:</label>
+                                                    <div className="radio-group">
+                                                        {['1st', '2nd', 'Other'].map(floor => (
+                                                            <div key={floor} className="form-check">
+                                                                <input
+                                                                    type="radio"
+                                                                    id={`floor-${floor}`}
+                                                                    name="floor"
+                                                                    value={floor}
+                                                                    className="form-check-input"
+                                                                    checked={formData.floor === floor}
+                                                                    onChange={handleInputChange}
+                                                                />
+                                                                <label htmlFor={`floor-${floor}`} className="form-check-label">{floor}</label>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* Stairs */}
+                                            <div className="site-detail-row">
+                                                <div className="site-question">
+                                                    <label className="form-label">
+                                                        <span className="required-asterisk">*</span> Will appliances need to be moved up or down stairs?
+                                                    </label>
+                                                    <div className="radio-group">
+                                                        <div className="form-check">
+                                                            <input
+                                                                type="radio"
+                                                                id="stairs-yes"
+                                                                name="stairs"
+                                                                value="Yes"
+                                                                className="form-check-input"
+                                                                checked={formData.stairs === 'Yes'}
+                                                                onChange={handleInputChange}
+                                                            />
+                                                            <label htmlFor="stairs-yes" className="form-check-label">Yes</label>
+                                                        </div>
+                                                        <div className="form-check">
+                                                            <input
+                                                                type="radio"
+                                                                id="stairs-no"
+                                                                name="stairs"
+                                                                value="No"
+                                                                className="form-check-input"
+                                                                checked={formData.stairs === 'No'}
+                                                                onChange={handleInputChange}
+                                                            />
+                                                            <label htmlFor="stairs-no" className="form-check-label">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                {/* Conditional Stairs Details */}
+                                                {formData.stairs === 'Yes' && (
+                                                    <div className="stairs-details">
+                                                        <div className="stairs-field">
+                                                            <label className="form-label">How many steps?</label>
+                                                            <input
+                                                                type="text"
+                                                                name="stairsNumber"
+                                                                className="form-control stairs-input"
+                                                                value={formData.stairsNumber}
+                                                                onChange={handleInputChange}
+                                                            />
+                                                        </div>
+                                                        <div className="stairs-field">
+                                                            <label className="form-label">
+                                                                <span className="required-asterisk">*</span> Are there turns in the stairs?
+                                                            </label>
+                                                            <div className="radio-group">
+                                                                <div className="form-check">
+                                                                    <input
+                                                                        type="radio"
+                                                                        id="turns-yes"
+                                                                        name="stairsTurns"
+                                                                        value="Yes"
+                                                                        className="form-check-input"
+                                                                        checked={formData.stairsTurns === 'Yes'}
+                                                                        onChange={handleInputChange}
+                                                                    />
+                                                                    <label htmlFor="turns-yes" className="form-check-label">Yes</label>
+                                                                </div>
+                                                                <div className="form-check">
+                                                                    <input
+                                                                        type="radio"
+                                                                        id="turns-no"
+                                                                        name="stairsTurns"
+                                                                        value="No"
+                                                                        className="form-check-input"
+                                                                        checked={formData.stairsTurns === 'No'}
+                                                                        onChange={handleInputChange}
+                                                                    />
+                                                                    <label htmlFor="turns-no" className="form-check-label">No</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+
+                                            {/* Parking */}
+                                            <div className="site-detail-row">
+                                                <div className="site-question">
+                                                    <label className="form-label">
+                                                        <span className="required-asterisk">*</span> Will parking for our installer(s) be readily available?
+                                                    </label>
+                                                    <div className="radio-group">
+                                                        <div className="form-check">
+                                                            <input
+                                                                type="radio"
+                                                                id="parking-yes"
+                                                                name="parking"
+                                                                value="Yes"
+                                                                className="form-check-input"
+                                                                checked={formData.parking === 'Yes'}
+                                                                onChange={handleInputChange}
+                                                            />
+                                                            <label htmlFor="parking-yes" className="form-check-label">Yes</label>
+                                                        </div>
+                                                        <div className="form-check">
+                                                            <input
+                                                                type="radio"
+                                                                id="parking-no"
+                                                                name="parking"
+                                                                value="No"
+                                                                className="form-check-input"
+                                                                checked={formData.parking === 'No'}
+                                                                onChange={handleInputChange}
+                                                            />
+                                                            <label htmlFor="parking-no" className="form-check-label">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                {/* Conditional Parking Notes */}
+                                                {formData.parking === 'No' && (
+                                                    <div className="parking-details">
+                                                        <label className="form-label">Parking Notes:</label>
+                                                        <input
+                                                            type="text"
+                                                            name="parkingNotes"
+                                                            className="form-control"
+                                                            value={formData.parkingNotes}
+                                                            onChange={handleInputChange}
+                                                        />
+                                                    </div>
+                                                )}
+                                            </div>
+
+                                            {/* Gate Code */}
+                                            <div className="site-detail-row">
+                                                <div className="site-question">
+                                                    <label className="form-label">Is a gate code required for entry?</label>
+                                                    <div className="radio-group">
+                                                        <div className="form-check">
+                                                            <input
+                                                                type="radio"
+                                                                id="gate-yes"
+                                                                name="gateCode"
+                                                                value="Yes"
+                                                                className="form-check-input"
+                                                                checked={formData.gateCode === 'Yes'}
+                                                                onChange={handleInputChange}
+                                                            />
+                                                            <label htmlFor="gate-yes" className="form-check-label">Yes</label>
+                                                        </div>
+                                                        <div className="form-check">
+                                                            <input
+                                                                type="radio"
+                                                                id="gate-no"
+                                                                name="gateCode"
+                                                                value="No"
+                                                                className="form-check-input"
+                                                                checked={formData.gateCode === 'No'}
+                                                                onChange={handleInputChange}
+                                                            />
+                                                            <label htmlFor="gate-no" className="form-check-label">No</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+                                    {/* Additional Project Details Section */}
+                                    <div className="form-section">
+                                        <div className="section-header">
+                                            <h3 className="form-section-title">Additional Project Details</h3>
+                                        </div>
+                                        <hr className="section-divider" />
+
+                                        <div className="project-details-grid">
+
+                                            {/* Preferred Date */}
+                                            <div className="detail-row">
+                                                <div className="detail-question">
+                                                    <label className="form-label">Preferred date of install:</label>
+                                                    <input
+                                                        type="text"
+                                                        name="preferredDate"
+                                                        className="form-control date-input"
+                                                        value={formData.preferredDate}
+                                                        onChange={handleInputChange}
+                                                        placeholder="e.g., March 15th, Next Week"
+                                                    />
+                                                </div>
+                                            </div>
+
+                                            <div className="scheduling-note">
+                                                <p className="note-text">
+                                                    Please note that entering "ASAP" provides no information regarding your actual availability or assists with scheduling your project.
+                                                    Also, if the appliances are to be delivered by others, please request an installation appointment at least one day after the anticipated delivery date.
+                                                </p>
+                                            </div>
+
+                                            {/* Preferred Time */}
+                                            <div className="detail-row">
+                                                <div className="detail-question">
+                                                    <label className="form-label">Preferred time of install:</label>
+                                                    <div className="checkbox-group">
+                                                        {['Morning', 'Mid-Day', 'Afternoon'].map(time => (
+                                                            <div key={time} className="form-check">
+                                                                <input
+                                                                    type="checkbox"
+                                                                    id={`time-${time.toLowerCase().replace('-', '')}`}
+                                                                    className="form-check-input"
+                                                                    checked={formData.preferredTime.includes(time)}
+                                                                    onChange={() => handleCheckboxArrayChange('preferredTime', time)}
+                                                                />
+                                                                <label htmlFor={`time-${time.toLowerCase().replace('-', '')}`} className="form-check-label">
+                                                                    {time}
+                                                                </label>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div className="scheduling-note">
+                                                <p className="note-text">
+                                                    We typically provide 4-hour arrival time windows. Requested dates and times are not guaranteed,
+                                                    but we will do our best to accommodate your preference.
+                                                </p>
+                                            </div>
+
+                                            <hr className="field-divider" />
+
+                                            {/* Additional Details */}
+                                            <div className="detail-row comments-row">
+                                                <div className="detail-question full-width">
+                                                    <label className="form-label">Additional project details and comments:</label>
+                                                    <textarea
+                                                        name="additionalDetails"
+                                                        className="form-control comments-textarea"
+                                                        rows="6"
+                                                        maxLength="2000"
+                                                        value={formData.additionalDetails}
+                                                        onChange={handleInputChange}
+                                                        placeholder="Please provide any additional details about your project, special requirements, access instructions, or other information that would help us prepare for your installation..."
+                                                    />
+                                                    <div className="character-count">
+                                                        {formData.additionalDetails.length}/2000 characters
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+
+                                    {/* File Uploads Section */}
+                                    <div className="form-section">
+                                        <div className="section-header">
+                                            <h3 className="form-section-title">Supporting Files & Photos</h3>
+                                        </div>
+                                        <hr className="section-divider" />
+
+                                        <div className="file-upload-container">
+                                            <div className="upload-instructions">
+                                                <p className="upload-description">
+                                                    Upload supporting files and site photos here to help us provide the most accurate quote.
+                                                </p>
+                                                <div className="file-limits">
+                                                    <span className="file-note">
+                                                        <strong>Accepted formats:</strong> GIF, PNG, JPG, JPEG, PDF
+                                                    </span>
+                                                    <span className="file-note">
+                                                        <strong>File size limit:</strong> 5MB per file
+                                                    </span>
+                                                    <span className="file-note">
+                                                        <strong>Recommended:</strong> Photos of installation site, existing appliances, or project plans
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div className="file-upload-grid">
+                                                {[1, 2, 3, 4, 5].map(num => (
+                                                    <div key={num} className="file-upload-field">
+                                                        <label className="file-upload-label">
+                                                            <div className="file-upload-area">
+                                                                <div className="upload-icon">
+                                                                    <i className="fas fa-cloud-upload-alt"></i>
+                                                                </div>
+                                                                <div className="upload-text">
+                                                                    <span className="upload-primary">Choose File {num}</span>
+                                                                    <span className="upload-secondary">or drag and drop</span>
+                                                                </div>
+                                                            </div>
+                                                            <input
+                                                                type="file"
+                                                                name={`upload-file${num}`}
+                                                                className="file-input"
+                                                                accept=".gif,.png,.jpg,.jpeg,.pdf"
+                                                                onChange={(e) => handleFileChange(e, num)}
+                                                            />
+                                                        </label>
+                                                        {formData[`uploadFile${num}`] && (
+                                                            <div className="file-selected">
+                                                                <i className="fas fa-file"></i>
+                                                                <span className="file-name">{formData[`uploadFile${num}`].name}</span>
+                                                                <button
+                                                                    type="button"
+                                                                    className="remove-file"
+                                                                    onClick={() => removeFile(num)}
+                                                                >
+                                                                    <i className="fas fa-times"></i>
+                                                                </button>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                ))}
+                                            </div>
+
+                                            <div className="upload-note">
+                                                <p className="note-text">
+                                                    <i className="fas fa-info-circle"></i>
+                                                    <strong>Note:</strong> To ensure photos are submitted properly, we recommend using Chrome browser.
+                                                    Files are optional but help us provide more accurate quotes.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    {/* Submit Section */}
+                                    <div className="form-section submit-section">
+                                        <hr className="final-divider" />
+
+                                        {/* Success Message */}
+                                        {submitStatus === 'success' && (
+                                            <div className="submit-message success-message">
+                                                <div className="message-icon">
+                                                    <i className="fas fa-check-circle"></i>
+                                                </div>
+                                                <h4 className="message-title">Quote Request Submitted Successfully!</h4>
+                                                <p className="message-text">
+                                                    Thank you for your detailed quote request. A representative will contact you via email or phone within 1-2 business days
+                                                    with your custom quote and any follow-up questions.
+                                                </p>
+                                                <div className="next-steps">
+                                                    <p><strong>What happens next:</strong></p>
+                                                    <ul>
+                                                        <li>We'll review your project details and appliance specifications</li>
+                                                        <li>A team member will contact you to discuss scheduling and any questions</li>
+                                                        <li>You'll receive a detailed quote tailored to your specific needs</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        )}
+
+                                        {/* Error Message */}
+                                        {submitStatus === 'error' && (
+                                            <div className="submit-message error-message">
+                                                <div className="message-icon">
+                                                    <i className="fas fa-exclamation-triangle"></i>
+                                                </div>
+                                                <h4 className="message-title">Submission Error</h4>
+                                                <p className="message-text">
+                                                    We're sorry, but there was an issue submitting your quote request. Please try again,
+                                                    or contact us directly at <a href="tel:4084265999">(408) 426-5999</a> or
+                                                    <a href="mailto:info@proapplianceinstallation.com">info@proapplianceinstallation.com</a>.
+                                                </p>
+                                                <button
+                                                    type="button"
+                                                    className="btn btn-outline-primary"
+                                                    onClick={() => setSubmitStatus(null)}
+                                                >
+                                                    Try Again
+                                                </button>
+                                            </div>
+                                        )}
+
+                                        {/* Submit Button & Instructions */}
+                                        {submitStatus !== 'success' && (
+                                            <div className="submit-content">
+                                                <div className="submit-instructions">
+                                                    <h4 className="submit-title">Ready to Submit Your Quote Request?</h4>
+                                                    <p className="submit-description">
+                                                        Please review your information above and click "Send" only once.
+                                                        Submission may take a few moments. Thank you for your patience.
+                                                    </p>
+                                                </div>
+
+                                                <div className="submit-button-container">
+                                                    <button
+                                                        type="submit"
+                                                        className="btn btn-primary btn-lg submit-button"
+                                                        disabled={isSubmitting}
+                                                    >
+                                                        {isSubmitting ? (
+                                                            <>
+                                                                <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                                                                Submitting...
+                                                            </>
+                                                        ) : (
+                                                            <>
+                                                                <i className="fas fa-paper-plane me-2"></i>
+                                                                Send Quote Request
+                                                            </>
+                                                        )}
+                                                    </button>
+                                                </div>
+
+                                                <div className="privacy-note">
+                                                    <p className="privacy-text">
+                                                        <i className="fas fa-shield-alt me-1"></i>
+                                                        Your information is secure and will only be used to provide you with pricing and project information.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        )}
                                     </div>
 
                                 </form>

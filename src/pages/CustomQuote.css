@@ -492,3 +492,848 @@
     padding-left: 1rem;
   }
 }
+
+
+
+/* ------- -------  Services Section Styles ------- ------- */
+
+/* Services Section Styling - Compact Layout */
+.quote-page .services-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.quote-page .service-row {
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.quote-page .service-row:hover {
+  border-color: var(--primary-blue);
+  box-shadow: 0 2px 8px rgba(40, 181, 208, 0.1);
+}
+
+.quote-page .service-question {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.quote-page .service-question .form-label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--dark-gray);
+  margin-bottom: 0;
+  min-width: 100px;
+  flex-shrink: 0;
+}
+
+.quote-page .service-question .radio-group {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.quote-page .service-details {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  animation: slideIn 0.3s ease-in-out;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+}
+
+.quote-page .service-details .detail-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quote-page .service-details .form-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--dark-gray);
+  margin-bottom: 0;
+}
+
+.quote-page .service-details .form-control {
+  font-size: 0.9rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .quote-page .service-row {
+    padding: 1rem;
+  }
+  
+  .quote-page .service-question {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .quote-page .service-question .form-label {
+    min-width: auto;
+  }
+  
+  .quote-page .service-details {
+    grid-template-columns: 1fr;
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .quote-page .service-question .radio-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+
+
+
+
+/* ------- -------  Installation Address Section Styles ------- ------- */
+
+
+/* Installation Address & Site Details Styling */
+.quote-page .address-grid {
+  margin-bottom: 2rem;
+}
+
+.quote-page .input-group-text {
+  background-color: #e9ecef;
+  border-color: #ced4da;
+  color: var(--dark-gray);
+  font-weight: 500;
+}
+
+.quote-page .zip-input {
+  max-width: 150px;
+}
+
+/* Site Details - Using compact style like Services */
+.quote-page .site-details-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.quote-page .site-detail-row {
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.quote-page .site-detail-row:hover {
+  border-color: var(--primary-blue);
+  box-shadow: 0 2px 8px rgba(40, 181, 208, 0.1);
+}
+
+.quote-page .site-question {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.quote-page .site-question .form-label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--dark-gray);
+  margin-bottom: 0;
+  min-width: 200px;
+  flex-shrink: 0;
+}
+
+.quote-page .site-question .radio-group {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+/* Conditional Details */
+.quote-page .stairs-details,
+.quote-page .parking-details {
+  margin-top: 1rem;
+  display: flex;
+  gap: 2rem;
+  align-items: end;
+  animation: slideIn 0.3s ease-in-out;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+  flex-wrap: wrap;
+}
+
+.quote-page .stairs-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.quote-page .stairs-input {
+  max-width: 100px;
+}
+
+.quote-page .parking-details {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.quote-page .stairs-details .form-label,
+.quote-page .parking-details .form-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0;
+  min-width: auto;
+}
+
+.quote-page .stairs-details .radio-group {
+  gap: 1rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .quote-page .site-detail-row {
+    padding: 1rem;
+  }
+  
+  .quote-page .site-question {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .quote-page .site-question .form-label {
+    min-width: auto;
+  }
+  
+  .quote-page .stairs-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .quote-page .zip-input {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .quote-page .site-question .radio-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .quote-page .stairs-details .radio-group {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+
+
+/* ------- -------  Additional Project Details Section Styles ------- ------- */
+
+/* Additional Project Details Styling */
+.quote-page .project-details-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.quote-page .detail-row {
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.quote-page .detail-row:hover {
+  border-color: var(--primary-blue);
+  box-shadow: 0 2px 8px rgba(40, 181, 208, 0.1);
+}
+
+.quote-page .detail-question {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.quote-page .detail-question.full-width {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.quote-page .detail-question .form-label {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--dark-gray);
+  margin-bottom: 0;
+  min-width: 180px;
+  flex-shrink: 0;
+}
+
+.quote-page .detail-question.full-width .form-label {
+  min-width: auto;
+}
+
+.quote-page .date-input {
+  max-width: 300px;
+}
+
+.quote-page .checkbox-group {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* Scheduling Notes */
+.quote-page .scheduling-note {
+  background-color: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-left: 4px solid #f39c12;
+  border-radius: 6px;
+  padding: 1rem;
+  margin: 0.5rem 0;
+}
+
+.quote-page .scheduling-note .note-text {
+  color: #856404;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Comments Section */
+.quote-page .comments-row {
+  background-color: white;
+  border: 2px solid var(--primary-blue);
+}
+
+.quote-page .comments-textarea {
+  width: 100%;
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
+  line-height: 1.5;
+}
+
+.quote-page .character-count {
+  text-align: right;
+  font-size: 0.8rem;
+  color: var(--medium-gray);
+  margin-top: 0.5rem;
+}
+
+.quote-page .character-count {
+  color: #28a745;
+}
+
+.quote-page .comments-textarea:focus + .character-count {
+  color: var(--primary-blue);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .quote-page .detail-row {
+    padding: 1rem;
+  }
+  
+  .quote-page .detail-question {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .quote-page .detail-question .form-label {
+    min-width: auto;
+  }
+  
+  .quote-page .checkbox-group {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .quote-page .date-input {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .quote-page .checkbox-group {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+
+
+/* ------- -------  File Upload Placeholder Styles ------- ------- */
+
+/* File Upload Placeholder Styling */
+.quote-page .file-upload-placeholder {
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border: 2px dashed #ced4da;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.quote-page .file-upload-placeholder:hover {
+  border-color: var(--primary-blue);
+  background: linear-gradient(135deg, #edfbff 0%, #d4edda 100%);
+}
+
+.quote-page .placeholder-content {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.quote-page .placeholder-icon {
+  font-size: 4rem;
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.quote-page .file-upload-placeholder:hover .placeholder-icon {
+  color: var(--primary-blue);
+}
+
+.quote-page .placeholder-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--dark-gray);
+  margin-bottom: 1rem;
+}
+
+.quote-page .placeholder-description {
+  color: var(--medium-gray);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.quote-page .placeholder-note {
+  background-color: rgba(40, 181, 208, 0.1);
+  border: 1px solid rgba(40, 181, 208, 0.3);
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.quote-page .placeholder-note .note-text {
+  color: var(--dark-gray);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .quote-page .file-upload-placeholder {
+    padding: 2rem 1rem;
+  }
+  
+  .quote-page .placeholder-icon {
+    font-size: 3rem;
+  }
+  
+  .quote-page .placeholder-title {
+    font-size: 1.3rem;
+  }
+}
+
+
+
+/* ------- -------  Submit Section Styles ------- ------- */
+
+/* Submit Section Styling */
+.quote-page .submit-section {
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+
+.quote-page .final-divider {
+  height: 4px;
+  background: linear-gradient(135deg, var(--primary-blue) 0%, #1e90d4 100%);
+  border: none;
+  margin-bottom: 2rem;
+}
+
+/* Submit Content */
+.quote-page .submit-content {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+}
+
+.quote-page .submit-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--dark-gray);
+  margin-bottom: 1rem;
+}
+
+.quote-page .submit-description {
+  font-size: 1.1rem;
+  color: var(--medium-gray);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+
+/* Submit Button */
+.quote-page .submit-button-container {
+  margin-bottom: 1.5rem;
+}
+
+.quote-page .submit-button {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, #1e90d4 100%);
+  border: none;
+  padding: 1rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(40, 181, 208, 0.3);
+  transition: all 0.3s ease;
+  min-width: 250px;
+}
+
+.quote-page .submit-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(40, 181, 208, 0.4);
+}
+
+.quote-page .submit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.quote-page .privacy-note {
+  margin-top: 1rem;
+}
+
+.quote-page .privacy-text {
+  font-size: 0.85rem;
+  color: var(--medium-gray);
+  margin: 0;
+  font-style: italic;
+}
+
+/* Success/Error Messages */
+.quote-page .submit-message {
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.quote-page .success-message {
+  background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+  border: 2px solid #28a745;
+  color: #155724;
+}
+
+.quote-page .error-message {
+  background: linear-gradient(135deg, #f8d7da 0%, #f1c2c7 100%);
+  border: 2px solid #dc3545;
+  color: #721c24;
+}
+
+.quote-page .message-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.quote-page .success-message .message-icon {
+  color: #28a745;
+}
+
+.quote-page .error-message .message-icon {
+  color: #dc3545;
+}
+
+.quote-page .message-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.quote-page .message-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.quote-page .next-steps {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.quote-page .next-steps ul {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.5rem;
+}
+
+.quote-page .next-steps li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.quote-page .error-message a {
+  color: #721c24;
+  font-weight: 600;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .quote-page .submit-content {
+    padding: 1.5rem;
+  }
+  
+  .quote-page .submit-title {
+    font-size: 1.5rem;
+  }
+  
+  .quote-page .submit-button {
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    min-width: 200px;
+  }
+  
+  .quote-page .message-icon {
+    font-size: 3rem;
+  }
+  
+  .quote-page .message-title {
+    font-size: 1.5rem;
+  }
+}
+
+
+
+/* ------- -------  File Upload Section Styles ------- ------- */
+
+/* File Upload Styling */
+.quote-page .file-upload-container {
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid #e9ecef;
+}
+
+.quote-page .upload-instructions {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.quote-page .upload-description {
+  font-size: 1.1rem;
+  color: var(--medium-gray);
+  margin-bottom: 1rem;
+}
+
+.quote-page .file-limits {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background-color: #e8f4fd;
+  border: 1px solid #bee5eb;
+  border-radius: 6px;
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.quote-page .file-note {
+  font-size: 0.9rem;
+  color: var(--dark-gray);
+}
+
+/* File Upload Grid */
+.quote-page .file-upload-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.quote-page .file-upload-field {
+  position: relative;
+}
+
+.quote-page .file-upload-label {
+  display: block;
+  cursor: pointer;
+}
+
+.quote-page .file-upload-area {
+  border: 2px dashed #ced4da;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.quote-page .file-upload-area:hover {
+  border-color: var(--primary-blue);
+  background-color: #edfbff;
+}
+
+.quote-page .upload-icon {
+  font-size: 2rem;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.quote-page .file-upload-area:hover .upload-icon {
+  color: var(--primary-blue);
+}
+
+.quote-page .upload-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.quote-page .upload-primary {
+  font-weight: 600;
+  color: var(--dark-gray);
+  font-size: 0.95rem;
+}
+
+.quote-page .upload-secondary {
+  font-size: 0.8rem;
+  color: var(--medium-gray);
+  font-style: italic;
+}
+
+.quote-page .file-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* File Selected State */
+.quote-page .file-selected {
+  margin-top: 0.5rem;
+  background-color: #d4edda;
+  border: 1px solid #28a745;
+  border-radius: 6px;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #155724;
+}
+
+.quote-page .file-selected .fas.fa-file {
+  color: #28a745;
+}
+
+.quote-page .file-name {
+  flex: 1;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.quote-page .remove-file {
+  background: none;
+  border: none;
+  color: #721c24;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 3px;
+  transition: background-color 0.2s ease;
+}
+
+.quote-page .remove-file:hover {
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+/* Upload Note */
+.quote-page .upload-note {
+  background-color: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-left: 4px solid #f39c12;
+  border-radius: 6px;
+  padding: 1rem;
+  text-align: center;
+}
+
+.quote-page .upload-note .note-text {
+  color: #856404;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.quote-page .upload-note .fas.fa-info-circle {
+  margin-right: 0.5rem;
+  color: #f39c12;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .quote-page .file-upload-container {
+    padding: 1.5rem;
+  }
+  
+  .quote-page .file-upload-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .quote-page .file-limits {
+    padding: 0.75rem;
+  }
+  
+  .quote-page .file-upload-area {
+    padding: 1rem;
+  }
+  
+  .quote-page .upload-icon {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .quote-page .file-limits {
+    text-align: left;
+  }
+}
