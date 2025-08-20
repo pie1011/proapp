@@ -8,6 +8,7 @@ import hero1 from '../assets/images/hero1.jpg';
 import hero2 from '../assets/images/hero2.jpg';
 import checkListImage from '../assets/images/img-check-list.png';
 import brandsImage from '../assets/images/brands.jpg';
+import flyerPDF from '../assets/images/PAI-Flyer-Final.pdf';
 
 function Home() {
   return (
@@ -110,7 +111,7 @@ function Home() {
                 </p>
 
                 <div className="action-buttons mt-4">
-                  <Button variant="dark" className="me-3 mb-2">
+                  <Button variant="dark" className="me-3 mb-2" href={flyerPDF} download>
                     <i className="fas fa-download me-2"></i>
                     Download Flyer
                   </Button>
