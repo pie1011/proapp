@@ -1,7 +1,16 @@
 .navbar-custom {
   padding: 1rem 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  background-color: white !important;
+  box-shadow: var(--shadow-sm);
+  background-color: var(--bg-white) !important;
+  transition: all var(--transition-medium);
+  z-index: 1030;
+}
+
+/* Scrolled state - dark background */
+.navbar-custom.navbar-scrolled {
+  background-color: var(--dark-gray) !important;
+  padding: 0.5rem 0;
+  box-shadow: var(--shadow-md);
 }
 
 .brand-container {
@@ -13,11 +22,18 @@
   align-items: center;
   font-size: 1.5rem;
   font-weight: bold;
+  transition: all var(--transition-fast);
 }
 
 .logo-placeholder i {
   font-size: 2rem;
-  color: #17a2b8; /* Teal color like your original */
+  color: var(--primary-blue);
+  transition: color var(--transition-fast);
+}
+
+/* Logo color changes when scrolled */
+.navbar-scrolled .logo-placeholder i {
+  color: var(--primary-blue);
 }
 
 .brand-text {
@@ -27,24 +43,37 @@
 }
 
 .brand-pro {
-  color: #17a2b8; /* Teal */
+  color: var(--primary-blue);
   font-size: 1.8rem;
   font-weight: 900;
   letter-spacing: 2px;
+  transition: color var(--transition-fast);
 }
 
 .brand-appliance {
-  color: #6c757d; /* Gray */
+  color: var(--medium-gray);
   font-size: 1rem;
   font-weight: 500;
   margin-top: -2px;
+  transition: color var(--transition-fast);
 }
 
 .brand-installation {
-  color: #6c757d; /* Gray */
+  color: var(--medium-gray);
   font-size: 1rem;
   font-weight: 500;
   margin-top: -2px;
+  transition: color var(--transition-fast);
+}
+
+/* Brand text colors when scrolled */
+.navbar-scrolled .brand-pro {
+  color: var(--primary-blue);
+}
+
+.navbar-scrolled .brand-appliance,
+.navbar-scrolled .brand-installation {
+  color: var(--text-light);
 }
 
 .navbar-nav {
@@ -52,39 +81,69 @@
 }
 
 .nav-item {
-  color: #6c757d !important;
+  color: var(--medium-gray) !important;
   font-weight: 600;
   font-size: 0.9rem;
   letter-spacing: 1px;
   margin: 0 1rem;
   padding: 0.5rem 0 !important;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: all var(--transition-fast);
   border-bottom: 2px solid transparent;
-  transition: all 0.3s ease;
 }
 
 .nav-item:hover {
-  color: #17a2b8 !important;
-  border-bottom-color: #17a2b8;
+  color: var(--primary-blue) !important;
+  border-bottom-color: var(--primary-blue);
+}
+
+/* Nav items when scrolled */
+.navbar-scrolled .nav-item {
+  color: var(--text-light) !important;
+}
+
+.navbar-scrolled .nav-item:hover {
+  color: var(--primary-blue) !important;
+  border-bottom-color: var(--primary-blue);
 }
 
 .quote-link {
-  background-color: #17a2b8;
+  background-color: var(--primary-blue);
   color: white !important;
   padding: 0.5rem 1.5rem !important;
   border-radius: 0;
   margin-left: 1rem;
   border-bottom: none !important;
+  transition: all var(--transition-fast);
 }
 
 .quote-link:hover {
-  background-color: #138496;
+  background-color: var(--primary-blue-dark);
   color: white !important;
   transform: translateY(-1px);
 }
 
+/* Quote link when scrolled */
+.navbar-scrolled .quote-link {
+  background-color: var(--primary-blue);
+  color: white !important;
+}
+
+.navbar-scrolled .quote-link:hover {
+  background-color: var(--primary-blue-dark);
+  color: white !important;
+}
+
+/* Add padding to body to account for fixed navbar */
+body {
+  padding-top: 80px;
+}
+
 @media (max-width: 991px) {
+  body {
+    padding-top: 70px;
+  }
+  
   .brand-text {
     flex-direction: row;
     gap: 0.5rem;

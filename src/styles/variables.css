@@ -1,0 +1,39 @@
+/* CSS Custom Properties (Variables) */
+:root {
+  /* Primary Brand Colors */
+  --primary-blue: #28b5d0;
+  --primary-blue-dark: #1f95a8;
+  --primary-blue-light: #3fc1d4;
+  
+  /* Secondary Colors */
+  --dark-gray: #2c3e50;
+  --medium-gray: #6c757d;
+  --light-gray: #f8f9fa;
+  --border-gray: #dee2e6;
+  
+  /* Text Colors */
+  --text-dark: #343a40;
+  --text-muted: #6c757d;
+  --text-light: #ecf0f1;
+  
+  /* Background Colors */
+  --bg-white: #ffffff;
+  --bg-light: #f8f9fa;
+  --bg-dark: #343a40;
+  
+  /* State Colors */
+  --success: #28a745;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --info: var(--primary-blue);
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.3);
+  --shadow-lg: 0 8px 25px rgba(0,0,0,0.2);
+  
+  /* Transitions */
+  --transition-fast: 0.3s ease;
+  --transition-medium: 0.4s ease;
+  --transition-slow: 0.6s ease;
+}

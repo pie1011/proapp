@@ -1,14 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import './Header.css';
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 100); // Change header after scrolling 100px
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    
+    // Cleanup event listener on component unmount
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <header>
-      <Navbar bg="white" expand="lg" className="navbar-custom">
+      <Navbar 
+        bg="white" 
+        expand="lg" 
+        className={`navbar-custom ${isScrolled ? 'navbar-scrolled' : ''}`}
+        fixed="top"
+      >
         <Container>
           <Navbar.Brand href="/" className="brand-container">
-            {/* Placeholder for your logo */}
             <div className="logo-placeholder">
               <i className="fas fa-wrench text-primary me-2"></i>
               <span className="brand-text">

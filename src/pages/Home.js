@@ -104,6 +104,71 @@ const Home = () => {
           </Row>
         </Container>
       </section>
+
+      
+   {/* Brands Section */}
+      <section className="brands-section py-5 bg-white">
+        <Container>
+          <Row>
+            <Col lg={12} className="text-center">
+              <h2 className="section-title">BRANDS</h2>
+              <div className="title-underline"></div>
+              <div className="brands-image-container">
+                <div className="brands-placeholder">
+                  {/* TODO: Replace with your single brand logos image */}
+                  <p className="text-muted">Brand Logos Image Placeholder</p>
+                  <p className="text-muted small">(Single image with all brand logos)</p>
+                </div>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      {/* Appliance Showcase Section */}
+      <section className="appliance-showcase py-5">
+        <Container>
+          <Row className="justify-content-center text-center">
+            <Col lg={8}>
+              <div className="appliance-item">
+                <div className="appliance-icon mb-4">
+                  <i className="fas fa-sink fa-4x text-white"></i>
+                </div>
+                <h3 className="appliance-title text-white mb-4">Dishwashers</h3>
+                <p className="appliance-description text-white">
+                  Dishwashers bring speedy cleanliness to a kitchen relieving stress and hours of tedious work from the homeowner. 
+                  Pro Appliance Installation can help you install a top of the line dishwasher which will become the kitchen helpmate of your dreams! 
+                  Dishwashers are one of our most commonly installed appliances.
+                </p>
+                <div className="carousel-dots mt-4">
+                  <span className="dot"></span>
+                  <span className="dot"></span>
+                  <span className="dot"></span>
+                  <span className="dot"></span>
+                  <span className="dot active"></span>
+                </div>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      {/* Custom Quote CTA Section */}
+      <section className="cta-section py-5">
+        <Container>
+          <Row className="justify-content-center text-center">
+            <Col lg={8}>
+              <h2 className="cta-title">CUSTOM QUOTE</h2>
+              <p className="cta-description">
+                We provide quotes in writing for every project. Contact us today for a custom quote.
+              </p>
+              <Button variant="outline-light" size="lg" className="cta-button">
+                GET QUOTE
+              </Button>
+            </Col>
+          </Row>
+        </Container>
+      </section>
     </div>
   );
 };
