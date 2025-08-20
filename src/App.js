@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import ServiceAreas from './pages/ServiceAreas';
 import Partnerships from './pages/Partnerships'; // Import the Partnerships page
+import CustomQuote from './pages/CustomQuote'; // Import the Custom Quote page
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/service-areas" element={<ServiceAreas />} />
             <Route path="/partnerships" element={<Partnerships />} />
-            <Route path="/quote" element={<div className="p-5 text-center"><h1>Custom Quote</h1></div>} />
+            <Route path="/quote" element={<CustomQuote />} />
           </Routes>
         </main>
         

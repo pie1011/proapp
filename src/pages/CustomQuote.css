@@ -1,0 +1,110 @@
+/* Custom Quote Page Styles - Following About page patterns */
+.quote-page {
+  padding-top: 0;
+}
+
+/* Hero Section */
+.quote-page .quote-hero {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, #1e90d4 100%);
+  color: white;
+  padding: 4rem 0;
+  margin-bottom: 0;
+}
+
+.quote-page .page-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.quote-page .quote-hero .hero-subtitle {
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin: 0;
+  opacity: 0.95;
+  line-height: 1.6;
+}
+
+/* Content Section */
+.quote-page .quote-content {
+  background-color: #f8f9fa;
+}
+
+.quote-page .section-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--dark-gray);
+  margin-bottom: 1rem;
+}
+
+.quote-page .title-underline {
+  width: 80px;
+  height: 4px;
+  background-color: var(--primary-blue);
+  margin: 0 auto 2rem auto;
+}
+
+/* Form Container */
+.quote-page .quote-form-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 3rem;
+}
+
+.quote-page .quote-form {
+  /* Form-specific styles will go here as we build sections */
+  width: auto;
+}
+
+/* Typography */
+.quote-page .lead {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--medium-gray);
+}
+
+.quote-page p {
+  line-height: 1.7;
+  color: var(--medium-gray);
+  margin-bottom: 1.5rem;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .quote-page .quote-hero {
+    padding: 3rem 0;
+  }
+  
+  .quote-page .page-title {
+    font-size: 2.2rem;
+  }
+  
+  .quote-page .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .quote-page .section-title {
+    font-size: 2rem;
+  }
+  
+  .quote-page .quote-form-container {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .quote-page .page-title {
+    font-size: 1.8rem;
+  }
+  
+  .quote-page .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .quote-page .quote-form-container {
+    padding: 1.5rem;
+  }
+}

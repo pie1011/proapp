@@ -1,0 +1,1571 @@
+
+<!--
+NOTES:
+
+Oh wow, that's amazing! 🤩 You created this comprehensive form yourself - no wonder you want to rebuild it in React! This is going to be such a great learning experience recreating your own work with modern tools.
+Looking at your original form, this is incredibly detailed and sophisticated! I can see why this is the most important feature - it's a comprehensive lead generation and project specification system.
+Let me break down what I'm seeing in your original form:
+Main Sections:
+
+Client Information - Contact details, client type (with conditional company fields)
+Pre-Install Site Assessment - Whether appliances are purchased, field measure options
+Appliance Details - Massive section with conditional fields for each appliance type
+Services - Delivery, uninstall, haul-away options
+Installation Address & Site Details - Location and logistical info
+Additional Project Details - Scheduling, comments, file uploads
+
+Key Features I Notice:
+
+Conditional Logic - Fields appear/disappear based on selections
+Required Field Validation - Red asterisks for required fields
+File Uploads - Multiple file upload capability (5MB limit)
+Complex Appliance Grid - Each appliance type has brand/model/notes fields
+Professional Styling - Custom CSS classes and responsive design
+
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="pingback" href="https://proapplianceinstallation.com/xmlrpc.php" />
+<meta name="google-site-verification" content="DMQJdMjEI5QRaNTfolmd0yroq5xwiC1lI27mTdaQEPs" />
+
+<script type="application/ld+json">
+{
+"@context": "http://schema.org",
+"@type": "Organization",
+"name" : "Pro Appliance Installation",
+"url": "http://www.proapplianceinstallation.com",
+"sameAs" : [
+"",
+"",
+"",
+""
+]
+}
+</script>
+<script type="application/ld+json">
+{
+"@context": "http://schema.org",
+"@type": "LocalBusiness",
+"name" : "Pro Appliance Installation",
+"url": "http://www.proapplianceinstallation.com",
+"logo": "http://proapplianceinstallation.com/wp-content/uploads/2016/12/Logo-PAI-Final.png",
+"image": "http://proapplianceinstallation.com/wp-content/uploads/2016/12/Logo-PAI-Final.png",
+"description": "Service is provided by highly-skilled, insured installers, who are required to pass a background check. If you are looking for a professional company to install or replace your home appliance, you’ve come to the right place! Our home appliance installation services are performed with efficiency and professionalism. Our customers often compliment us on the excellence and friendliness of our contractors. We are a family owned and operated business based in Campbell, California.",
+"priceRange": "$$",
+"telephone": "(408) 426-5999",
+"address": {
+"@type": "N/A",
+"addressLocality": "San Jose",
+"addressRegion": "CA",
+"streetAddress": "",
+"postalCode": "95124"
+},
+"openingHours": [
+"Monday-Friday 8:00am-7:00pm, Saturday 9:00am-5:00pm, Sunday 9:00am-5:00pm"
+]
+}
+</script>
+
+
+
+<title>Custom Quote Request &#8211; Pro Appliance Installation</title>
+<meta name='robots' content='max-image-preview:large' />
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	<link rel='dns-prefetch' href='//stats.wp.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//v0.wordpress.com' />
+<link rel="alternate" type="application/rss+xml" title="Pro Appliance Installation &raquo; Feed" href="https://proapplianceinstallation.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Pro Appliance Installation &raquo; Comments Feed" href="https://proapplianceinstallation.com/comments/feed/" />
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/16.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/proapplianceinstallation.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.8.2"}};
+/*! This file is auto-generated */
+!function(s,n){var o,i,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),a=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===a[t]})}function u(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);for(var n=e.getImageData(16,16,1,1),a=0;a<n.data.length;a++)if(0!==n.data[a])return!1;return!0}function f(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\udedf")}return!1}function g(e,t,n,a){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):s.createElement("canvas"),o=r.getContext("2d",{willReadFrequently:!0}),i=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(function(e){i[e]=t(o,e,n,a)}),i}function t(e){var t=s.createElement("script");t.src=e,t.defer=!0,s.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",i=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){s.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+g.toString()+"("+[JSON.stringify(i),f.toString(),p.toString(),u.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"}),r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=function(e){c(n=e.data),r.terminate(),t(n)})}catch(e){}c(n=g(i,f,p,u))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id='wp-emoji-styles-inline-css' type='text/css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='https://proapplianceinstallation.com/wp-includes/css/dist/block-library/style.min.css?ver=6.8.2' type='text/css' media='all' />
+<style id='classic-theme-styles-inline-css' type='text/css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<link rel='stylesheet' id='mediaelement-css' href='https://proapplianceinstallation.com/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.17' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-mediaelement-css' href='https://proapplianceinstallation.com/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=6.8.2' type='text/css' media='all' />
+<style id='jetpack-sharing-buttons-style-inline-css' type='text/css'>
+.jetpack-sharing-buttons__services-list{display:flex;flex-direction:row;flex-wrap:wrap;gap:0;list-style-type:none;margin:5px;padding:0}.jetpack-sharing-buttons__services-list.has-small-icon-size{font-size:12px}.jetpack-sharing-buttons__services-list.has-normal-icon-size{font-size:16px}.jetpack-sharing-buttons__services-list.has-large-icon-size{font-size:24px}.jetpack-sharing-buttons__services-list.has-huge-icon-size{font-size:36px}@media print{.jetpack-sharing-buttons__services-list{display:none!important}}.editor-styles-wrapper .wp-block-jetpack-sharing-buttons{gap:0;padding-inline-start:0}ul.jetpack-sharing-buttons__services-list.has-background{padding:1.25em 2.375em}
+</style>
+<style id='global-styles-inline-css' type='text/css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='contact-form-7-css' href='https://proapplianceinstallation.com/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=6.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='himalayas-google-fonts-css' href='//fonts.googleapis.com/css?family=Roboto%3A300%2C400%2C700%2C900%7CCantata+One&#038;ver=6.8.2' type='text/css' media='all' />
+<link rel='stylesheet' id='himalayas-fontawesome-css' href='https://proapplianceinstallation.com/wp-content/themes/himalayas-pro/font-awesome/css/font-awesome.min.css?ver=4.3.0' type='text/css' media='all' />
+<link rel='stylesheet' id='himalayas-featured-image-popup-css-css' href='https://proapplianceinstallation.com/wp-content/themes/himalayas-pro/js/magnific-popup/magnific-popup.min.css?ver=1.0.0' type='text/css' media='all' />
+<link rel='stylesheet' id='himalayas-style-css' href='https://proapplianceinstallation.com/wp-content/themes/himalayas-pro/style.css?ver=6.8.2' type='text/css' media='all' />
+<link rel='stylesheet' id='cf7cf-style-css' href='https://proapplianceinstallation.com/wp-content/plugins/cf7-conditional-fields/style.css?ver=2.6.2' type='text/css' media='all' />
+<script type="text/javascript" src="https://proapplianceinstallation.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="https://proapplianceinstallation.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<link rel="https://api.w.org/" href="https://proapplianceinstallation.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://proapplianceinstallation.com/wp-json/wp/v2/pages/3546" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://proapplianceinstallation.com/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 6.8.2" />
+<link rel="canonical" href="https://proapplianceinstallation.com/customquote/" />
+<link rel='shortlink' href='https://wp.me/P7kJIU-Vc' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://proapplianceinstallation.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fproapplianceinstallation.com%2Fcustomquote%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://proapplianceinstallation.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fproapplianceinstallation.com%2Fcustomquote%2F&#038;format=xml" />
+	<style>img#wpstats{display:none}</style>
+		<!-- Pro Appliance Installation Internal Styles -->      <style type="text/css"> .about-btn a:hover,.bttn:hover,.icon-img-wrap:hover,.navigation .nav-links a:hover,.service_icon_class .image-wrap:hover i,.slider-readmore:before,.subscribe-form .subscribe-submit .subscribe-btn,button,input[type=button]:hover,input[type=reset]:hover,input[type=submit]:hover{background:#29abe2}a{color:#29abe2}#site-navigation .menu li.current-one-page-item > a,#site-navigation .menu li:hover > a,.about-title a:hover,.caption-title a:hover,.header-wrapper.no-slider #site-navigation .menu li.current-one-page-item > a,.header-wrapper.no-slider #site-navigation .menu li:hover > a,.header-wrapper.no-slider .search-icon:hover,.header-wrapper.stick #site-navigation .menu li.current-one-page-item > a,.header-wrapper.stick #site-navigation .menu li:hover > a,.header-wrapper.stick .search-icon:hover,.scroll-down,.search-icon:hover,.service-title a:hover{color:#29abe2}.comments-area .comment-author-link span{background-color:#29abe2}.slider-readmore:hover{border:1px solid #29abe2}.icon-wrap:hover,.image-wrap:hover,.port-link a:hover,.counter-block-wrapper{border-color:#29abe2}.main-title:after,.main-title:before{border-top:2px solid #29abe2}.blog-view,.port-link a:hover,.sub-toggle{background:#29abe2}.port-title-wrapper .port-desc{color:#29abe2}#top-footer a:hover,.blog-title a:hover,.entry-title a:hover,.footer-nav li a:hover,.footer-social a:hover,.widget ul li a:hover,.widget ul li:hover:before{color:#29abe2}.contact-form-wrapper input[type=submit],.default-wp-page a:hover,.team-desc-wrapper{background:#29abe2}.scrollup{background-color:#29abe2}#stick-navigation li.current-one-page-item a,#stick-navigation li:hover a,.blog-hover-link a:hover,.entry-btn .btn:hover{background:#29abe2}#secondary .widget-title:after,#top-footer .widget-title:after{background:#29abe2}.widget-tags a:hover{background:#29abe2;border:1px solid #29abe2}.num-404,.counter-block-wrapper .counter{color:#29abe2}.error,.testimonial-content-wrapper .bx-pager-item a:hover, .testimonial-content-wrapper .bx-pager-item a.active{background:#29abe2} .main-title { font-family: "Cantata One"; } #site-title a{ font-size: 21px; }h1{ font-size: 34px; }h2{ font-size: 24px; }h3{ font-size: 26px; }h4{ font-size: 18px; }h5{ font-size: 16px; }h6{ font-size: 14px; }body, button, input, select, textarea{ font-size: 16px; }#top-footer .widget-title{ font-size: 16px; }#top-footer{ font-size: 10px; }#bottom-footer .copyright{ font-size: 14px; }.service-read-more:hover,.cta-text-btn:hover,.blog-readmore:hover, #site-navigation .menu li:hover > a,#site-navigation .menu li.current-one-page-item > a,.header-wrapper.stick #site-navigation .menu li:hover > a,.header-wrapper.stick #site-navigation .menu li.current-one-page-item > a,.header-wrapper.no-slider #site-navigation .menu li:hover > a, .search-icon:hover i{color: #29abe2; } .copyright a{color: #29abe2; }</style>
+      
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Custom Quote Request" />
+<meta property="og:url" content="https://proapplianceinstallation.com/customquote/" />
+<meta property="og:description" content="Visit the post for more." />
+<meta property="article:published_time" content="2020-01-23T21:38:07+00:00" />
+<meta property="article:modified_time" content="2022-11-19T22:44:27+00:00" />
+<meta property="og:site_name" content="Pro Appliance Installation" />
+<meta property="og:image" content="https://proapplianceinstallation.com/wp-content/uploads/2016/12/cropped-PRO-WebIcon.png" />
+<meta property="og:image:width" content="512" />
+<meta property="og:image:height" content="512" />
+<meta property="og:image:alt" content="" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:text:title" content="Custom Quote Request" />
+<meta name="twitter:image" content="https://proapplianceinstallation.com/wp-content/uploads/2016/12/cropped-PRO-WebIcon-270x270.png" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:description" content="Visit the post for more." />
+
+<!-- End Jetpack Open Graph Tags -->
+<link rel="icon" href="https://proapplianceinstallation.com/wp-content/uploads/2016/12/cropped-PRO-WebIcon-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://proapplianceinstallation.com/wp-content/uploads/2016/12/cropped-PRO-WebIcon-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://proapplianceinstallation.com/wp-content/uploads/2016/12/cropped-PRO-WebIcon-180x180.png" />
+<meta name="msapplication-TileImage" content="https://proapplianceinstallation.com/wp-content/uploads/2016/12/cropped-PRO-WebIcon-270x270.png" />
+		<style type="text/css" id="wp-custom-css">
+			/*
+Welcome to Custom CSS!
+
+To learn how this works, see http://wp.me/PEmnE-Bt
+*/
+.slider-readmore {
+	display: none;
+}
+
+.home-search {
+	display: none;
+}
+
+/* SERVICE AREAS STYLE */
+@media only screen and (max-width: 768px) {
+	/* For mobile phones: */
+	[class*="areas-col"] {
+		display: block;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	/* For desktop: */
+	.wrapper-areas {
+		min-width: 300px;
+		padding: 0;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+	
+	.areas-col {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+	}
+	
+	.areas-col-content {
+		white-space: normal;
+	}
+	
+	.areas-col1 {
+		width: 250px;
+	}
+	
+	.areas-col2 {
+		width: 250px;
+	}
+	
+	.areas-col3 {
+		width: 250px;
+	}
+}
+
+
+
+/* SURVEY STYLE */
+@media only screen and (max-width: 768px) {
+	/* For mobile phones: */
+	[class*="survey-col"] {
+		display: block;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	/* For desktop: */
+	.wrapper-survey {
+		min-width: 300px;
+		padding: 0;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+	
+	.survey-col {
+		position: relative;
+		display: inline-block;
+		vertical-align: top;
+	}
+	
+	.survey-col1 {
+		width: 250px;
+	}
+	
+	.survey-col2 {
+		width: 500px;
+	}
+}
+
+/* MAKE SERVICE SECTION FULL WIDTH and HIDE SHOW MORE */
+.service-content-wrapper .tg-column-3 {
+	display: block;
+	float: none;
+/* margin: 0 auto 30px; */
+	text-align: center;
+	width: 100%;
+}
+
+.service-read-more {
+	display: none;
+}
+
+/* CHANGE BOTTOM MARGIN OF MAIN WIDGETS */
+.section-title-wrapper {
+	margin-bottom: 10px;
+}
+
+/* HIDE TITLE FOR SECTIONS */
+.about-title, .service-title,
+.contact-title {
+	display: none;
+}
+
+.contact-content {
+	color: #373636;
+	font-weight: 300;
+	margin-left: 100px;
+}
+
+/* MAKE BRANDS CENTERED */
+.service-style-2 .service-desc-wrap {
+/* float: right; */
+	width: 100%;
+}
+
+
+
+.qtable {
+	display: table;
+	width: 100%;
+	padding: 0px;
+}
+.qrow {
+	display: table-row;
+	padding: 0px;
+	margin: 0px;
+}
+.qcell {
+	border: none;
+	border-width: thin;
+	padding: 0px;
+	font-size:10pt;
+	margin: 0px;
+}
+
+/* CONTACT FORM */
+.wpcf7-text,
+input[type=text],
+input[type=email],
+input[type=tel]
+{
+  font-size: 10pt;
+	width: 300px;
+	height: 25px;
+	color: #145197;
+}
+input::placeholder { 
+	font-style: italic; 
+	color: #bcbcbc;
+}
+
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=tel]:focus,
+textarea:focus
+{
+  background-color: #edfbff;
+}
+textarea
+{
+  font-size: 10pt;
+	width: 300px;
+	height: 90px;
+}
+
+
+
+span.wpcf7-radio span.wpcf7-list-item {
+	display: inline;
+}
+span.qblock span.wpcf7-list-item {
+	display: block;
+}
+span.wpcf7-checkbox span.wpcf7-list-item {
+	display: block;
+}
+span.qinline span.wpcf7-list-item {
+	display: inline;
+}
+
+
+#qshort {
+	width: 250px;
+}
+#qzip {
+	width: 150px;
+}
+hr.qhr {
+	margin-bottom: 8px;
+	margin-top: 12px;
+	padding: 0;
+}
+.qHeading {
+	font-family: "Cantata One", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: bold;
+}
+.qRequired {
+	font-size: 12pt;
+	color: #F00;
+	font-family: "Cantata One", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	position: relative;
+	top: 4px;
+}
+.qNotRequired {
+	font-size: 12pt;
+	color: #fff;
+	font-family: "Cantata One", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	position: relative;
+	top: 5px;
+}
+.qRequired-fm {
+	font-size: 9pt;
+	color: #F00;
+}
+.qSelect {
+	font-size: 10pt;
+	width: 70px;
+}
+.qNote {
+	color: #09C;
+	font-style:italic;
+}
+ 
+span.wpcf7-not-valid-tip {
+    display: inline !important;
+	font-style: italic;
+	font-size: 10pt !important;
+	
+}
+/* FOOTER SPACING */
+
+
+/* HOURS WRAPPER */
+#hours {
+	padding-bottom: 5px !important;
+}
+
+/* CONTACT FORM MEDIA */
+@media all and (max-width: 470px) {
+    .qcell { display: block; }
+		.qcell-app-width { width: 400px;	}
+.footer-hide { display: none; }
+.footer-show { display: block; }
+.footer-wide { text-align: center; }
+.width50 { width: 100% !important; }
+span.qRadioBlock span.wpcf7-list-item { 
+	display: block !important; }
+
+}
+@media all and (min-width: 470px) {
+    .qcell { display: table-cell; }
+		.qcell-app-width { width: 50%;	}
+.footer-show { display: none; }
+.footer-wide { width: 250px; text-align: left; }
+span.qPhone span.wpcf7-list-item { 
+	margin-left: 2px; 
+}
+
+
+}		</style>
+		<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-90339977-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script> (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-90339977-1', 'auto'); ga('send', 'pageview'); </script>
+
+</head>
+
+<body class="wp-singular page-template-default page page-id-3546 wp-theme-himalayas-pro stick  non-transparent">
+<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header clearfix" role="banner">
+		<div class="header-wrapper clearfix">
+			<div class="tg-container">
+
+				
+					<div class="logo">
+						<a href="https://proapplianceinstallation.com/" title="Pro Appliance Installation" rel="home"><img src="https://proapplianceinstallation.com/wp-content/uploads/2016/12/img-logo.png" alt="Pro Appliance Installation"></a>
+ 					</div> <!-- logo-end -->
+									<div id="header-text" class="screen-reader-text">
+											<h3 id="site-title">
+							<a href="https://proapplianceinstallation.com/" title="Pro Appliance Installation" rel="home">Pro Appliance Installation</a>
+						</h3>
+												<p id="site-description">We install all home appliances!  Serving the greater San Jose Bay Area &amp; Coast.</p>
+											</div><!-- #header-text -->
+
+				<div class="menu-search-wrapper">
+
+					<div class="home-search">
+
+						<div class="search-icon">
+							<i class="fa fa-search"> </i>
+						</div>
+
+						<div class="search-box">
+							<div class="close"> &times; </div>
+							<form role="search" method="get" class="searchform" action="https://proapplianceinstallation.com/">
+	<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s">
+	<button type="submit" class="searchsubmit" name="submit" value="Search"><i class="fa fa-search"></i></button>
+</form>						</div>
+					</div> <!-- home-search-end -->
+
+					<nav id="site-navigation" class="main-navigation" role="navigation">
+						<p class="menu-toggle hide"></p>
+						<div class="menu-primary-container"><ul id="menu-top" class="menu"><li id="menu-item-131" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-131"><a href="http://www.proapplianceinstallation.com/#">Home</a></li>
+<li id="menu-item-294" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-294"><a href="https://proapplianceinstallation.com/about-us/">About Us</a></li>
+<li id="menu-item-106" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-106"><a href="https://proapplianceinstallation.com/service-areas/">Service Areas</a></li>
+<li id="menu-item-424" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-424"><a href="https://proapplianceinstallation.com/partnerships/">Partnerships</a></li>
+<li id="menu-item-3676" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-3546 current_page_item menu-item-3676"><a href="https://proapplianceinstallation.com/customquote/" aria-current="page">Custom Quote</a></li>
+</ul></div>					</nav><!-- nav-end -->
+				</div><!-- Menu-search-wrapper end -->
+			</div><!-- tg-container -->
+		</div><!-- header-wrapepr end -->
+
+
+		
+	</header>
+   
+	
+	<div id="content" class="site-content">
+	   <main id="main" class="clearfix no-sidebar">
+	      <div class="tg-container">
+
+				<div id="primary">
+					<div id="content-2">
+						
+<article id="post-3546" class="post-3546 page type-page status-publish hentry">
+   
+   <h1 class="entry-title">Custom Quote Request</h1>
+   <div class="entry-content">
+      
+<div class="wp-block-contact-form-7-contact-form-selector">
+<div class="wpcf7 no-js" id="wpcf7-f7375-p3546-o1" lang="en-US" dir="ltr" data-wpcf7-id="7375">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/customquote/#wpcf7-f7375-p3546-o1" method="post" class="wpcf7-form init" aria-label="Contact form" enctype="multipart/form-data" novalidate="novalidate" data-status="init">
+<fieldset class="hidden-fields-container"><input type="hidden" name="_wpcf7" value="7375" /><input type="hidden" name="_wpcf7_version" value="6.1.1" /><input type="hidden" name="_wpcf7_locale" value="en_US" /><input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f7375-p3546-o1" /><input type="hidden" name="_wpcf7_container_post" value="3546" /><input type="hidden" name="_wpcf7_posted_data_hash" value="" /><input type="hidden" name="_wpcf7cf_hidden_group_fields" value="[]" /><input type="hidden" name="_wpcf7cf_hidden_groups" value="[]" /><input type="hidden" name="_wpcf7cf_visible_groups" value="[]" /><input type="hidden" name="_wpcf7cf_repeaters" value="[]" /><input type="hidden" name="_wpcf7cf_steps" value="{}" /><input type="hidden" name="_wpcf7cf_options" value="{&quot;form_id&quot;:7375,&quot;conditions&quot;:[{&quot;then_field&quot;:&quot;-1&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;-1&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Add More Files&quot;}]},{&quot;then_field&quot;:&quot;group-company&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;client-type&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Store\/Vendor&quot;}]},{&quot;then_field&quot;:&quot;group-model-fm&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;field-measure&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Yes&quot;}]},{&quot;then_field&quot;:&quot;group-model-nofm&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;field-measure&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;No&quot;}]},{&quot;then_field&quot;:&quot;group-model-nofm&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;field-measure&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Unchosen&quot;}]},{&quot;then_field&quot;:&quot;group-asterisk-nofm&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;field-measure&quot;,&quot;operator&quot;:&quot;not equals&quot;,&quot;if_value&quot;:&quot;Yes&quot;}]},{&quot;then_field&quot;:&quot;group-asterisk-nofm&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;field-measure&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;No&quot;}]},{&quot;then_field&quot;:&quot;group-asterisk-nofm&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;field-measure&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Unchosen&quot;}]},{&quot;then_field&quot;:&quot;group-phone2&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;telephone2&quot;,&quot;operator&quot;:&quot;not equals&quot;,&quot;if_value&quot;:&quot;&quot;}]},{&quot;then_field&quot;:&quot;group-othercustomer&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;client-type&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Other&quot;}]},{&quot;then_field&quot;:&quot;group-company&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;client-type&quot;,&quot;operator&quot;:&quot;not equals&quot;,&quot;if_value&quot;:&quot;Homeowner&quot;}]},{&quot;then_field&quot;:&quot;group-contractor&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;client-type&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Contractor&quot;}]},{&quot;then_field&quot;:&quot;group-purchased-yes&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;purchased&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Yes&quot;}]},{&quot;then_field&quot;:&quot;group-purchased-no&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;purchased&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;No&quot;}]},{&quot;then_field&quot;:&quot;group-stairs1&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;stairs&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Yes&quot;}]},{&quot;then_field&quot;:&quot;group-delivery&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;delivery&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Deliver the new appliances.&quot;}]},{&quot;then_field&quot;:&quot;group-parking&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;parking&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;No&quot;}]},{&quot;then_field&quot;:&quot;group-range&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-range&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Range&quot;}]},{&quot;then_field&quot;:&quot;group-range2&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-range&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Range&quot;}]},{&quot;then_field&quot;:&quot;group-model&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-range&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Range&quot;}]},{&quot;then_field&quot;:&quot;group-hood&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-hood&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Hood&quot;}]},{&quot;then_field&quot;:&quot;group-hood2&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-hood&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Hood&quot;}]},{&quot;then_field&quot;:&quot;group-model&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-hood&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Hood&quot;}]},{&quot;then_field&quot;:&quot;group-cooktop&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-cooktop&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Cooktop&quot;}]},{&quot;then_field&quot;:&quot;group-cooktop2&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-cooktop&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Cooktop&quot;}]},{&quot;then_field&quot;:&quot;group-model&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-cooktop&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Cooktop&quot;}]},{&quot;then_field&quot;:&quot;group-micro&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-micro&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Microwave&quot;}]},{&quot;then_field&quot;:&quot;group-micro2&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-micro&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Microwave&quot;}]},{&quot;then_field&quot;:&quot;group-model&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-micro&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Microwave&quot;}]},{&quot;then_field&quot;:&quot;group-oven&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-oven&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Wall Oven&quot;}]},{&quot;then_field&quot;:&quot;group-oven2&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-oven&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Wall Oven&quot;}]},{&quot;then_field&quot;:&quot;group-model&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-oven&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Wall Oven&quot;}]},{&quot;then_field&quot;:&quot;group-dishwasher&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-dishwasher&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Dishwasher&quot;}]},{&quot;then_field&quot;:&quot;group-dishwasher2&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-dishwasher&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Dishwasher&quot;}]},{&quot;then_field&quot;:&quot;group-model&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-dishwasher&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Dishwasher&quot;}]},{&quot;then_field&quot;:&quot;group-refer&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-refer&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Refrigerator\/Freezer&quot;}]},{&quot;then_field&quot;:&quot;group-refer2&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-refer&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Refrigerator\/Freezer&quot;}]},{&quot;then_field&quot;:&quot;group-model&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-refer&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Refrigerator\/Freezer&quot;}]},{&quot;then_field&quot;:&quot;group-wine&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-wine&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Wine Cooler&quot;}]},{&quot;then_field&quot;:&quot;group-wine2&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-wine&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Wine Cooler&quot;}]},{&quot;then_field&quot;:&quot;group-model&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-wine&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Wine Cooler&quot;}]},{&quot;then_field&quot;:&quot;group-ice2&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-ice&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Under-Counter Ice Maker&quot;}]},{&quot;then_field&quot;:&quot;group-model&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-ice&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Under-Counter Ice Maker&quot;}]},{&quot;then_field&quot;:&quot;group-disposal&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-disposal&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Garbage Disposal&quot;}]},{&quot;then_field&quot;:&quot;group-disposal2&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-disposal&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Garbage Disposal&quot;}]},{&quot;then_field&quot;:&quot;group-model&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-disposal&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Garbage Disposal&quot;}]},{&quot;then_field&quot;:&quot;group-trash2&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-trash&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Trash Compactor&quot;}]},{&quot;then_field&quot;:&quot;group-model&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-trash&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Trash Compactor&quot;}]},{&quot;then_field&quot;:&quot;group-wd&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-wd&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Washer\/Dryer&quot;}]},{&quot;then_field&quot;:&quot;group-wd2&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-wd&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Washer\/Dryer&quot;}]},{&quot;then_field&quot;:&quot;group-model&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-wd&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Washer\/Dryer&quot;}]},{&quot;then_field&quot;:&quot;group-wd-pedestal&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-wd-specific&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Pedestal(s) - Drawer&quot;}]},{&quot;then_field&quot;:&quot;group-wd-pedestal&quot;,&quot;and_rules&quot;:[{&quot;if_field&quot;:&quot;appliance-wd-specific&quot;,&quot;operator&quot;:&quot;equals&quot;,&quot;if_value&quot;:&quot;Pedestal(s) - Sidekick&quot;}]}],&quot;settings&quot;:{&quot;animation&quot;:&quot;yes&quot;,&quot;animation_intime&quot;:&quot;200&quot;,&quot;animation_outtime&quot;:&quot;200&quot;,&quot;conditions_ui&quot;:&quot;text_only&quot;,&quot;notice_dismissed&quot;:&quot;&quot;}}" /><input type="hidden" name="redirect_nonce" value="0aefd7458e" /><input type="hidden" name="wpcf7cfpdf_hidden_name" value="document-pdf" /><input type="hidden" name="wpcf7cfpdf_hidden_reference" value="6e0be24a" /><input type="hidden" name="wpcf7cfpdf_hidden_date" value="08202025" /><input type="hidden" name="_wpcf7_recaptcha_response" value="" />
+</fieldset>
+<div class="qtable">
+	<div class="qrow">
+		<div class="qcell">
+			<p style="font-size:14px;">Fill out the form below and a representative will contact you via email or phone with your custom quote. The details submitted will only be used to provide you pricing and information about your appliance installation project.
+			</p>
+		</div>
+	</div>
+</div>
+<div class="qtable">
+	<div class="qrow">
+		<div class="qcell">
+			<p><span class="qHeading">Client Information</span><!-- ### CLIENT INFO ## -->
+			</p>
+		</div>
+		<div class="qcell" style="text-align:right">
+			<p><span class="qRequired">*</span><span style="font-size:9pt; color:#F00; font-style:italic"> = Required</span>
+			</p>
+		</div>
+	</div>
+</div>
+<hr class="hr-big" />
+<div class="qtable">
+	<div class="qrow">
+		<div class="qcell" style="width:150px;">
+			<p><span class="qRequired">*</span> Your Name:
+			</p>
+		</div>
+		<div class="qcell">
+			<p><span class="wpcf7-form-control-wrap" data-name="your-name"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" value="" type="text" name="your-name" /></span>
+			</p>
+		</div>
+		<div class="qcell">
+		</div>
+	</div>
+	<div class="qrow">
+		<div class="qcell">
+			<p><span class="qRequired">*</span> Email Address:
+			</p>
+		</div>
+		<div class="qcell">
+			<p><span class="wpcf7-form-control-wrap" data-name="your-email"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-email wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="you@domain.com" value="" type="email" name="your-email" /></span>
+			</p>
+		</div>
+		<div class="qcell">
+		</div>
+	</div>
+	<div class="qrow">
+		<div class="qcell">
+			<p><span class="qRequired">*</span> Cell Phone Number:
+			</p>
+		</div>
+		<div class="qcell">
+			<p><span class="wpcf7-form-control-wrap" data-name="telephone"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-tel wpcf7-validates-as-required wpcf7-text wpcf7-validates-as-tel" aria-required="true" aria-invalid="false" placeholder="(123) 555-1234" value="" type="tel" name="telephone" /></span>
+			</p>
+		</div>
+		<div class="qcell">
+			<p><span class="qRequired">*</span><span class="qNote" style="color:red"> Strongly suggested, as we communicate scheduling information via text message.</span>
+			</p>
+		</div>
+	</div>
+	<div class="qrow">
+		<div class="qcell">
+			<p><span class="qNotRequired">&nbsp;&nbsp;</span> Phone Number 2:
+			</p>
+		</div>
+		<div class="qcell">
+			<p><span class="wpcf7-form-control-wrap" data-name="telephone2"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-tel wpcf7-text wpcf7-validates-as-tel" aria-invalid="false" placeholder="(123) 555-1234" value="" type="tel" name="telephone2" /></span>
+			</p>
+		</div>
+		<div class="qcell">
+			<div data-id="group-phone2" data-orig_data_id="group-phone2"  class="" data-class="wpcf7cf_group">
+				<p><span class="qRequired">*</span><span class="wpcf7-form-control-wrap" data-name="phone2-type"><span class="wpcf7-form-control wpcf7-radio qRadioBlock qPhone"><span class="wpcf7-list-item first"><input type="radio" name="phone2-type" value="Home" /><span class="wpcf7-list-item-label">Home</span></span><span class="wpcf7-list-item"><input type="radio" name="phone2-type" value="Cell" /><span class="wpcf7-list-item-label">Cell</span></span><span class="wpcf7-list-item"><input type="radio" name="phone2-type" value="Work" /><span class="wpcf7-list-item-label">Work</span></span><span class="wpcf7-list-item last"><input type="radio" name="phone2-type" value="Other" /><span class="wpcf7-list-item-label">Other</span></span></span></span>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<hr />
+<div class="qtable">
+	<div class="qrow">
+		<div class="qcell" style="width:auto;">
+			<p><span class="qRequired">*</span> Client Type:
+			</p>
+		</div>
+		<div class="qcell">
+			<p><span class="wpcf7-form-control-wrap" data-name="client-type"><span class="wpcf7-form-control wpcf7-radio qRadioBlock"><span class="wpcf7-list-item first"><input type="radio" name="client-type" value="Homeowner" /><span class="wpcf7-list-item-label">Homeowner</span></span><span class="wpcf7-list-item"><input type="radio" name="client-type" value="Property Manager/Landlord" /><span class="wpcf7-list-item-label">Property Manager/Landlord</span></span><span class="wpcf7-list-item"><input type="radio" name="client-type" value="Contractor" /><span class="wpcf7-list-item-label">Contractor</span></span><span class="wpcf7-list-item"><input type="radio" name="client-type" value="Store/Vendor" /><span class="wpcf7-list-item-label">Store/Vendor</span></span><span class="wpcf7-list-item last"><input type="radio" name="client-type" value="Other" /><span class="wpcf7-list-item-label">Other</span></span></span></span>
+			</p>
+			<div data-id="group-othercustomer" data-orig_data_id="group-othercustomer"  class="" data-class="wpcf7cf_group">
+				<p>&nbsp;&nbsp;Other Customer: <span class="wpcf7-form-control-wrap" data-name="other-customer"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="other-customer" /></span>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div data-id="group-company" data-orig_data_id="group-company"  class="" data-class="wpcf7cf_group">
+	<div class="qtable">
+		<div class="qrow">
+			<div class="qcell" style="width:120px;">
+				<p>Company Name:
+				</p>
+			</div>
+			<div class="qcell">
+				<p><span class="wpcf7-form-control-wrap" data-name="company-name"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="company-name" /></span>
+				</p>
+			</div>
+		</div>
+		<div class="qrow">
+			<div class="qcell">
+				<p>Company Address:
+				</p>
+			</div>
+			<div class="qcell">
+				<p><span class="wpcf7-form-control-wrap" data-name="company-address"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="Street, City, Zip" value="" type="text" name="company-address" /></span>
+				</p>
+			</div>
+		</div>
+		<div class="qrow">
+			<div class="qcell">
+				<p>Company Phone:
+				</p>
+			</div>
+			<div class="qcell">
+				<p><span class="wpcf7-form-control-wrap" data-name="company-phone"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-tel wpcf7-text wpcf7-validates-as-tel" aria-invalid="false" placeholder="(123) 555-1234" value="" type="tel" name="company-phone" /></span>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div data-id="group-contractor" data-orig_data_id="group-contractor"  class="" data-class="wpcf7cf_group">
+		<div class="qtable">
+			<div class="qrow">
+				<div class="qcell">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="qtable" style="width:auto;">
+	<div class="qrow">
+		<div class="qcell">
+			<p><span class="qHeading">Pre-Install Site Assessment</span><!-- ### FIELD MEASURE ## -->
+			</p>
+		</div>
+	</div>
+</div>
+<hr class="hr-big" />
+<div class="qtable">
+	<div class="qrow">
+		<div class="qcell" style="width: 320px;">
+			<p><span class="qRequired">*</span> Have the appliances been purchased already?
+			</p>
+		</div>
+		<div class="qcell" style="min-width: 80px;">
+			<p><span class="wpcf7-form-control-wrap" data-name="purchased"><span class="wpcf7-form-control wpcf7-radio qblock"><span class="wpcf7-list-item first"><input type="radio" name="purchased" value="Yes" /><span class="wpcf7-list-item-label">Yes</span></span><span class="wpcf7-list-item last"><input type="radio" name="purchased" value="No" /><span class="wpcf7-list-item-label">No</span></span></span></span>
+			</p>
+		</div>
+		<div class="qcell" style="padding-left: 12px;">
+			<div data-id="group-purchased-yes" data-orig_data_id="group-purchased-yes"  class="" data-class="wpcf7cf_group">
+				<p><span class="qNote">Many who have already made their appliance selections utilize a <b>Pre-Install Site Assessment</b> to verify site/appliance compatibility, and either get a firm quote for any site modifications, or the opportunity to choose a different unit that does not require site modifications.</span>
+				</p>
+			</div>
+			<div data-id="group-purchased-no" data-orig_data_id="group-purchased-no"  class="" data-class="wpcf7cf_group">
+				<p><span class="qNote">If you have not yet chosen your appliances, the completed Field Measure form you receive after a <b>Pre-Install Site Assessment</b> will provide your sales associate with the necessary information to assist with your selections, and potentially eliminate or minimize the need for site modifications.</span>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<hr class="qhr" />
+<div class="qtable">
+	<div class="qrow">
+		<div class="qcell" style="width:200px;">
+			<p><span class="qRequired">*</span>
+			</p>
+			<div style="display: inline !important;">
+				<p>Would you like us to perform a<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Pre-Install Site Assessment?
+				</p>
+			</div>
+		</div>
+		<div class="qcell" style="width:80px; padding-left: 10px;">
+			<p><span class="wpcf7-form-control-wrap" data-name="field-measure"><span class="wpcf7-form-control wpcf7-radio qblock"><span class="wpcf7-list-item first"><input type="radio" name="field-measure" value="Yes" /><span class="wpcf7-list-item-label">Yes</span></span><span class="wpcf7-list-item last"><input type="radio" name="field-measure" value="No" /><span class="wpcf7-list-item-label">No</span></span></span></span><br />
+<input type="radio" name="field-measure" value="Unchosen" checked="checked" style="visibility:hidden;" /><br />
+<!-- <input class="wpcf7-form-control wpcf7-hidden" value="Unchosen" type="hidden" name="field-measure" /> -->
+			</p>
+		</div>
+		<div class="qcell" style="padding-left:10px;">
+			<p><span class="qNote">Fees for Pre-Install Site Assessment vary by project, and will be quoted upon review of the information you provide. This option is highly recommended for all remodels or new construction projects to avoid potential fees due to site non-readiness.</span>
+			</p>
+		</div>
+	</div>
+</div>
+<p><span style="height:10px;"></span>
+</p>
+<div class="qtable" style="width:auto;">
+	<div class="qrow">
+		<div class="qcell">
+			<p><span class="qHeading">Appliance Details</span><!-- ### APPLIANCE DETAILS ## -->
+			</p>
+		</div>
+	</div>
+</div>
+<hr class="hr-big" />
+<div class="qtable">
+	<div class="qrow">
+		<div class="qcell width50" style="width:45%;">
+			<p>Which appliances can we assist you with?<br />
+<span class="qNote">Check all that apply.</span>
+			</p>
+		</div>
+		<div class="qcell">
+			<div data-id="group-model-nofm" data-orig_data_id="group-model-nofm"  class="" data-class="wpcf7cf_group">
+				<div data-id="group-model" data-orig_data_id="group-model"  class="" data-class="wpcf7cf_group">
+					<p><span id="modeldisclaimer" style="font-size:9pt; line-height:90%; padding:0px; color:#F00;">If you do not know the model numbers of your appliances, please call to discuss your project and receive a verbal estimate, or request a Pre-Install Site Assessment (above).</span>
+					</p>
+				</div>
+			</div>
+			<div data-id="group-model-fm" data-orig_data_id="group-model-fm"  class="" data-class="wpcf7cf_group">
+				<div data-id="group-model" data-orig_data_id="group-model"  class="" data-class="wpcf7cf_group">
+					<p><span id="modeldisclaimer" class="qNote">Please provide model numbers, if known.</span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="qtable">
+	<div class="qrow">
+		<div class="qcell qcell-app-width">
+			<p><span class="wpcf7-form-control-wrap" data-name="appliance-range"><span class="wpcf7-form-control wpcf7-checkbox"><span class="wpcf7-list-item first last"><input type="checkbox" name="appliance-range[]" value="Range" /><span class="wpcf7-list-item-label">Range</span></span></span></span>
+			</p>
+			<div style="padding-left:20px; margin-top:-20px;">
+				<div data-id="group-range" data-orig_data_id="group-range"  class="" data-class="wpcf7cf_group">
+					<p><span class="wpcf7-form-control-wrap" data-name="appliance-range-specific"><span class="wpcf7-form-control wpcf7-checkbox"><span class="wpcf7-list-item first"><input type="checkbox" name="appliance-range-specific[]" value="Wider than 36&quot;" /><span class="wpcf7-list-item-label">Wider than 36&quot;</span></span><span class="wpcf7-list-item"><input type="checkbox" name="appliance-range-specific[]" value="Downdraft Range" /><span class="wpcf7-list-item-label">Downdraft Range</span></span><span class="wpcf7-list-item last"><input type="checkbox" name="appliance-range-specific[]" value="Liquid Propane Conversion" /><span class="wpcf7-list-item-label">Liquid Propane Conversion</span></span></span></span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="qcell" style="width:50%">
+			<div data-id="group-range2" data-orig_data_id="group-range2"  class="" data-class="wpcf7cf_group">
+				<p>Brand and Model Name:<br />
+<span class="wpcf7-form-control-wrap" data-name="brand-range"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="brand-range" /></span>
+				</p>
+				<p>Model Number:
+				</p>
+				<div data-id="group-asterisk-nofm" data-orig_data_id="group-asterisk-nofm"  class="" data-class="wpcf7cf_group">
+					<p><span class="qRequired"> *</span>
+					</p>
+				</div>
+				<p><span class="wpcf7-form-control-wrap" data-name="model-range"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="model-range" /></span>
+				</p>
+				<p>Notes:<br />
+<span class="wpcf7-form-control-wrap" data-name="notes-range"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="notes-range" /></span>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="qrow">
+		<div class="qcell qcell-app-width">
+			<p><span class="wpcf7-form-control-wrap" data-name="appliance-hood"><span class="wpcf7-form-control wpcf7-checkbox"><span class="wpcf7-list-item first last"><input type="checkbox" name="appliance-hood[]" value="Hood" /><span class="wpcf7-list-item-label">Hood</span></span></span></span>
+			</p>
+			<div style="padding-left:20px; margin-top:-20px;">
+				<div data-id="group-hood" data-orig_data_id="group-hood"  class="" data-class="wpcf7cf_group">
+					<p><span class="wpcf7-form-control-wrap" data-name="appliance-hood-specific"><span class="wpcf7-form-control wpcf7-checkbox"><span class="wpcf7-list-item first"><input type="checkbox" name="appliance-hood-specific[]" value="44&quot; or Wider" /><span class="wpcf7-list-item-label">44&quot; or Wider</span></span><span class="wpcf7-list-item"><input type="checkbox" name="appliance-hood-specific[]" value="Chimney Hood" /><span class="wpcf7-list-item-label">Chimney Hood</span></span><span class="wpcf7-list-item"><input type="checkbox" name="appliance-hood-specific[]" value="Island Hood" /><span class="wpcf7-list-item-label">Island Hood</span></span><span class="wpcf7-list-item"><input type="checkbox" name="appliance-hood-specific[]" value="Internal Blower Only" /><span class="wpcf7-list-item-label">Internal Blower Only</span></span><span class="wpcf7-list-item last"><input type="checkbox" name="appliance-hood-specific[]" value="Exterior Blower" /><span class="wpcf7-list-item-label">Exterior Blower</span></span></span></span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="qcell" style="width:50%">
+			<div data-id="group-hood2" data-orig_data_id="group-hood2"  class="" data-class="wpcf7cf_group">
+				<p>Brand and Model Name:<br />
+<span class="wpcf7-form-control-wrap" data-name="brand-hood"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="brand-hood" /></span>
+				</p>
+				<p>Model Number:
+				</p>
+				<div data-id="group-asterisk-nofm" data-orig_data_id="group-asterisk-nofm"  class="" data-class="wpcf7cf_group">
+					<p><span class="qRequired"> *</span>
+					</p>
+				</div>
+				<p><span class="wpcf7-form-control-wrap" data-name="model-hood"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="model-hood" /></span>
+				</p>
+				<p>Notes:<br />
+<span class="wpcf7-form-control-wrap" data-name="notes-hood"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="notes-hood" /></span>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="qrow">
+		<div class="qcell qcell-app-width">
+			<p><span class="wpcf7-form-control-wrap" data-name="appliance-cooktop"><span class="wpcf7-form-control wpcf7-checkbox"><span class="wpcf7-list-item first last"><input type="checkbox" name="appliance-cooktop[]" value="Cooktop" /><span class="wpcf7-list-item-label">Cooktop</span></span></span></span>
+			</p>
+			<div style="padding-left:20px; margin-top:-20px;">
+				<div data-id="group-cooktop" data-orig_data_id="group-cooktop"  class="" data-class="wpcf7cf_group">
+					<p><span class="wpcf7-form-control-wrap" data-name="appliance-cooktop-specific"><span class="wpcf7-form-control wpcf7-checkbox"><span class="wpcf7-list-item first"><input type="checkbox" name="appliance-cooktop-specific[]" value="44&quot; or Wider" /><span class="wpcf7-list-item-label">44&quot; or Wider</span></span><span class="wpcf7-list-item"><input type="checkbox" name="appliance-cooktop-specific[]" value="Downdraft Cooktop" /><span class="wpcf7-list-item-label">Downdraft Cooktop</span></span><span class="wpcf7-list-item"><input type="checkbox" name="appliance-cooktop-specific[]" value="Separate Downdraft Unit" /><span class="wpcf7-list-item-label">Separate Downdraft Unit</span></span><span class="wpcf7-list-item last"><input type="checkbox" name="appliance-cooktop-specific[]" value="Liquid Propane Conversion" /><span class="wpcf7-list-item-label">Liquid Propane Conversion</span></span></span></span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="qcell" style="width:50%">
+			<div data-id="group-cooktop2" data-orig_data_id="group-cooktop2"  class="" data-class="wpcf7cf_group">
+				<p>Brand and Model Name:<br />
+<span class="wpcf7-form-control-wrap" data-name="brand-cooktop"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="brand-cooktop" /></span>
+				</p>
+				<p>Model Number:
+				</p>
+				<div data-id="group-asterisk-nofm" data-orig_data_id="group-asterisk-nofm"  class="" data-class="wpcf7cf_group">
+					<p><span class="qRequired"> *</span>
+					</p>
+				</div>
+				<p><span class="wpcf7-form-control-wrap" data-name="model-cooktop"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="model-cooktop" /></span>
+				</p>
+				<p>Notes:<br />
+<span class="wpcf7-form-control-wrap" data-name="notes-cooktop"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="notes-cooktop" /></span>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="qrow">
+		<div class="qcell qcell-app-width">
+			<p><span class="wpcf7-form-control-wrap" data-name="appliance-micro"><span class="wpcf7-form-control wpcf7-checkbox"><span class="wpcf7-list-item first last"><input type="checkbox" name="appliance-micro[]" value="Microwave" /><span class="wpcf7-list-item-label">Microwave</span></span></span></span>
+			</p>
+			<div style="padding-left:20px; margin-top:-20px;">
+				<div data-id="group-micro" data-orig_data_id="group-micro"  class="" data-class="wpcf7cf_group">
+					<p><span class="wpcf7-form-control-wrap" data-name="appliance-micro-specific"><span class="wpcf7-form-control wpcf7-checkbox"><span class="wpcf7-list-item first"><input type="checkbox" name="appliance-micro-specific[]" value="Over-the-Range Microwave" /><span class="wpcf7-list-item-label">Over-the-Range Microwave</span></span><span class="wpcf7-list-item"><input type="checkbox" name="appliance-micro-specific[]" value="Built-In Microwave with Trim Kit" /><span class="wpcf7-list-item-label">Built-In Microwave with Trim Kit</span></span><span class="wpcf7-list-item"><input type="checkbox" name="appliance-micro-specific[]" value="Under-Cabinet Microwave" /><span class="wpcf7-list-item-label">Under-Cabinet Microwave</span></span><span class="wpcf7-list-item last"><input type="checkbox" name="appliance-micro-specific[]" value="Microwave Drawer" /><span class="wpcf7-list-item-label">Microwave Drawer</span></span></span></span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="qcell" style="width:50%">
+			<div data-id="group-micro2" data-orig_data_id="group-micro2"  class="" data-class="wpcf7cf_group">
+				<p>Brand and Model Name:<br />
+<span class="wpcf7-form-control-wrap" data-name="brand-micro"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="brand-micro" /></span>
+				</p>
+				<p>Model Number:
+				</p>
+				<div data-id="group-asterisk-nofm" data-orig_data_id="group-asterisk-nofm"  class="" data-class="wpcf7cf_group">
+					<p><span class="qRequired"> *</span>
+					</p>
+				</div>
+				<p><span class="wpcf7-form-control-wrap" data-name="model-micro"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="model-micro" /></span>
+				</p>
+				<p>Notes:<br />
+<span class="wpcf7-form-control-wrap" data-name="notes-micro"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="notes-micro" /></span>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="qrow">
+		<div class="qcell qcell-app-width">
+			<p><span class="wpcf7-form-control-wrap" data-name="appliance-oven"><span class="wpcf7-form-control wpcf7-checkbox"><span class="wpcf7-list-item first last"><input type="checkbox" name="appliance-oven[]" value="Wall Oven" /><span class="wpcf7-list-item-label">Wall Oven</span></span></span></span>
+			</p>
+			<div style="padding-left:20px; margin-top:-20px;">
+				<div data-id="group-oven" data-orig_data_id="group-oven"  class="" data-class="wpcf7cf_group">
+					<p><span class="wpcf7-form-control-wrap" data-name="appliance-oven-specific"><span class="wpcf7-form-control wpcf7-checkbox"><span class="wpcf7-list-item first"><input type="checkbox" name="appliance-oven-specific[]" value="Single Wall Oven" /><span class="wpcf7-list-item-label">Single Wall Oven</span></span><span class="wpcf7-list-item"><input type="checkbox" name="appliance-oven-specific[]" value="Double/Combo Wall Oven" /><span class="wpcf7-list-item-label">Double/Combo Wall Oven</span></span><span class="wpcf7-list-item last"><input type="checkbox" name="appliance-oven-specific[]" value="Warming Drawer" /><span class="wpcf7-list-item-label">Warming Drawer</span></span></span></span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="qcell" style="width:50%">
+			<div data-id="group-oven2" data-orig_data_id="group-oven2"  class="" data-class="wpcf7cf_group">
+				<p>Brand and Model Name:<br />
+<span class="wpcf7-form-control-wrap" data-name="brand-oven"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="brand-oven" /></span>
+				</p>
+				<p>Model Number:
+				</p>
+				<div data-id="group-asterisk-nofm" data-orig_data_id="group-asterisk-nofm"  class="" data-class="wpcf7cf_group">
+					<p><span class="qRequired"> *</span>
+					</p>
+				</div>
+				<p><span class="wpcf7-form-control-wrap" data-name="model-oven"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="model-oven" /></span>
+				</p>
+				<p>Notes:<br />
+<span class="wpcf7-form-control-wrap" data-name="notes-oven"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="notes-oven" /></span>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="qrow">
+		<div class="qcell qcell-app-width">
+			<p><span class="wpcf7-form-control-wrap" data-name="appliance-dishwasher"><span class="wpcf7-form-control wpcf7-checkbox"><span class="wpcf7-list-item first last"><input type="checkbox" name="appliance-dishwasher[]" value="Dishwasher" /><span class="wpcf7-list-item-label">Dishwasher</span></span></span></span>
+			</p>
+			<div style="padding-left:20px; margin-top:-20px;">
+				<div data-id="group-dishwasher" data-orig_data_id="group-dishwasher"  class="" data-class="wpcf7cf_group">
+					<p><span class="wpcf7-form-control-wrap" data-name="appliance-dishwasher-specific"><span class="wpcf7-form-control wpcf7-checkbox"><span class="wpcf7-list-item first"><input type="checkbox" name="appliance-dishwasher-specific[]" value="Has Air Gap" /><span class="wpcf7-list-item-label">Has Air Gap</span></span><span class="wpcf7-list-item"><input type="checkbox" name="appliance-dishwasher-specific[]" value="No Air Gap" /><span class="wpcf7-list-item-label">No Air Gap</span></span><span class="wpcf7-list-item last"><input type="checkbox" name="appliance-dishwasher-specific[]" value="Dishwasher Panel" /><span class="wpcf7-list-item-label">Dishwasher Panel</span></span></span></span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="qcell" style="width:50%">
+			<div data-id="group-dishwasher2" data-orig_data_id="group-dishwasher2"  class="" data-class="wpcf7cf_group">
+				<p>Brand and Model Name:<br />
+<span class="wpcf7-form-control-wrap" data-name="brand-dishwasher"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="brand-dishwasher" /></span>
+				</p>
+				<p>Model Number:
+				</p>
+				<div data-id="group-asterisk-nofm" data-orig_data_id="group-asterisk-nofm"  class="" data-class="wpcf7cf_group">
+					<p><span class="qRequired"> *</span>
+					</p>
+				</div>
+				<p><span class="wpcf7-form-control-wrap" data-name="model-dishwasher"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="model-dishwasher" /></span>
+				</p>
+				<p>Notes:<br />
+<span class="wpcf7-form-control-wrap" data-name="notes-dishwasher"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="notes-dishwasher" /></span>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="qrow">
+		<div class="qcell qcell-app-width">
+			<p><span class="wpcf7-form-control-wrap" data-name="appliance-refer"><span class="wpcf7-form-control wpcf7-checkbox"><span class="wpcf7-list-item first last"><input type="checkbox" name="appliance-refer[]" value="Refrigerator/Freezer" /><span class="wpcf7-list-item-label">Refrigerator/Freezer</span></span></span></span>
+			</p>
+			<div style="padding-left:20px; margin-top:-20px;">
+				<div data-id="group-refer" data-orig_data_id="group-refer"  class="" data-class="wpcf7cf_group">
+					<p><span class="wpcf7-form-control-wrap" data-name="appliance-refer-specific"><span class="wpcf7-form-control wpcf7-checkbox"><span class="wpcf7-list-item first"><input type="checkbox" name="appliance-refer-specific[]" value="Freestanding Refrigerator with Water Line" /><span class="wpcf7-list-item-label">Freestanding Refrigerator with Water Line</span></span><span class="wpcf7-list-item"><input type="checkbox" name="appliance-refer-specific[]" value="Built-In Refrigerator with Freezer" /><span class="wpcf7-list-item-label">Built-In Refrigerator with Freezer</span></span><span class="wpcf7-list-item"><input type="checkbox" name="appliance-refer-specific[]" value="Built-In Refrigerator (Separate Unit)" /><span class="wpcf7-list-item-label">Built-In Refrigerator (Separate Unit)</span></span><span class="wpcf7-list-item"><input type="checkbox" name="appliance-refer-specific[]" value="Built-In Freezer (Separate Unit)" /><span class="wpcf7-list-item-label">Built-In Freezer (Separate Unit)</span></span><span class="wpcf7-list-item"><input type="checkbox" name="appliance-refer-specific[]" value="Under-Counter Refrigerator" /><span class="wpcf7-list-item-label">Under-Counter Refrigerator</span></span><span class="wpcf7-list-item last"><input type="checkbox" name="appliance-refer-specific[]" value="Custom Panel(s)" /><span class="wpcf7-list-item-label">Custom Panel(s)</span></span></span></span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="qcell" style="width:50%">
+			<div data-id="group-refer2" data-orig_data_id="group-refer2"  class="" data-class="wpcf7cf_group">
+				<p>Brand and Model Name(s):<br />
+<span class="wpcf7-form-control-wrap" data-name="brand-refer"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="brand-refer" /></span>
+				</p>
+				<p>Model Number(s) of Each:
+				</p>
+				<div data-id="group-asterisk-nofm" data-orig_data_id="group-asterisk-nofm"  class="" data-class="wpcf7cf_group">
+					<p><span class="qRequired"> *</span>
+					</p>
+				</div>
+				<p><span class="wpcf7-form-control-wrap" data-name="model-refer"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="model-refer" /></span>
+				</p>
+				<p>Notes:<br />
+<span class="wpcf7-form-control-wrap" data-name="notes-refer"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="notes-refer" /></span>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="qrow">
+		<div class="qcell qcell-app-width">
+			<p><span class="wpcf7-form-control-wrap" data-name="appliance-wine"><span class="wpcf7-form-control wpcf7-checkbox"><span class="wpcf7-list-item first last"><input type="checkbox" name="appliance-wine[]" value="Wine Cooler" /><span class="wpcf7-list-item-label">Wine Cooler</span></span></span></span>
+			</p>
+			<div style="padding-left:20px; margin-top:-20px;">
+				<div data-id="group-wine" data-orig_data_id="group-wine"  class="" data-class="wpcf7cf_group">
+					<p><span class="wpcf7-form-control-wrap" data-name="appliance-wine-specific"><span class="wpcf7-form-control wpcf7-checkbox"><span class="wpcf7-list-item first"><input type="checkbox" name="appliance-wine-specific[]" value="Built-In Wine Cooler" /><span class="wpcf7-list-item-label">Built-In Wine Cooler</span></span><span class="wpcf7-list-item last"><input type="checkbox" name="appliance-wine-specific[]" value="Under-Counter Wine Cooler" /><span class="wpcf7-list-item-label">Under-Counter Wine Cooler</span></span></span></span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="qcell" style="width:50%">
+			<div data-id="group-wine2" data-orig_data_id="group-wine2"  class="" data-class="wpcf7cf_group">
+				<p>Brand and Model Name:<br />
+<span class="wpcf7-form-control-wrap" data-name="brand-wine"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="brand-wine" /></span>
+				</p>
+				<p>Model Number:
+				</p>
+				<div data-id="group-asterisk-nofm" data-orig_data_id="group-asterisk-nofm"  class="" data-class="wpcf7cf_group">
+					<p><span class="qRequired"> *</span>
+					</p>
+				</div>
+				<p><span class="wpcf7-form-control-wrap" data-name="model-wine"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="model-wine" /></span>
+				</p>
+				<p>Notes:<br />
+<span class="wpcf7-form-control-wrap" data-name="notes-wine"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="notes-wine" /></span>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="qrow">
+		<div class="qcell qcell-app-width">
+			<p><span class="wpcf7-form-control-wrap" data-name="appliance-ice"><span class="wpcf7-form-control wpcf7-checkbox"><span class="wpcf7-list-item first last"><input type="checkbox" name="appliance-ice[]" value="Under-Counter Ice Maker" /><span class="wpcf7-list-item-label">Under-Counter Ice Maker</span></span></span></span>
+			</p>
+			<div style="padding-left:20px; margin-top:-20px;">
+			</div>
+		</div>
+		<div class="qcell" style="width:50%">
+			<div data-id="group-ice2" data-orig_data_id="group-ice2"  class="" data-class="wpcf7cf_group">
+				<p>Brand and Model Name:<br />
+<span class="wpcf7-form-control-wrap" data-name="brand-ice"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="brand-ice" /></span>
+				</p>
+				<p>Model Number:
+				</p>
+				<div data-id="group-asterisk-nofm" data-orig_data_id="group-asterisk-nofm"  class="" data-class="wpcf7cf_group">
+					<p><span class="qRequired"> *</span>
+					</p>
+				</div>
+				<p><span class="wpcf7-form-control-wrap" data-name="model-ice"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="model-ice" /></span>
+				</p>
+				<p>Notes:<br />
+<span class="wpcf7-form-control-wrap" data-name="notes-ice"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="notes-ice" /></span>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="qrow">
+		<div class="qcell qcell-app-width">
+			<p><span class="wpcf7-form-control-wrap" data-name="appliance-disposal"><span class="wpcf7-form-control wpcf7-checkbox"><span class="wpcf7-list-item first last"><input type="checkbox" name="appliance-disposal[]" value="Garbage Disposal" /><span class="wpcf7-list-item-label">Garbage Disposal</span></span></span></span>
+			</p>
+			<div style="padding-left:20px; margin-top:-20px;">
+				<div data-id="group-disposal" data-orig_data_id="group-disposal"  class="" data-class="wpcf7cf_group">
+					<p><span class="wpcf7-form-control-wrap" data-name="appliance-disposal-specific"><span class="wpcf7-form-control wpcf7-checkbox"><span class="wpcf7-list-item first"><input type="checkbox" name="appliance-disposal-specific[]" value="Replacement Installation" /><span class="wpcf7-list-item-label">Replacement Installation</span></span><span class="wpcf7-list-item last"><input type="checkbox" name="appliance-disposal-specific[]" value="New Installation" /><span class="wpcf7-list-item-label">New Installation</span></span></span></span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="qcell" style="width:50%">
+			<div data-id="group-disposal2" data-orig_data_id="group-disposal2"  class="" data-class="wpcf7cf_group">
+				<p>Brand and Model Name:<br />
+<span class="wpcf7-form-control-wrap" data-name="brand-disposal"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="brand-disposal" /></span>
+				</p>
+				<p>Model Number:
+				</p>
+				<div data-id="group-asterisk-nofm" data-orig_data_id="group-asterisk-nofm"  class="" data-class="wpcf7cf_group">
+					<p><span class="qRequired"> *</span>
+					</p>
+				</div>
+				<p><span class="wpcf7-form-control-wrap" data-name="model-disposal"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="model-disposal" /></span>
+				</p>
+				<p>Notes:<br />
+<span class="wpcf7-form-control-wrap" data-name="notes-disposal"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="notes-disposal" /></span>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="qrow">
+		<div class="qcell qcell-app-width">
+			<p><span class="wpcf7-form-control-wrap" data-name="appliance-trash"><span class="wpcf7-form-control wpcf7-checkbox"><span class="wpcf7-list-item first last"><input type="checkbox" name="appliance-trash[]" value="Trash Compactor" /><span class="wpcf7-list-item-label">Trash Compactor</span></span></span></span>
+			</p>
+			<div style="padding-left:20px; margin-top:-20px;">
+			</div>
+		</div>
+		<div class="qcell" style="width:50%">
+			<div data-id="group-trash2" data-orig_data_id="group-trash2"  class="" data-class="wpcf7cf_group">
+				<p>Brand and Model Name:<br />
+<span class="wpcf7-form-control-wrap" data-name="brand-trash"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="brand-trash" /></span>
+				</p>
+				<p>Model Number:
+				</p>
+				<div data-id="group-asterisk-nofm" data-orig_data_id="group-asterisk-nofm"  class="" data-class="wpcf7cf_group">
+					<p><span class="qRequired"> *</span>
+					</p>
+				</div>
+				<p><span class="wpcf7-form-control-wrap" data-name="model-trash"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="model-trash" /></span>
+				</p>
+				<p>Notes:<br />
+<span class="wpcf7-form-control-wrap" data-name="notes-trash"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="notes-trash" /></span>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="qrow">
+		<div class="qcell qcell-app-width">
+			<p><span class="wpcf7-form-control-wrap" data-name="appliance-wd"><span class="wpcf7-form-control wpcf7-checkbox"><span class="wpcf7-list-item first last"><input type="checkbox" name="appliance-wd[]" value="Washer/Dryer" /><span class="wpcf7-list-item-label">Washer/Dryer</span></span></span></span>
+			</p>
+			<div style="padding-left:20px; margin-top:-20px;">
+				<div data-id="group-wd" data-orig_data_id="group-wd"  class="" data-class="wpcf7cf_group">
+					<p><span class="wpcf7-form-control-wrap" data-name="appliance-wd-specific"><span class="wpcf7-form-control wpcf7-checkbox"><span class="wpcf7-list-item first"><input type="checkbox" name="appliance-wd-specific[]" value="Washer" /><span class="wpcf7-list-item-label">Washer</span></span><span class="wpcf7-list-item"><input type="checkbox" name="appliance-wd-specific[]" value="Dryer" /><span class="wpcf7-list-item-label">Dryer</span></span><span class="wpcf7-list-item"><input type="checkbox" name="appliance-wd-specific[]" value="Stacked Washer and Dryer" /><span class="wpcf7-list-item-label">Stacked Washer and Dryer</span></span><span class="wpcf7-list-item"><input type="checkbox" name="appliance-wd-specific[]" value="Pedestal(s) - Drawer" /><span class="wpcf7-list-item-label">Pedestal(s) - Drawer</span></span><span class="wpcf7-list-item"><input type="checkbox" name="appliance-wd-specific[]" value="Pedestal(s) - Sidekick" /><span class="wpcf7-list-item-label">Pedestal(s) - Sidekick</span></span><span class="wpcf7-list-item last"><input type="checkbox" name="appliance-wd-specific[]" value="Liquid Propane Conversion" /><span class="wpcf7-list-item-label">Liquid Propane Conversion</span></span></span></span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="qcell" style="width:50%">
+			<div data-id="group-wd2" data-orig_data_id="group-wd2"  class="" data-class="wpcf7cf_group">
+				<p>Brand and Model Name(s):<br />
+<span class="wpcf7-form-control-wrap" data-name="brand-wd"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="brand-wd" /></span><br />
+Model Number(s) of Each:
+				</p>
+				<div data-id="group-asterisk-nofm" data-orig_data_id="group-asterisk-nofm"  class="" data-class="wpcf7cf_group">
+					<p><span class="qRequired"> *</span>
+					</p>
+				</div>
+				<p><span class="wpcf7-form-control-wrap" data-name="model-wd"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="model-wd" /></span><br />
+Notes:<br />
+<span class="wpcf7-form-control-wrap" data-name="notes-wd"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="notes-wd" /></span>
+				</p>
+				<div data-id="group-wd-pedestal" data-orig_data_id="group-wd-pedestal"  class="" data-class="wpcf7cf_group">
+					<p>Pedestal Model Number(s):
+					</p>
+					<div data-id="group-asterisk-nofm" data-orig_data_id="group-asterisk-nofm"  class="" data-class="wpcf7cf_group">
+						<p><span class="qRequired"> *</span>
+						</p>
+					</div>
+					<p><span class="wpcf7-form-control-wrap" data-name="model-wd-pedestal"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="model-wd-pedestal" /></span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div><!-- ##### END APPLIANCE LIST ##### -->
+<hr class="qhr" />
+<div class="qtable" style="width:auto;">
+	<div class="qrow">
+		<div class="qcell" style="padding-bottom:5px;">
+			<p>Please select the services you would like for us to provide:
+			</p>
+		</div>
+	</div>
+</div>
+<div class="qtable">
+	<div class="qrow">
+		<div class="qcell">
+			<p><span class="qRequired">*</span> Delivery: &nbsp;&nbsp;&nbsp;&nbsp;<span class="wpcf7-form-control-wrap" data-name="delivery"><span class="wpcf7-form-control wpcf7-checkbox wpcf7-validates-as-required wpcf7-exclusive-checkbox qinline"><span class="wpcf7-list-item first"><input type="checkbox" name="delivery" value="Yes" /><span class="wpcf7-list-item-label">Yes</span></span><span class="wpcf7-list-item last"><input type="checkbox" name="delivery" value="No" /><span class="wpcf7-list-item-label">No</span></span></span></span>
+			</p>
+		</div>
+		<div class="qcell">
+			<div data-id="group-delivery" data-orig_data_id="group-delivery"  class="" data-class="wpcf7cf_group">
+				<p>Pick-Up Location: <span class="wpcf7-form-control-wrap" data-name="pickup-location"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" id="qshort" aria-invalid="false" value="" type="text" name="pickup-location" /></span><br />
+<span style="padding-top:5px;">Availability Date: &nbsp;&nbsp;<span class="wpcf7-form-control-wrap" data-name="pickup-date"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="pickup-date" /></span></span>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="qrow">
+		<div class="qcell">
+			<p><span class="qRequired">*</span> Uninstall: &nbsp;&nbsp;&nbsp;<span class="wpcf7-form-control-wrap" data-name="uninstall"><span class="wpcf7-form-control wpcf7-checkbox wpcf7-validates-as-required wpcf7-exclusive-checkbox qinline"><span class="wpcf7-list-item first"><input type="checkbox" name="uninstall" value="Yes" /><span class="wpcf7-list-item-label">Yes</span></span><span class="wpcf7-list-item last"><input type="checkbox" name="uninstall" value="No" /><span class="wpcf7-list-item-label">No</span></span></span></span>
+			</p>
+		</div>
+		<div class="qcell">
+		</div>
+	</div>
+	<div class="qrow">
+		<div class="qcell">
+			<p><span class="qRequired">*</span> Haul-away: <span class="wpcf7-form-control-wrap" data-name="haul-away"><span class="wpcf7-form-control wpcf7-checkbox wpcf7-validates-as-required wpcf7-exclusive-checkbox qinline"><span class="wpcf7-list-item first"><input type="checkbox" name="haul-away" value="Yes" /><span class="wpcf7-list-item-label">Yes</span></span><span class="wpcf7-list-item last"><input type="checkbox" name="haul-away" value="No" /><span class="wpcf7-list-item-label">No</span></span></span></span>
+			</p>
+		</div>
+		<div class="qcell">
+			<p>&nbsp;
+			</p>
+		</div>
+	</div>
+</div>
+<p><span style="height:40px;"></span>
+</p>
+<div class="qtable" style="width:auto;">
+	<div class="qrow">
+		<div class="qcell">
+			<p><span class="qHeading">Installation Address & Site Details</span>
+			</p>
+		</div>
+	</div>
+</div>
+<hr class="hr-big" />
+<div class="qtable">
+	<div class="qrow">
+		<div class="qcell" style="width:auto;">
+			<p><span class="qRequired">*</span> Street Address:
+			</p>
+		</div>
+		<div class="qcell">
+			<p><span class="wpcf7-form-control-wrap" data-name="street"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" value="" type="text" name="street" /></span>
+			</p>
+		</div>
+	</div>
+	<div class="qrow">
+		<div class="qcell">
+			<p>&nbsp;&nbsp;&nbsp; Address Line 2:
+			</p>
+		</div>
+		<div class="qcell">
+			<p><span class="wpcf7-form-control-wrap" data-name="unit"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" placeholder="ie. Apartment Number" value="" type="text" name="unit" /></span>
+			</p>
+		</div>
+	</div>
+	<div class="qrow">
+		<div class="qcell">
+			<p><span class="qRequired">*</span> City:
+			</p>
+		</div>
+		<div class="qcell">
+			<p><span class="wpcf7-form-control-wrap" data-name="city"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" value="" type="text" name="city" /></span>, California
+			</p>
+		</div>
+	</div>
+	<div class="qrow">
+		<div class="qcell">
+			<p><span class="qRequired">*</span> Zip:
+			</p>
+		</div>
+		<div class="qcell">
+			<p><span class="wpcf7-form-control-wrap" data-name="zip"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" id="qzip" aria-required="true" aria-invalid="false" value="" type="text" name="zip" /></span>
+			</p>
+		</div>
+	</div>
+</div>
+<hr class="qhr" />
+<div class="qtable">
+	<div class="qrow">
+		<div class="qcell">
+			<p>Type of Residence/Building:
+			</p>
+		</div>
+		<div class="qcell">
+			<p><span class="wpcf7-form-control-wrap" data-name="home-type"><span class="wpcf7-form-control wpcf7-checkbox wpcf7-exclusive-checkbox qRadioBlock qinline"><span class="wpcf7-list-item first"><input type="checkbox" name="home-type" value="Single-Family Home" /><span class="wpcf7-list-item-label">Single-Family Home</span></span><span class="wpcf7-list-item"><input type="checkbox" name="home-type" value="Apartment/Condo" /><span class="wpcf7-list-item-label">Apartment/Condo</span></span><span class="wpcf7-list-item last"><input type="checkbox" name="home-type" value="Other/Commercial" /><span class="wpcf7-list-item-label">Other/Commercial</span></span></span></span>
+			</p>
+		</div>
+	</div>
+	<div class="qrow">
+		<div class="qcell">
+			<p>Installation Floor/Level:
+			</p>
+		</div>
+		<div class="qcell">
+			<p><span class="wpcf7-form-control-wrap" data-name="floor"><span class="wpcf7-form-control wpcf7-checkbox wpcf7-exclusive-checkbox qinline"><span class="wpcf7-list-item first"><input type="checkbox" name="floor" value="1st" /><span class="wpcf7-list-item-label">1st</span></span><span class="wpcf7-list-item"><input type="checkbox" name="floor" value="2nd" /><span class="wpcf7-list-item-label">2nd</span></span><span class="wpcf7-list-item last"><input type="checkbox" name="floor" value="Other" /><span class="wpcf7-list-item-label">Other</span></span></span></span>
+			</p>
+		</div>
+	</div>
+</div>
+<p><span style="height:10px;"></span>
+</p>
+<div class="qtable">
+	<div class="qrow">
+		<div class="qcell" style="width: 320px;">
+			<p><span class="qRequired">*</span> Will appliances need to be moved up or down stairs?
+			</p>
+		</div>
+		<div class="qcell">
+			<p>&nbsp;<span class="wpcf7-form-control-wrap" data-name="stairs"><span class="wpcf7-form-control wpcf7-checkbox wpcf7-validates-as-required wpcf7-exclusive-checkbox qinline"><span class="wpcf7-list-item first"><input type="checkbox" name="stairs" value="Yes" /><span class="wpcf7-list-item-label">Yes</span></span><span class="wpcf7-list-item last"><input type="checkbox" name="stairs" value="No" /><span class="wpcf7-list-item-label">No</span></span></span></span>
+			</p>
+		</div>
+		<div class="qcell">
+			<div data-id="group-stairs1" data-orig_data_id="group-stairs1"  class="" data-class="wpcf7cf_group">
+				<p>&nbsp; &nbsp;How many steps? &nbsp;<span class="wpcf7-form-control-wrap" data-name="stairs-number"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="stairs-number" /></span><br />
+<span class="qRequired">*</span> Are there turns in the stairs?&nbsp; <span class="wpcf7-form-control-wrap" data-name="stairs-turns"><span class="wpcf7-form-control wpcf7-radio"><span class="wpcf7-list-item first"><input type="radio" name="stairs-turns" value="Yes" /><span class="wpcf7-list-item-label">Yes</span></span><span class="wpcf7-list-item last"><input type="radio" name="stairs-turns" value="No" /><span class="wpcf7-list-item-label">No</span></span></span></span>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div class="qrow">
+		<div class="qcell">
+			<p><span class="qRequired">*</span> Will parking for our installer(s) be readily available?
+			</p>
+		</div>
+		<div class="qcell">
+			<p>&nbsp;<span class="wpcf7-form-control-wrap" data-name="parking"><span class="wpcf7-form-control wpcf7-checkbox wpcf7-validates-as-required wpcf7-exclusive-checkbox qinline"><span class="wpcf7-list-item first"><input type="checkbox" name="parking" value="Yes" /><span class="wpcf7-list-item-label">Yes</span></span><span class="wpcf7-list-item last"><input type="checkbox" name="parking" value="No" /><span class="wpcf7-list-item-label">No</span></span></span></span>
+			</p>
+		</div>
+		<div class="qcell" style="padding-left:8px;">
+			<div data-id="group-parking" data-orig_data_id="group-parking"  class="" data-class="wpcf7cf_group">
+				<p>Parking Notes: <span class="wpcf7-form-control-wrap" data-name="parking-notes"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="parking-notes" /></span>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="qrow">
+	<div class="qcell" style="width: 320px;">
+		<p>Is a gate code required for entry?
+		</p>
+	</div>
+	<div class="qcell">
+		<p>&nbsp;<span class="wpcf7-form-control-wrap" data-name="gate-code"><span class="wpcf7-form-control wpcf7-checkbox wpcf7-exclusive-checkbox qinline"><span class="wpcf7-list-item first"><input type="checkbox" name="gate-code" value="Yes" /><span class="wpcf7-list-item-label">Yes</span></span><span class="wpcf7-list-item last"><input type="checkbox" name="gate-code" value="No" /><span class="wpcf7-list-item-label">No</span></span></span></span>
+		</p>
+	</div>
+	<div class="qcell">
+	</div>
+</div>
+<p><span style="height:40px;"></span>
+</p>
+<div class="qtable" style="width:auto;">
+	<div class="qrow">
+		<div class="qcell">
+			<p><span class="qHeading">ADDITIONAL PROJECT DETAILS</span>
+			</p>
+		</div>
+	</div>
+</div>
+<hr class="hr-big" />
+<div class="qtable" style="width:auto;">
+	<div class="qrow">
+		<div class="qcell" style="width:150px;">
+			<p>Preferred date of install:
+			</p>
+		</div>
+		<div class="qcell" style="padding-left:10px;">
+			<p><span class="wpcf7-form-control-wrap" data-name="request-date"><input size="40" maxlength="400" class="wpcf7-form-control wpcf7-text" aria-invalid="false" value="" type="text" name="request-date" /></span>
+			</p>
+		</div>
+	</div>
+	<div class="qrow">
+		<div class="qcell" style="width:150px;">
+			<p>&nbsp;
+			</p>
+		</div>
+		<div class="qcell" style="padding-left:10px;">
+			<p><span class="qNote" style="font-size:9pt; line-height:2px; padding:0px;">Please note that entering “ASAP” provides no information regarding your actual availability or assists with scheduling your project. Also, if the appliances are to be delivered by others, please request an installation appointment at least one day after the anticipated delivery date.</span>
+			</p>
+		</div>
+	</div>
+</div>
+<div class="qtable" style="width:auto;">
+	<div class="qrow">
+		<div class="qcell" style="width:150px;">
+			<p>Preferred time of install:
+			</p>
+		</div>
+		<div class="qcell" style="">
+			<p><span class="wpcf7-form-control-wrap" data-name="request-time"><span class="wpcf7-form-control wpcf7-checkbox qinline qRadioBlock"><span class="wpcf7-list-item first"><input type="checkbox" name="request-time[]" value="Morning" /><span class="wpcf7-list-item-label">Morning</span></span><span class="wpcf7-list-item"><input type="checkbox" name="request-time[]" value="Mid-Day" /><span class="wpcf7-list-item-label">Mid-Day</span></span><span class="wpcf7-list-item last"><input type="checkbox" name="request-time[]" value="Afternoon" /><span class="wpcf7-list-item-label">Afternoon</span></span></span></span>
+			</p>
+		</div>
+	</div>
+	<div class="qrow">
+		<div class="qcell" style="width:150px;">
+			<p>&nbsp;
+			</p>
+		</div>
+		<div class="qcell" style="padding-left:10px;">
+			<p><span class="qNote" style="font-size:9pt; line-height:2px; padding:0px;">We typically provide 4-hour arrival time windows. Requested dates and times are not guaranteed, but we will do our best to accommodate your preference.</span>
+			</p>
+		</div>
+	</div>
+</div>
+<hr class="qhr" />
+<div class="qtable" style="width:auto;">
+	<div class="qrow">
+		<div class="qcell" style="width:250px;">
+			<p>Additional project details and comments:
+			</p>
+		</div>
+		<div class="qcell" style="padding-left:10px;">
+			<p><span class="wpcf7-form-control-wrap" data-name="additional-details"><textarea cols="40" rows="10" maxlength="2000" class="wpcf7-form-control wpcf7-textarea" aria-invalid="false" name="additional-details"></textarea></span>
+			</p>
+		</div>
+	</div>
+</div>
+<hr class="qhr" />
+<div class="qtable">
+	<div class="qrow">
+		<div class="qcell">
+			<p>Upload any supporting files and site photos here:
+			</p>
+			<p><span class="qNote" style="font-style:normal; font-size:9pt; line-height:2px; padding:0px;">Limit: 5mb / Filetypes: gif | png | jpg | jpeg | pdf </span>
+			</p>
+			<p>Note: To ensure photos are submitted, please the Chrome browser.
+			</p>
+		</div>
+		<div class="qcell">
+			<p><span class="wpcf7-form-control-wrap" data-name="upload-file1"><input size="40" class="wpcf7-form-control wpcf7-file" accept=".gif,.png,.jpg,.jpeg,.pdf" aria-invalid="false" type="file" name="upload-file1" /></span>
+			</p>
+			<p><span class="wpcf7-form-control-wrap" data-name="upload-file2"><input size="40" class="wpcf7-form-control wpcf7-file" accept=".gif,.png,.jpg,.jpeg,.pdf" aria-invalid="false" type="file" name="upload-file2" /></span>
+			</p>
+			<p><span class="wpcf7-form-control-wrap" data-name="upload-file3"><input size="40" class="wpcf7-form-control wpcf7-file" accept=".gif,.png,.jpg,.jpeg,.pdf" aria-invalid="false" type="file" name="upload-file3" /></span>
+			</p>
+			<p><span class="wpcf7-form-control-wrap" data-name="upload-file4"><input size="40" class="wpcf7-form-control wpcf7-file" accept=".gif,.png,.jpg,.jpeg,.pdf" aria-invalid="false" type="file" name="upload-file4" /></span>
+			</p>
+			<p><span class="wpcf7-form-control-wrap" data-name="upload-file5"><input size="40" class="wpcf7-form-control wpcf7-file" accept=".gif,.png,.jpg,.jpeg,.pdf" aria-invalid="false" type="file" name="upload-file5" /></span>
+			</p>
+		</div>
+	</div>
+</div>
+<p><span style="height:25px;"></span>
+</p>
+<div class="qtable" style="width:auto;">
+	<div class="qrow">
+		<div class="qcell">
+			<p><span style="height:25px;"></span>
+			</p>
+			<p style="font-size:12px;color:red;">Please click "Send" only once. Submission may take a few moments. Thank you for your patience.
+			</p>
+			<p><input class="wpcf7-form-control wpcf7-submit has-spinner" type="submit" value="Send" />
+			</p>
+		</div>
+	</div>
+</div><p style="display: none !important;" class="akismet-fields-container" data-prefix="_wpcf7_ak_"><label>&#916;<textarea name="_wpcf7_ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label><input type="hidden" id="ak_js_1" name="_wpcf7_ak_js" value="191"/><script>document.getElementById( "ak_js_1" ).setAttribute( "value", ( new Date() ).getTime() );</script></p><div class="wpcf7-response-output" aria-hidden="true"></div>
+</form>
+</div>
+</div>
+
+
+
+<p><style type="text/css">
+.qtable {<br />
+	display: table;<br />
+	width: 100%;<br />
+	padding: 0px;<br />
+}<br />
+.qrow {<br />
+	display: table-row;<br />
+	padding: 0px;<br />
+	margin: 0px;<br />
+}<br />
+.qcell {<br />
+	border: none;<br />
+	border-width: thin;<br />
+	padding: 0px;<br />
+	font-size:10pt;<br />
+	margin: 0px;<br />
+}</p>
+<p>/* CONTACT FORM */<br />
+#qshort {<br />
+	width: 250px;<br />
+}<br />
+.hr-big {<br />
+	height: 3px;<br />
+	color: #000;<br />
+	background-color: #000;<br />
+	padding: 0;<br />
+	margin-top: 0;<br />
+	margin-bottom: 10px;<br />
+}<br />
+.qHeading {<br />
+	font-family: "Cantata One", "Palatino Linotype", "Book Antiqua", Palatino, serif;<br />
+	text-transform: uppercase;<br />
+	font-size: 14px;<br />
+	font-weight: bold;<br />
+}<br />
+#group-asterisk-nofm {<br />
+display: inline;<br />
+}</p>
+<p>/* FULL PAGE PADDING */<br />
+@media all and (max-width: 470px) {<br />
+    .tg-container {<br />
+	padding-left: 5px;<br />
+	padding-right: 5px;<br />
+	margin-left: 5px;<br />
+	margin-right: 5px;<br />
+}<br />
+</style></p>
+   </div>
+
+   </article>					</div><!-- #content -->
+				</div><!-- #primary -->
+
+							</div>
+		</main>
+	</div>
+
+	
+
+
+
+   
+   <footer id="colophon" class="footer-with-widget footer-layout-two">
+      
+         <div class="footer-logo">
+
+
+            <a href="https://proapplianceinstallation.com/" title="Pro Appliance Installation" rel="home"><img src="https://proapplianceinstallation.com/wp-content/uploads/2016/12/img-logo.png" alt="Pro Appliance Installation"></a>
+         </div>
+      
+      <div id="bottom-footer">
+         <div class="tg-container">
+
+           	<div class="copyright"><span class="copyright-text">©  2025 <a href="https://proapplianceinstallation.com/" title="Pro Appliance Installation" ><span>Pro Appliance Installation</span></a>. All rights reserved. </span>
+<br>
+<div class="qtable" align="center">
+	<div class="qrow">
+		<div class="qcell" style=" width: 48%; text-align:right; padding-right: 10px;">CSLB License # 816686 <br><a href="https://proapplianceinstallation.com/customquote">Request a Custom Quote </a> <i class="fa fa-file-text-o" style="color:#ffffff; font-size:14px;"></i>
+        <hr class="footer-show" />
+		</div>
+        <div class="qcell footer-hide" style="border:0; width: 1px; background-color: #fff; margin:0px;"></div>
+		<div class="qcell footer-wide"  style="border:0; padding-left: 10px;"><i class="fa fa-envelope" style="color:#ffffff; font-size:14px;"></i> <a href="mailto:info@proapplianceinstallation.com"> info@proapplianceinstallation.com</a><br /> <i class="fa fa-phone" style="color:#ffffff; font-size:18px;"></i> <a href="tel:4084265999">(408) 426-5999</a></div>
+    </div>
+</div>
+        </div></div></div>
+
+            <div class="footer-nav">
+               <div id="footer-layout-two" class="menu-footer-text-links-container"><ul id="menu-footer-text-links" class="menu"><li id="menu-item-433" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-433"><a href="https://www.linkedin.com/company/pro-appliance-installation">LinkedIn</a></li>
+<li id="menu-item-427" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-427"><a href="https://www.yelp.com/biz/pro-appliance-installation-campbell?sort_by=date_desc">Yelp</a></li>
+<li id="menu-item-432" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-432"><a href="https://www.facebook.com/proapplianceinstallation/">Facebook</a></li>
+</ul></div>            </div>
+         </div>
+      </div>
+   </footer>
+   <a href="#" class="scrollup"><i class="fa fa-angle-up"> </i> </a>
+
+	</div> <!-- #Page -->
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/himalayas-pro\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script type="text/javascript" src="https://proapplianceinstallation.com/wp-includes/js/dist/hooks.min.js?ver=4d63a3d491d11ffd8ac6" id="wp-hooks-js"></script>
+<script type="text/javascript" src="https://proapplianceinstallation.com/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
+<script type="text/javascript" id="wp-i18n-js-after">
+/* <![CDATA[ */
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://proapplianceinstallation.com/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=6.1.1" id="swv-js"></script>
+<script type="text/javascript" id="contact-form-7-js-before">
+/* <![CDATA[ */
+var wpcf7 = {
+    "api": {
+        "root": "https:\/\/proapplianceinstallation.com\/wp-json\/",
+        "namespace": "contact-form-7\/v1"
+    },
+    "cached": 1
+};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://proapplianceinstallation.com/wp-content/plugins/contact-form-7/includes/js/index.js?ver=6.1.1" id="contact-form-7-js"></script>
+<script type="text/javascript" src="https://proapplianceinstallation.com/wp-content/themes/himalayas-pro/js/magnific-popup/jquery.magnific-popup.min.js?ver=1.0.0" id="himalayas-featured-image-popup-js"></script>
+<script type="text/javascript" id="wpcf7cf-scripts-js-extra">
+/* <![CDATA[ */
+var wpcf7cf_global_settings = {"ajaxurl":"https:\/\/proapplianceinstallation.com\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://proapplianceinstallation.com/wp-content/plugins/cf7-conditional-fields/js/scripts.js?ver=2.6.2" id="wpcf7cf-scripts-js"></script>
+<script type="text/javascript" src="https://www.google.com/recaptcha/api.js?render=6LfPkdIUAAAAAMieTmfQQr0VNo5IFZcQviPIf_9I&amp;ver=3.0" id="google-recaptcha-js"></script>
+<script type="text/javascript" src="https://proapplianceinstallation.com/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" id="wp-polyfill-js"></script>
+<script type="text/javascript" id="wpcf7-recaptcha-js-before">
+/* <![CDATA[ */
+var wpcf7_recaptcha = {
+    "sitekey": "6LfPkdIUAAAAAMieTmfQQr0VNo5IFZcQviPIf_9I",
+    "actions": {
+        "homepage": "homepage",
+        "contactform": "contactform"
+    }
+};
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://proapplianceinstallation.com/wp-content/plugins/contact-form-7/modules/recaptcha/index.js?ver=6.1.1" id="wpcf7-recaptcha-js"></script>
+<script type="text/javascript" id="jetpack-stats-js-before">
+/* <![CDATA[ */
+_stq = window._stq || [];
+_stq.push([ "view", JSON.parse("{\"v\":\"ext\",\"blog\":\"108376676\",\"post\":\"3546\",\"tz\":\"-7\",\"srv\":\"proapplianceinstallation.com\",\"j\":\"1:14.9.1\"}") ]);
+_stq.push([ "clickTrackerInit", "108376676", "3546" ]);
+/* ]]> */
+</script>
+<script type="text/javascript" src="https://stats.wp.com/e-202534.js" id="jetpack-stats-js" defer="defer" data-wp-strategy="defer"></script>
+<script defer type="text/javascript" src="https://proapplianceinstallation.com/wp-content/plugins/akismet/_inc/akismet-frontend.js?ver=1752632324" id="akismet-frontend-js"></script>
+<script type="text/javascript" src="https://proapplianceinstallation.com/wp-content/themes/himalayas-pro/js/himalayas-custom.min.js?ver=6.8.2" id="himalayas-custom-js"></script>
+<!-- Send PDF for CF7 -->
+<script type='text/javascript'>
+
+        //generates random id for reference;
+        let wpcf7_unique_id = (type = 2) => {
+            let dateuid = () => {
+                return Date.now().toString(26)
+                        .toString(16)
+                        .substring(1);
+            }
+            let mathuid = () => {
+                return Math.floor((1 + Math.random()) * 0x10000)
+                    .toString(16)
+                    .substring(1);
+            }
+            //return id if type = 2
+            if( type == 2 ) {
+                return dateuid() + mathuid();
+            } else {
+                return dateuid();
+            }
+            
+        }
+
+        
+    document.addEventListener( 'wpcf7submit', function( event ) {
+        jQuery('input[name="wpcf7cfpdf_hidden_reference"]').val(wpcf7_unique_id(3));
+        
+    }, false );
+    
+</script>
+<!-- END :: Send PDF for CF7 -->
+</body>
+</html>
+<!-- Dynamic page generated in 2.358 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2025-08-20 13:09:58 -->
+
+<!-- super cache -->
