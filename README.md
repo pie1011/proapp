@@ -1,139 +1,141 @@
-# Pro Appliance Installation - React Remake
+# Pro Appliance Installation - React Website
 
-A modern React remake of the Pro Appliance Installation website, built with React, Bootstrap, and contemporary web design principles while maintaining the professional brand identity.
+A modern React remake of the Pro Appliance Installation business website, featuring professional branding, responsive design, and comprehensive appliance installation service information.
 
-## 🚀 Project Overview
+## 🚀 Live Site
+**https://proappliance.netlify.app/**
 
-This project recreates the existing WordPress website [proapplianceinstallation.com](https://www.proapplianceinstallation.com) using modern React technology. The goal is to create a faster, more maintainable, and feature-rich website while preserving the trusted brand identity and professional appearance.
+## 📋 Project Overview
+This project recreates the original WordPress site in React with Bootstrap, maintaining the authentic business branding while providing a modern, responsive user experience. The site serves a family-owned appliance installation business based in Campbell, CA with 30+ years of combined experience.
 
-## ✨ Features
+## ✨ Key Features
 
-- **Modern React Architecture** - Built with Create React App and React Router
-- **Responsive Design** - Mobile-first Bootstrap implementation
-- **Professional Branding** - Maintains original teal/blue color scheme and clean aesthetic
-- **Fast Performance** - Optimized for speed and user experience
-- **Custom Quote System** - Enhanced form with file upload capabilities
-- **SEO Friendly** - Individual pages with proper routing
+### 🎨 Professional Branding
+- **Custom Business Logo** with professional shadow effects
+- **Brand Color System** using CSS variables (#28b5d0 primary blue)
+- **Responsive Navigation** with scroll-activated styling
+- **Authentic Business Imagery** throughout the site
+
+### 🖼️ Dynamic Content
+- **Hero Image Carousel** - Auto-rotating business photos with smooth fade transitions
+- **Service Showcase Carousel** - Educational content about 5 appliance categories
+- **Custom Feature Graphics** - Professional check list replacing generic icons
+- **Partner Brand Display** - Showcase of installation partnerships
+
+### 📱 Modern User Experience
+- **Fully Responsive Design** - Optimized for all screen sizes
+- **Smooth Animations** - Professional transitions and hover effects
+- **Fast Loading** - Optimized React build with efficient asset management
+- **Accessibility** - Semantic HTML and proper contrast ratios
 
 ## 🛠️ Tech Stack
-
-- **Frontend**: React 18
-- **Styling**: Bootstrap 5 + React Bootstrap
+- **Frontend**: React 18+ with Create React App
+- **Styling**: Bootstrap 5 + React Bootstrap + Custom CSS
 - **Routing**: React Router DOM
 - **Icons**: Font Awesome
-- **Build Tool**: Create React App
-- **Node.js**: v24.5.0
-
-## 📦 Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/[your-username]/pro-appliance-react.git
-   cd pro-appliance-react
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Start development server**
-   ```bash
-   npm start
-   ```
-
-4. **Open in browser**
-   ```
-   http://localhost:3000
-   ```
+- **Deployment**: Netlify with automatic GitHub integration
+- **Forms**: Netlify form handling (ready for quote form)
 
 ## 🏗️ Project Structure
-
 ```
 src/
-├── components/          # Reusable components
-│   └── Header/         # Main navigation
-│       ├── Header.js
-│       └── Header.css
-├── pages/              # Individual page components
-│   ├── Home.js         # Homepage with hero section
-│   ├── Home.css
-│   ├── About.js        # Company information
-│   ├── ServiceAreas.js # Geographic coverage
-│   ├── Partnerships.js # Partner information
-│   └── CustomQuote.js  # Quote request form
-├── App.js              # Main app with routing
-└── index.js
+├── components/
+│   └── Header/          # Navigation with scroll effects
+├── pages/
+│   ├── Home.js         # Complete homepage with carousels
+│   └── Home.css        # Homepage styling
+├── assets/
+│   └── images/         # Business logos, hero images, brands
+├── styles/
+│   └── variables.css   # CSS custom properties
+└── App.js              # Routing setup
 ```
 
-## 🎨 Design Philosophy
+## 🎯 Business Services Featured
+- **Microwaves** - Over-range, built-in, drawer installations
+- **Range Hoods** - Under cabinet, downdraft, chimney styles
+- **Cooktops** - Gas and electric, island and counter configurations
+- **Ranges & Wall Ovens** - All brands, gas and electric units
+- **Dishwashers** - Most commonly installed appliance
 
-- **Professional & Trustworthy** - Clean lines and professional imagery
-- **Modern User Experience** - Smooth interactions and responsive design
-- **Brand Consistency** - Maintains original color scheme and messaging
-- **Mobile-First** - Optimized for all device sizes
-- **Accessibility** - Following web accessibility best practices
-
-## 🚧 Development Status
-
-### ✅ Completed
-- ✅ Project setup and configuration
-- ✅ Header component with responsive navigation
-- ✅ Homepage with hero section
-- ✅ Features section with brand messaging
-- ✅ Professional styling and branding
-- ✅ Font Awesome integration
-
-### 🔄 In Progress
-- 🔄 Sticky navigation effect
-- 🔄 Additional page components
-- 🔄 Custom quote form with file upload
-- 🔄 Footer component
-
-### 📋 Planned
-- 📋 Form validation and submission
-- 📋 Page transitions and animations
-- 📋 SEO optimization
-- 📋 Performance optimization
-- 📋 Custom wrench logo integration
-
-## 🎯 Key Pages
-
-- **Homepage** (`/`) - Hero section, features, and company overview
-- **About Us** (`/about`) - Company history and team information
-- **Service Areas** (`/service-areas`) - Geographic coverage in South Bay
-- **Partnerships** (`/partnerships`) - Business partner information
-- **Custom Quote** (`/quote`) - Detailed quote request form with file upload
-
-## 🔧 Services Covered
-
-- **Range Hoods** - Under cabinet, downdraft, chimney installations
-- **Microwaves** - Over-range, built-in, drawer style installations
-- **Cooktops & Ranges** - Gas and electric installations
-- **Dishwashers** - Built-in and portable installations
-- **Refrigerators** - All sizes and configurations
-- **Washers & Dryers** - Laundry appliance installations
-
-## 📍 Service Areas
-
-Primary service area covers the San Francisco South Bay including:
+## 🌍 Service Areas
 Campbell, Cupertino, Gilroy, Los Altos, Los Altos Hills, Los Gatos, Milpitas, Monte Sereno, Morgan Hill, Mountain View, Palo Alto, San Jose, Santa Clara, Saratoga
 
-## 🤝 Contributing
+## 📞 Key Business Messages
+- "Quality Service. Expert Installers."
+- "Serving the South Bay and Beyond"
+- Licensed, insured, background-checked installers
+- Family owned and operated
+- 30+ years combined experience
 
-This is a private business website project. For questions or suggestions, please contact the development team.
+## 🚀 Deployment
+The site is automatically deployed to Netlify from the main branch:
+- **Production URL**: https://proappliance.netlify.app/
+- **Build Command**: `npm run build`
+- **Publish Directory**: `build`
+- **Branch**: `main`
+
+## 💻 Development
+
+### Prerequisites
+- Node.js 16+ 
+- npm or yarn
+
+### Installation
+```bash
+# Clone the repository
+git clone [repository-url]
+
+# Install dependencies
+npm install
+
+# Start development server
+npm start
+
+# Build for production
+npm run build
+```
+
+### Available Scripts
+- `npm start` - Development server (http://localhost:3000)
+- `npm run build` - Production build
+- `npm test` - Run tests
+- `npm run eject` - Eject from Create React App
+
+## 📋 Current Status
+✅ **Homepage Complete** - Professional layout with all business content  
+✅ **Responsive Design** - Works perfectly on all devices  
+✅ **Real Business Assets** - Logo, images, and content integrated  
+✅ **Production Deployed** - Live on Netlify with SSL  
+✅ **Carousel Features** - Hero and service content rotation  
+
+## 🔄 Upcoming Features
+- **Custom Quote Form** - Comprehensive lead generation with file uploads
+- **About Us Page** - Company story and team information
+- **Service Areas Page** - Detailed geographic coverage
+- **Footer Component** - Contact details and business information
+- **Form Validation** - Enhanced user experience for quote requests
+
+## 🎨 Design System
+The site uses a consistent design system based on:
+- **Primary Blue**: #28b5d0 (CSS variable: --primary-blue)
+- **Typography**: Clean, professional fonts with proper hierarchy
+- **Spacing**: Consistent padding and margins using Bootstrap utilities
+- **Shadows**: Subtle drop shadows for depth and professionalism
+- **Transitions**: Smooth animations using CSS variables for timing
+
+## 📱 Responsive Breakpoints
+- **Desktop**: 1200px+ (lg)
+- **Tablet**: 768px-1199px (md)
+- **Mobile**: <768px (sm)
+
+All components are fully responsive with appropriate scaling and layout adjustments.
+
+## 🤝 Contributing
+This is a business website project. For development questions or suggestions, please reach out to the project maintainer.
 
 ## 📄 License
-
-Private project - All rights reserved by Pro Appliance Installation.
-
-## 📞 Contact
-
-- **Website**: [proapplianceinstallation.com](https://www.proapplianceinstallation.com)
-- **Business**: Pro Appliance Installation
-- **Location**: Campbell, CA
-- **Service**: Professional appliance installation in the South Bay area
+Private business project - All rights reserved.
 
 ---
-
-*Built with ❤️ using React and modern web technologies*
+*Built with ❤️ for Pro Appliance Installation - Quality Service, Expert Installers*
