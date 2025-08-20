@@ -256,6 +256,38 @@ const CustomQuote = () => {
     };
 
 
+    // // Handle form submission
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     setIsSubmitting(true);
+    //     setSubmitStatus(null);
+
+    //     try {
+    //         // Here's where you'll integrate with Netlify Forms
+    //         // For now, we'll simulate the submission
+
+    //         console.log('Form data to submit:', formData);
+
+    //         // Simulate API call
+    //         await new Promise(resolve => setTimeout(resolve, 2000));
+
+    //         // Success!
+    //         setSubmitStatus('success');
+    //         setIsSubmitting(false);
+
+    //         // Scroll to success message at bottom
+    //         const submitSection = document.querySelector('.submit-section');
+    //         if (submitSection) {
+    //             submitSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    //         }
+
+    //     } catch (error) {
+    //         console.error('Submission error:', error);
+    //         setSubmitStatus('error');
+    //         setIsSubmitting(false);
+    //     }
+    // };
+
     // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -263,13 +295,67 @@ const CustomQuote = () => {
         setSubmitStatus(null);
 
         try {
-            // Here's where you'll integrate with Netlify Forms
-            // For now, we'll simulate the submission
+            // Encode form data for Netlify
+            const encode = (data) => {
+                return Object.keys(data)
+                    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+                    .join("&");
+            };
 
-            console.log('Form data to submit:', formData);
+            // Prepare form data - flatten the nested objects
+            const submitData = {
+                "form-name": "custom-quote-form",
+                // Client info
+                name: formData.name,
+                email: formData.email,
+                phone: formData.phone,
+                phone2: formData.phone2,
+                phone2Type: formData.phone2Type,
+                clientType: formData.clientType,
+                otherCustomer: formData.otherCustomer,
+                companyName: formData.companyName,
+                companyAddress: formData.companyAddress,
+                companyPhone: formData.companyPhone,
+                // Assessment
+                purchased: formData.purchased,
+                fieldMeasure: formData.fieldMeasure,
+                // Services
+                delivery: formData.delivery,
+                pickupLocation: formData.pickupLocation,
+                pickupDate: formData.pickupDate,
+                uninstall: formData.uninstall,
+                haulAway: formData.haulAway,
+                // Address
+                street: formData.street,
+                unit: formData.unit,
+                city: formData.city,
+                zip: formData.zip,
+                // Site details
+                homeType: formData.homeType,
+                floor: formData.floor,
+                stairs: formData.stairs,
+                stairsNumber: formData.stairsNumber,
+                stairsTurns: formData.stairsTurns,
+                parking: formData.parking,
+                parkingNotes: formData.parkingNotes,
+                gateCode: formData.gateCode,
+                // Project details
+                preferredDate: formData.preferredDate,
+                preferredTime: formData.preferredTime.join(', '),
+                additionalDetails: formData.additionalDetails,
+                // Appliances (convert to readable format)
+                selectedAppliances: Object.keys(formData.appliances)
+                    .filter(key => formData.appliances[key])
+                    .join(', '),
+                // You'll need to add appliance details in a readable format too
+            };
 
-            // Simulate API call
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            // Submit to Netlify
+            await fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: encode(submitData)
+            });
 
             // Success!
             setSubmitStatus('success');
@@ -336,7 +422,7 @@ const CustomQuote = () => {
 
                             <div className="quote-form-container">
                                 <form className="quote-form" onSubmit={handleSubmit} netlify data-netlify="true" encType="multipart/form-data">
-                                        <input type="hidden" name="form-name" value="custom-quote-form" />
+                                    <input type="hidden" name="form-name" value="custom-quote-form" />
 
                                     {/* Client Information Section */}
                                     <div className="form-section">
