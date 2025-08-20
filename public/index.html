@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon-192x192.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon-192x192.png" />
-    <!--
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon-192x192.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon-192x192.png" />
+  <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -24,12 +22,63 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Pro Appliance Installation</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
+  <title>Pro Appliance Installation</title>
+</head>
+
+<body>
+  <!-- Hidden form for Netlify bots to detect -->
+  <form name="custom-quote-form" netlify netlify-honeypot="bot-field" hidden>
+    <!-- Client Information -->
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <input type="tel" name="phone2" />
+    <input type="text" name="phone2Type" />
+    <input type="text" name="clientType" />
+    <input type="text" name="otherCustomer" />
+    <input type="text" name="companyName" />
+    <input type="text" name="companyAddress" />
+    <input type="tel" name="companyPhone" />
+
+    <!-- Assessment -->
+    <input type="text" name="purchased" />
+    <input type="text" name="fieldMeasure" />
+
+    <!-- Services -->
+    <input type="text" name="delivery" />
+    <input type="text" name="pickupLocation" />
+    <input type="text" name="pickupDate" />
+    <input type="text" name="uninstall" />
+    <input type="text" name="haulAway" />
+
+    <!-- Address -->
+    <input type="text" name="street" />
+    <input type="text" name="unit" />
+    <input type="text" name="city" />
+    <input type="text" name="zip" />
+
+    <!-- Site Details -->
+    <input type="text" name="homeType" />
+    <input type="text" name="floor" />
+    <input type="text" name="stairs" />
+    <input type="text" name="stairsNumber" />
+    <input type="text" name="stairsTurns" />
+    <input type="text" name="parking" />
+    <input type="text" name="parkingNotes" />
+    <input type="text" name="gateCode" />
+
+    <!-- Project Details -->
+    <input type="text" name="preferredDate" />
+    <input type="text" name="preferredTime" />
+    <textarea name="additionalDetails"></textarea>
+
+    <!-- Appliances Summary -->
+    <input type="text" name="selectedAppliances" />
+    <textarea name="applianceDetails"></textarea>
+  </form>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+  <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -39,5 +88,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-  </body>
+</body>
+
 </html>
