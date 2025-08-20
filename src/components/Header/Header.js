@@ -12,31 +12,28 @@ const Header = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    
+
     // Cleanup event listener on component unmount
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <header>
-      <Navbar 
-        bg="white" 
-        expand="lg" 
+      <Navbar
+        bg="white"
+        expand="lg"
         className={`navbar-custom ${isScrolled ? 'navbar-scrolled' : ''}`}
         fixed="top"
       >
         <Container>
           <Navbar.Brand href="/" className="brand-container">
-            <div className="logo-placeholder">
-              <i className="fas fa-wrench text-primary me-2"></i>
-              <span className="brand-text">
-                <span className="brand-pro">PRO</span>
-                <span className="brand-appliance">Appliance</span>
-                <span className="brand-installation">Installation</span>
-              </span>
-            </div>
+            <img
+              src="/images/img-logo.png"
+              alt="Pro Appliance Installation"
+              className="navbar-logo"
+            />
           </Navbar.Brand>
-          
+
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
