@@ -275,8 +275,11 @@ const CustomQuote = () => {
             setSubmitStatus('success');
             setIsSubmitting(false);
 
-            // Scroll to top to show success message
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Scroll to success message at bottom
+            const submitSection = document.querySelector('.submit-section');
+            if (submitSection) {
+                submitSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
 
         } catch (error) {
             console.error('Submission error:', error);
@@ -332,7 +335,8 @@ const CustomQuote = () => {
                             </div>
 
                             <div className="quote-form-container">
-                                <form className="quote-form" onSubmit={handleSubmit} netlify encType="multipart/form-data">
+                                <form className="quote-form" onSubmit={handleSubmit} netlify data-netlify="true" encType="multipart/form-data">
+                                        <input type="hidden" name="form-name" value="custom-quote-form" />
 
                                     {/* Client Information Section */}
                                     <div className="form-section">
