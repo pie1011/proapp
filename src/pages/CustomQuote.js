@@ -74,6 +74,85 @@ const CustomQuote = () => {
     const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
 
 
+
+    // TEST DATA POPULATION (TEMPORARY - REMOVE BEFORE PRODUCTION)
+    const populateTestData = () => {
+        const testData = {
+            // Client Information
+            name: 'John Smith',
+            email: 'john.smith@email.com',
+            phone: '(408) 555-1234',
+            phone2: '(408) 555-5678',
+            phone2Type: 'Home',
+            clientType: 'Homeowner',
+
+            // Pre-Install Assessment
+            purchased: 'Yes',
+            fieldMeasure: 'Yes',
+
+            // Appliances - select a few key ones
+            appliances: {
+                ...formData.appliances,
+                range: true,
+                dishwasher: true,
+                microwave: true
+            },
+
+            // Appliance Details for selected appliances
+            applianceDetails: {
+                ...formData.applianceDetails,
+                range: {
+                    brand: 'KitchenAid KFGG500ESS',
+                    model: 'KFGG500ESS',
+                    notes: 'Gas range, 30-inch',
+                    specifics: ['Liquid Propane Conversion']
+                },
+                dishwasher: {
+                    brand: 'Bosch 800 Series',
+                    model: 'SHPM88Z75N',
+                    notes: 'Panel-ready dishwasher',
+                    specifics: ['Dishwasher Panel']
+                },
+                microwave: {
+                    brand: 'GE Profile',
+                    model: 'PVM9179SKSS',
+                    notes: 'Over-the-range microwave',
+                    specifics: ['Over-the-Range Microwave']
+                }
+            },
+
+            // Services
+            delivery: 'Yes',
+            pickupLocation: 'Home Depot - Campbell',
+            pickupDate: 'March 20th',
+            uninstall: 'Yes',
+            haulAway: 'Yes',
+
+            // Address
+            street: '123 Main Street',
+            unit: 'Apt 2B',
+            city: 'San Jose',
+            zip: '95125',
+
+            // Site Details
+            homeType: 'Single-Family Home',
+            floor: '1st',
+            stairs: 'No',
+            parking: 'Yes',
+            gateCode: 'No',
+
+            // Project Details
+            preferredDate: 'March 25th',
+            preferredTime: ['Morning', 'Mid-Day'],
+            additionalDetails: 'Kitchen remodel project. Please call before arriving. Dog on premises - friendly but energetic.'
+        };
+
+        setFormData(testData);
+    };
+    // END TEST DATA POPULATION
+
+
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData(prev => ({
@@ -230,6 +309,26 @@ const CustomQuote = () => {
                                     Fill out the form below and a representative will contact you via email or phone with your custom quote.
                                     The details submitted will only be used to provide you pricing and information about your appliance installation project.
                                 </p>
+
+                                {/* TEMPORARY TEST BUTTON - REMOVE BEFORE PRODUCTION */}
+                                <div className="mt-3 mb-3">
+                                    <button
+                                        type="button"
+                                        className="btn btn-warning btn-sm"
+                                        onClick={populateTestData}
+                                        style={{
+                                            backgroundColor: '#ff6b35',
+                                            borderColor: '#ff6b35',
+                                            color: 'white',
+                                            fontWeight: 'bold'
+                                        }}
+                                    >
+                                        🧪 FILL TEST DATA (DEV ONLY)
+                                    </button>
+                                    <div className="small text-muted mt-1">
+                                        Click to populate form with sample data for testing
+                                    </div>
+                                </div>
                             </div>
 
                             <div className="quote-form-container">
