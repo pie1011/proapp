@@ -211,3 +211,16 @@ body {
     height: 30px;
   }
 }
+
+/* color changes for logo */
+.change-logo {
+  height: 60px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  transition: all 0.3s ease;
+}
+
+.change-logo:hover {
+  transform: scale(1.05);
+  filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
