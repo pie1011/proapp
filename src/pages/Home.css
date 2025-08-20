@@ -194,7 +194,7 @@
 /* Appliance Showcase Section */
 .appliance-showcase {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-              url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+              url('../assets/images/hero2.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -360,9 +360,6 @@
   }
 }
 
-
-
-
 .features-image {
   max-width: 100%;
   height: auto;
@@ -374,3 +371,13 @@
 }
 
 
+/* Appliance Carousel Section */
+.appliance-carousel {
+  position: relative;
+  min-height: 6rem;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+.appliance-carousel .carousel-indicators {
+  bottom: -4rem;
+}

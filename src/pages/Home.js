@@ -146,30 +146,74 @@ function Home() {
       </section>
 
       {/* Appliance Showcase Section */}
-      <section className="appliance-showcase py-5">
+      {/* Appliance Showcase Carousel */}
+      <section className="appliance-showcase">
         <Container>
-          <Row className="justify-content-center text-center">
-            <Col lg={8}>
-              <div className="appliance-item">
-                <div className="appliance-icon mb-4">
-                  <i className="fas fa-sink fa-4x text-white"></i>
-                </div>
-                <h3 className="appliance-title text-white mb-4">Dishwashers</h3>
-                <p className="appliance-description text-white">
-                  Dishwashers bring speedy cleanliness to a kitchen relieving stress and hours of tedious work from the homeowner.
-                  Pro Appliance Installation can help you install a top of the line dishwasher which will become the kitchen helpmate of your dreams!
-                  Dishwashers are one of our most commonly installed appliances.
+          <Carousel
+            interval={6000}
+            controls={true}
+            indicators={true}
+            className="appliance-carousel"
+          >
+            <Carousel.Item>
+              <div className="appliance-content text-center text-white">
+                <h2 className="appliance-title">Microwaves</h2>
+                <p className="appliance-description">
+                  For fast, easy cooking, microwaves have become a valuable appliance in homes today.
+                  To save counter space, they can be installed over ranges and provide ventilation, or built into cabinets.
+                  There are even easily accessible microwave drawers. For the sleek look of your built-in microwave,
+                  we can help you order a standard or custom trim kit with one of our trusted trim kit company partners.
                 </p>
-                <div className="carousel-dots mt-4">
-                  <span className="dot"></span>
-                  <span className="dot"></span>
-                  <span className="dot"></span>
-                  <span className="dot"></span>
-                  <span className="dot active"></span>
-                </div>
               </div>
-            </Col>
-          </Row>
+            </Carousel.Item>
+
+            <Carousel.Item>
+              <div className="appliance-content text-center text-white">
+                <h2 className="appliance-title">Hoods</h2>
+                <p className="appliance-description">
+                  Installing a range hood for your stove or cooktop helps the ventilation process by sucking up smoke,
+                  grease, steam, and other odors. Proper ventilation is key to a healthy home and an essential part of
+                  the cooking process. Whether you need an under cabinet range hood, downdraft hood, or chimney hood,
+                  Pro Appliance Installation can install your unit expertly and quickly!
+                </p>
+              </div>
+            </Carousel.Item>
+
+            <Carousel.Item>
+              <div className="appliance-content text-center text-white">
+                <h2 className="appliance-title">Cooktops</h2>
+                <p className="appliance-description">
+                  There are a variety of gas and electric cooktops available today. Having a cooktop can save space
+                  and allow for more adaptability in kitchen configuration. From simmer burners to power burners,
+                  island cooktops to counter cooktops, and downdraft cooktops to cooktops with range hoods,
+                  we can handle any job.
+                </p>
+              </div>
+            </Carousel.Item>
+
+            <Carousel.Item>
+              <div className="appliance-content text-center text-white">
+                <h2 className="appliance-title">Ranges & Wall Ovens</h2>
+                <p className="appliance-description">
+                  With many sizes and styles of modern gas and electric range ovens on the market today,
+                  finding a unit to fit your kitchen space is no problem. Pro Appliance Installation is comfortable
+                  installing any brand, make, or model of stove or oven. We can help you move your old stove or oven unit out,
+                  making space for your new gas or electric unit.
+                </p>
+              </div>
+            </Carousel.Item>
+
+            <Carousel.Item>
+              <div className="appliance-content text-center text-white">
+                <h2 className="appliance-title">Dishwashers</h2>
+                <p className="appliance-description">
+                  Dishwashers bring speedy cleanliness to a kitchen relieving stress and hours of tedious work from the homeowner.
+                  Pro Appliance Installation can help you install a top of the line dishwasher which will become the kitchen
+                  helpmate of your dreams! Dishwashers are one of our most commonly installed appliances.
+                </p>
+              </div>
+            </Carousel.Item>
+          </Carousel>
         </Container>
       </section>
 
