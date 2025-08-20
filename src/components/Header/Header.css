@@ -170,3 +170,44 @@ body {
     text-align: center;
   }
 }
+
+/* Logo Styling */
+.navbar-logo {
+  height: 50px;
+  width: auto;
+  filter: drop-shadow(2px 2px 0px var(--dark-gray))
+          drop-shadow(4px 4px 2px rgba(44, 62, 80, 0.5))
+          drop-shadow(2px 2px 12px var(--dark-gray));
+  transition: all var(--transition-fast);
+}
+
+/* Logo shrinks when scrolled */
+.navbar-scrolled .navbar-logo {
+  height: 40px;
+  padding-bottom: 3px;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive logo sizing */
+@media (max-width: 991px) {
+  .navbar-logo {
+    height: 40px;
+  }
+  
+  .navbar-scrolled .navbar-logo {
+    height: 35px;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-logo {
+    height: 35px;
+  }
+  
+  .navbar-scrolled .navbar-logo {
+    height: 30px;
+  }
+}

@@ -1,27 +1,67 @@
+// Update your Home.js hero section
 import React from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button, Carousel } from 'react-bootstrap';
 import './Home.css';
 
-const Home = () => {
+// Import your hero images
+import hero1 from '../assets/images/hero1.jpg';
+import hero2 from '../assets/images/hero2.jpg';
+
+function Home() {
   return (
     <div className="home-page">
-      {/* Hero Section */}
-      <section className="hero-section">
-        <div className="hero-overlay">
-          <Container>
-            <Row className="justify-content-center text-center">
-              <Col lg={8}>
-                <div className="hero-content">
-                  <h1 className="hero-title">WELCOME</h1>
-                  <div className="hero-divider"></div>
-                  <p className="hero-subtitle">Quality Service. Expert Installers.</p>
-                  <p className="hero-tagline">Serving the South Bay and Beyond.</p>
-                </div>
-              </Col>
-            </Row>
-          </Container>
-        </div>
-      </section>
+      {/* Hero Carousel Section */}
+      <Carousel 
+        fade 
+        interval={5000} 
+        controls={false} 
+        indicators={true}
+        className="hero-carousel"
+      >
+        <Carousel.Item>
+          <div 
+            className="hero-slide"
+            style={{ backgroundImage: `url('${hero1}')` }}
+          >
+            <div className="hero-overlay">
+              <Container>
+                <Row className="justify-content-center text-center">
+                  <Col lg={8}>
+                    <div className="hero-content">
+                      <h1 className="hero-title">WELCOME</h1>
+                      <div className="hero-divider"></div>
+                      <p className="hero-subtitle">Quality Service. Expert Installers.</p>
+                      <p className="hero-tagline">Serving the South Bay and Beyond.</p>
+                    </div>
+                  </Col>
+                </Row>
+              </Container>
+            </div>
+          </div>
+        </Carousel.Item>
+        
+        <Carousel.Item>
+          <div 
+            className="hero-slide"
+            style={{ backgroundImage: `url('${hero2}')` }}
+          >
+            <div className="hero-overlay">
+              <Container>
+                <Row className="justify-content-center text-center">
+                  <Col lg={8}>
+                    <div className="hero-content">
+                      <h1 className="hero-title">WELCOME</h1>
+                      <div className="hero-divider"></div>
+                      <p className="hero-subtitle">Quality Service. Expert Installers.</p>
+                      <p className="hero-tagline">Serving the South Bay and Beyond.</p>
+                    </div>
+                  </Col>
+                </Row>
+              </Container>
+            </div>
+          </div>
+        </Carousel.Item>
+      </Carousel>
 
       {/* Main Content Section */}
       <section className="main-content py-5">
