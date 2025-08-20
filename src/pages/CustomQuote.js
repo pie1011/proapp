@@ -457,11 +457,12 @@ const CustomQuote = () => {
                                                     <div className="form-check">
                                                         <input
                                                             type="checkbox"
+                                                            id="appliance-range"
                                                             className="form-check-input"
                                                             checked={formData.appliances.range}
                                                             onChange={() => handleApplianceChange('range')}
                                                         />
-                                                        <label className="form-check-label appliance-label">Range</label>
+                                                        <label htmlFor="appliance-range" className="form-check-label appliance-label clickable-label">Range</label>
                                                     </div>
 
                                                     {formData.appliances.range && (
@@ -523,11 +524,12 @@ const CustomQuote = () => {
                                                     <div className="form-check">
                                                         <input
                                                             type="checkbox"
+                                                            id="appliance-hood"
                                                             className="form-check-input"
                                                             checked={formData.appliances.hood}
                                                             onChange={() => handleApplianceChange('hood')}
                                                         />
-                                                        <label className="form-check-label appliance-label">Hood</label>
+                                                        <label htmlFor="appliance-hood" className="form-check-label appliance-label clickable-label">Hood</label>
                                                     </div>
 
                                                     {formData.appliances.hood && (
@@ -589,11 +591,12 @@ const CustomQuote = () => {
                                                     <div className="form-check">
                                                         <input
                                                             type="checkbox"
+                                                            id="appliance-cooktop"
                                                             className="form-check-input"
                                                             checked={formData.appliances.cooktop}
                                                             onChange={() => handleApplianceChange('cooktop')}
                                                         />
-                                                        <label className="form-check-label appliance-label">Cooktop</label>
+                                                        <label htmlFor="appliance-cooktop" className="form-check-label appliance-label clickable-label">Cooktop</label>
                                                     </div>
 
                                                     {formData.appliances.cooktop && (
@@ -655,11 +658,12 @@ const CustomQuote = () => {
                                                     <div className="form-check">
                                                         <input
                                                             type="checkbox"
+                                                            id="appliance-microwave"
                                                             className="form-check-input"
                                                             checked={formData.appliances.microwave}
                                                             onChange={() => handleApplianceChange('microwave')}
                                                         />
-                                                        <label className="form-check-label appliance-label">Microwave</label>
+                                                        <label htmlFor="appliance-microwave" className="form-check-label appliance-label clickable-label">Microwave</label>
                                                     </div>
 
                                                     {formData.appliances.microwave && (
@@ -721,11 +725,12 @@ const CustomQuote = () => {
                                                     <div className="form-check">
                                                         <input
                                                             type="checkbox"
+                                                            id="appliance-oven"
                                                             className="form-check-input"
                                                             checked={formData.appliances.oven}
                                                             onChange={() => handleApplianceChange('oven')}
                                                         />
-                                                        <label className="form-check-label appliance-label">Wall Oven</label>
+                                                        <label htmlFor="appliance-oven" className="form-check-label appliance-label clickable-label">Wall Oven</label>
                                                     </div>
 
                                                     {formData.appliances.oven && (
@@ -787,11 +792,12 @@ const CustomQuote = () => {
                                                     <div className="form-check">
                                                         <input
                                                             type="checkbox"
+                                                            id="appliance-dishwasher"
                                                             className="form-check-input"
                                                             checked={formData.appliances.dishwasher}
                                                             onChange={() => handleApplianceChange('dishwasher')}
                                                         />
-                                                        <label className="form-check-label appliance-label">Dishwasher</label>
+                                                        <label htmlFor="appliance-dishwasher" className="form-check-label appliance-label clickable-label">Dishwasher</label>
                                                     </div>
 
                                                     {formData.appliances.dishwasher && (
@@ -853,11 +859,12 @@ const CustomQuote = () => {
                                                     <div className="form-check">
                                                         <input
                                                             type="checkbox"
+                                                            id="appliance-refrigerator"
                                                             className="form-check-input"
                                                             checked={formData.appliances.refrigerator}
                                                             onChange={() => handleApplianceChange('refrigerator')}
                                                         />
-                                                        <label className="form-check-label appliance-label">Refrigerator/Freezer</label>
+                                                        <label htmlFor="appliance-refrigerator" className="form-check-label appliance-label clickable-label">Refrigerator/Freezer</label>
                                                     </div>
 
                                                     {formData.appliances.refrigerator && (
@@ -919,11 +926,12 @@ const CustomQuote = () => {
                                                     <div className="form-check">
                                                         <input
                                                             type="checkbox"
+                                                            id="appliance-wine"
                                                             className="form-check-input"
                                                             checked={formData.appliances.wine}
                                                             onChange={() => handleApplianceChange('wine')}
                                                         />
-                                                        <label className="form-check-label appliance-label">Wine Cooler</label>
+                                                        <label htmlFor="appliance-wine" className="form-check-label appliance-label clickable-label">Wine Cooler</label>
                                                     </div>
 
                                                     {formData.appliances.wine && (
@@ -986,11 +994,12 @@ const CustomQuote = () => {
                                                     <div className="form-check">
                                                         <input
                                                             type="checkbox"
+                                                            id="appliance-ice"
                                                             className="form-check-input"
                                                             checked={formData.appliances.ice}
                                                             onChange={() => handleApplianceChange('ice')}
                                                         />
-                                                        <label className="form-check-label appliance-label">Under-Counter Ice Maker</label>
+                                                        <label htmlFor="appliance-ice" className="form-check-label appliance-label clickable-label">Under-Counter Ice Maker</label>
                                                     </div>
                                                 </div>
 
@@ -1036,11 +1045,12 @@ const CustomQuote = () => {
                                                     <div className="form-check">
                                                         <input
                                                             type="checkbox"
+                                                            id="appliance-disposal"
                                                             className="form-check-input"
                                                             checked={formData.appliances.disposal}
                                                             onChange={() => handleApplianceChange('disposal')}
                                                         />
-                                                        <label className="form-check-label appliance-label">Garbage Disposal</label>
+                                                        <label htmlFor="appliance-disposal" className="form-check-label appliance-label clickable-label">Garbage Disposal</label>
                                                     </div>
 
                                                     {formData.appliances.disposal && (
@@ -1102,11 +1112,12 @@ const CustomQuote = () => {
                                                     <div className="form-check">
                                                         <input
                                                             type="checkbox"
+                                                            id="appliance-trash"
                                                             className="form-check-input"
                                                             checked={formData.appliances.trash}
                                                             onChange={() => handleApplianceChange('trash')}
                                                         />
-                                                        <label className="form-check-label appliance-label">Trash Compactor</label>
+                                                        <label htmlFor="appliance-trash" className="form-check-label appliance-label clickable-label">Trash Compactor</label>
                                                     </div>
                                                 </div>
 
@@ -1152,11 +1163,12 @@ const CustomQuote = () => {
                                                     <div className="form-check">
                                                         <input
                                                             type="checkbox"
+                                                            id="appliance-washer"
                                                             className="form-check-input"
                                                             checked={formData.appliances.washer}
                                                             onChange={() => handleApplianceChange('washer')}
                                                         />
-                                                        <label className="form-check-label appliance-label">Washer/Dryer</label>
+                                                        <label htmlFor="appliance-washer" className="form-check-label appliance-label clickable-label">Washer/Dryer</label>
                                                     </div>
 
                                                     {formData.appliances.washer && (

@@ -454,6 +454,32 @@
   font-weight: 600;
 }
 
+/* Clickable Appliance Labels */
+.quote-page .clickable-label {
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.quote-page .clickable-label:hover {
+  background-color: rgba(40, 181, 208, 0.1);
+  color: var(--primary-blue);
+  transform: translateY(-1px);
+}
+
+.quote-page .form-check-input:checked + .clickable-label {
+  background-color: rgba(40, 181, 208, 0.15);
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+.quote-page .appliance-checkbox .form-check {
+  margin-bottom: 0.5rem;
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .quote-page .appliance-row {
