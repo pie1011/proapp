@@ -1,11 +1,10 @@
-/* Replace your existing .hero-section CSS with this */
-
-.hero-carousel {
+/* Scope ALL Home page styles under .home-page */
+.home-page .hero-carousel {
   height: 70vh;
   overflow: hidden;
 }
 
-.hero-slide {
+.home-page .hero-slide {
   height: 70vh;
   background-size: cover;
   background-position: center;
@@ -16,7 +15,7 @@
   position: relative;
 }
 
-.hero-overlay {
+.home-page .hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -29,12 +28,11 @@
   z-index: 2;
 }
 
-/* Customize carousel indicators */
-.hero-carousel .carousel-indicators {
+.home-page .hero-carousel .carousel-indicators {
   bottom: 30px;
 }
 
-.hero-carousel .carousel-indicators button {
+.home-page .hero-carousel .carousel-indicators button {
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -44,18 +42,17 @@
   transition: all var(--transition-fast);
 }
 
-.hero-carousel .carousel-indicators button.active {
+.home-page .hero-carousel .carousel-indicators button.active {
   background-color: var(--primary-blue);
   transform: scale(1.3);
 }
 
-/* Keep all your existing hero content styling */
-.hero-content {
+.home-page .hero-content {
   text-align: center;
   color: white;
 }
 
-.hero-title {
+.home-page .hero-title {
   font-size: 4rem;
   font-weight: 300;
   letter-spacing: 8px;
@@ -63,33 +60,32 @@
   text-transform: uppercase;
 }
 
-.hero-divider {
+.home-page .hero-divider {
   width: 200px;
   height: 2px;
   background-color: var(--primary-blue);
   margin: 0 auto 2rem auto;
 }
 
-.hero-subtitle {
+.home-page .hero-subtitle {
   font-size: 1.5rem;
   font-weight: 400;
   margin-bottom: 0.5rem;
   letter-spacing: 2px;
 }
 
-.hero-tagline {
+.home-page .hero-tagline {
   font-size: 1.2rem;
   font-weight: 300;
   letter-spacing: 1px;
   opacity: 0.9;
 }
 
-/* Main Content Section */
-.main-content {
+.home-page .main-content {
   background-color: var(--bg-light);
 }
 
-.section-title {
+.home-page .home-section-title {
   font-size: 1.3rem;
   font-weight: 600;
   color: var(--text-dark);
@@ -97,14 +93,14 @@
   line-height: 1.4;
 }
 
-.title-underline {
+.home-page .home-title-underline {
   width: 100px;
   height: 3px;
   background-color: var(--primary-blue);
   margin: 2rem auto;
 }
 
-.lead {
+.home-page .home-lead {
   font-size: 1.1rem;
   color: var(--text-muted);
   line-height: 1.6;
@@ -112,17 +108,16 @@
   margin: 0 auto;
 }
 
-/* Features Section */
-.features-section {
+.home-page .features-section {
   margin-top: 4rem;
   align-items: center;
 }
 
-.feature-item {
+.home-page .feature-item {
   margin-bottom: 2rem;
 }
 
-.feature-icon {
+.home-page .feature-icon {
   width: 50px;
   height: 50px;
   display: flex;
@@ -132,52 +127,50 @@
   flex-shrink: 0;
 }
 
-.feature-icon i {
+.home-page .feature-icon i {
   font-size: 2.5rem;
   color: var(--primary-blue);
 }
 
-.feature-text {
+.home-page .feature-text {
   font-size: 1.1rem;
   font-weight: 500;
   color: var(--text-muted);
   letter-spacing: 0.5px;
 }
 
-/* Description Content */
-.description-content {
+.home-page .description-content {
   padding-left: 2rem;
 }
 
-.description-text {
+.home-page .description-text {
   font-size: 1rem;
   color: var(--text-muted);
   line-height: 1.6;
   margin-bottom: 2rem;
 }
 
-.action-buttons .btn {
+.home-page .action-buttons .btn {
   padding: 0.75rem 1.5rem;
   font-weight: 500;
   border-radius: 0;
   transition: all var(--transition-fast);
 }
 
-.action-buttons .btn:hover {
+.home-page .action-buttons .btn:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
 
-/* Brands Section */
-.brands-section {
+.home-page .brands-section {
   padding: 4rem 0;
 }
 
-.brands-image-container {
+.home-page .brands-image-container {
   margin-top: 2rem;
 }
 
-.brands-placeholder {
+.home-page .brands-placeholder {
   background-color: var(--bg-light);
   border: 2px dashed var(--border-gray);
   border-radius: 10px;
@@ -186,13 +179,12 @@
   max-width: 800px;
 }
 
-.brands-placeholder p {
+.home-page .brands-placeholder p {
   margin: 0;
   font-size: 1.1rem;
 }
 
-/* Appliance Showcase Section */
-.appliance-showcase {
+.home-page .appliance-showcase {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
               url('../assets/images/hero2.jpg');
   background-size: cover;
@@ -201,11 +193,11 @@
   padding: 5rem 0;
 }
 
-.appliance-item {
+.home-page .appliance-item {
   text-align: center;
 }
 
-.appliance-icon {
+.home-page .appliance-icon {
   background: rgba(255, 255, 255, 0.1);
   width: 120px;
   height: 120px;
@@ -218,13 +210,13 @@
   border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-.appliance-title {
+.home-page .appliance-title {
   font-size: 2.5rem;
   font-weight: 300;
   letter-spacing: 2px;
 }
 
-.appliance-description {
+.home-page .appliance-description {
   font-size: 1.1rem;
   line-height: 1.6;
   opacity: 0.9;
@@ -232,13 +224,13 @@
   margin: 0 auto;
 }
 
-.carousel-dots {
+.home-page .carousel-dots {
   display: flex;
   justify-content: center;
   gap: 1rem;
 }
 
-.dot {
+.home-page .dot {
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -247,37 +239,36 @@
   transition: all var(--transition-fast);
 }
 
-.dot.active {
+.home-page .dot.active {
   background-color: var(--primary-blue);
   transform: scale(1.2);
 }
 
-.dot:hover {
+.home-page .dot:hover {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-/* Custom Quote CTA Section */
-.cta-section {
+.home-page .cta-section {
   background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
   color: white;
   padding: 5rem 0;
 }
 
-.cta-title {
+.home-page .cta-title {
   font-size: 3rem;
   font-weight: 300;
   letter-spacing: 4px;
   margin-bottom: 1.5rem;
 }
 
-.cta-description {
+.home-page .cta-description {
   font-size: 1.2rem;
   opacity: 0.9;
   margin-bottom: 2.5rem;
   line-height: 1.6;
 }
 
-.cta-button {
+.home-page .cta-button {
   padding: 1rem 3rem;
   font-size: 1.1rem;
   font-weight: 600;
@@ -287,80 +278,14 @@
   transition: all var(--transition-fast);
 }
 
-.cta-button:hover {
+.home-page .cta-button:hover {
   background-color: white;
   color: var(--primary-blue);
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.5rem;
-    letter-spacing: 4px;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.2rem;
-  }
-  
-  .hero-tagline {
-    font-size: 1rem;
-  }
-  
-  .section-title {
-    font-size: 1.1rem;
-  }
-  
-  .features-section {
-    margin-top: 2rem;
-  }
-  
-  .description-content {
-    padding-left: 0;
-    margin-top: 2rem;
-  }
-  
-  .feature-item {
-    justify-content: center;
-    text-align: center;
-  }
-  
-  .action-buttons {
-    text-align: center;
-  }
-  
-  .action-buttons .btn {
-    width: 100%;
-    margin: 0.5rem 0;
-  }
-  
-  .appliance-title {
-    font-size: 2rem;
-    letter-spacing: 1px;
-  }
-  
-  .appliance-description {
-    font-size: 1rem;
-  }
-  
-  .cta-title {
-    font-size: 2rem;
-    letter-spacing: 2px;
-  }
-  
-  .cta-description {
-    font-size: 1rem;
-  }
-  
-  .cta-button {
-    width: 100%;
-    padding: 1rem 2rem;
-  }
-}
-
-.features-image {
+.home-page .features-image {
   max-width: 100%;
   height: auto;
   padding: 30px 40px 30px 0px;
@@ -370,14 +295,79 @@
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-
-/* Appliance Carousel Section */
-.appliance-carousel {
+.home-page .appliance-carousel {
   position: relative;
   min-height: 6rem;
   margin-top: 2rem;
   margin-bottom: 4rem;
 }
-.appliance-carousel .carousel-indicators {
+
+.home-page .appliance-carousel .carousel-indicators {
   bottom: -4rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .home-page .hero-title {
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+  }
+  
+  .home-page .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .home-page .hero-tagline {
+    font-size: 1rem;
+  }
+  
+  .home-page .home-section-title {
+    font-size: 1.1rem;
+  }
+  
+  .home-page .features-section {
+    margin-top: 2rem;
+  }
+  
+  .home-page .description-content {
+    padding-left: 0;
+    margin-top: 2rem;
+  }
+  
+  .home-page .feature-item {
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .home-page .action-buttons {
+    text-align: center;
+  }
+  
+  .home-page .action-buttons .btn {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+  
+  .home-page .appliance-title {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+  
+  .home-page .appliance-description {
+    font-size: 1rem;
+  }
+  
+  .home-page .cta-title {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+  
+  .home-page .cta-description {
+    font-size: 1rem;
+  }
+  
+  .home-page .cta-button {
+    width: 100%;
+    padding: 1rem 2rem;
+  }
 }

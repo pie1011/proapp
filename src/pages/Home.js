@@ -71,14 +71,14 @@ function Home() {
         <Container>
           <Row>
             <Col lg={12} className="text-center mb-5">
-              <h2 className="section-title">PRO APPLIANCE INSTALLATION SPECIALIZES IN THE INSTALLATION OF ALL MAJOR HOUSEHOLD APPLIANCES.</h2>
-              <div className="title-underline"></div>
+              <h2 className="home-section-title">PRO APPLIANCE INSTALLATION SPECIALIZES IN THE INSTALLATION OF ALL MAJOR HOUSEHOLD APPLIANCES.</h2>
+              <div className="home-title-underline"></div>
             </Col>
           </Row>
 
           <Row>
             <Col lg={12}>
-              <p className="lead text-center mb-5">
+              <p className="home-lead text-center mb-5">
                 If you are looking for professional and experienced installers to assist you with your home appliance installation needs,
                 our highly skilled team is ready to assist you with the efficiency and professionalism we have built our reputation upon.
               </p>
@@ -131,8 +131,8 @@ function Home() {
         <Container>
           <Row>
             <Col lg={12} className="text-center">
-              <h2 className="section-title">BRANDS</h2>
-              <div className="title-underline"></div>
+              <h2 className="home-section-title">BRANDS</h2>
+              <div className="home-title-underline"></div>
               <div className="brands-image-container">
                 <img
                   src={brandsImage}

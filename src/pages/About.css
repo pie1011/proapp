@@ -3,21 +3,21 @@
 }
 
 /* Hero Section */
-.about-hero {
+.about-page .about-hero {
   background: linear-gradient(135deg, var(--primary-blue) 0%, #1e90d4 100%);
   color: white;
   padding: 4rem 0;
   margin-bottom: 0;
 }
 
-.page-title {
+.about-page .page-title {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1rem;
   letter-spacing: 1px;
 }
 
-.hero-subtitle {
+.about-page .about-hero .hero-subtitle {
   font-size: 1.2rem;
   font-weight: 300;
   margin: 0;
@@ -26,18 +26,18 @@
 }
 
 /* Section Styling */
-.about-content {
+.about-page .about-content {
   background-color: #f8f9fa;
 }
 
-.section-title {
+.about-page .section-title {
   font-size: 2.5rem;
   font-weight: 600;
   color: var(--dark-gray);
   margin-bottom: 1rem;
 }
 
-.title-underline {
+.about-page .title-underline {
   width: 80px;
   height: 4px;
   background-color: var(--primary-blue);
@@ -45,7 +45,7 @@
 }
 
 /* Feature Cards */
-.feature-card {
+.about-page .feature-card {
   border: none;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -53,12 +53,12 @@
   height: 100%;
 }
 
-.feature-card:hover {
+.about-page .feature-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 
-.feature-icon {
+.about-page .feature-icon {
   font-size: 3rem;
   color: var(--primary-blue);
   margin-bottom: 1.5rem;
@@ -68,35 +68,35 @@
   align-items: center;
 }
 
-.feature-card .card-title {
+.about-page .feature-card .card-title {
   font-size: 1.4rem;
   font-weight: 600;
   color: var(--dark-gray);
   margin-bottom: 1rem;
 }
 
-.feature-card .card-text {
+.about-page .feature-card .card-text {
   color: var(--medium-gray);
   line-height: 1.6;
   font-size: 0.95rem;
 }
 
 /* Service Areas */
-.service-areas {
+.about-page .service-areas {
   background: white;
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
-.areas-grid {
+.about-page .areas-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1rem;
   text-align: center;
 }
 
-.areas-grid span {
+.about-page .areas-grid span {
   background: linear-gradient(135deg, var(--primary-blue), #1e90d4);
   color: white;
   padding: 0.75rem 1rem;
@@ -108,13 +108,13 @@
   cursor: default;
 }
 
-.areas-grid span:hover {
+.about-page .areas-grid span:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(40, 181, 208, 0.3);
 }
 
 /* Call to Action */
-.about-cta {
+.about-page .about-cta {
   background: linear-gradient(135deg, var(--dark-gray) 0%, #34495e 100%);
   color: white;
   padding: 3rem;
@@ -122,20 +122,20 @@
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
-.about-cta h3 {
+.about-page .about-cta h3 {
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }
 
-.about-cta p {
+.about-page .about-cta p {
   font-size: 1.1rem;
   margin-bottom: 2rem;
   opacity: 1;
   color: #ecf0f1;
 }
 
-.about-cta .btn-primary {
+.about-page .about-cta .btn-primary {
   background-color: var(--primary-blue);
   border-color: var(--primary-blue);
   font-weight: 600;
@@ -146,21 +146,21 @@
   transition: all var(--transition-fast);
 }
 
-.about-cta .btn-primary:hover {
+.about-page .about-cta .btn-primary:hover {
   background-color: var(--primary-blue-dark);
   border-color: var(--primary-blue-dark);
   transform: translateY(-1px);
 }
 
 /* Typography Improvements */
-.lead {
+.about-page .lead {
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.7;
   color: var(--medium-gray);
 }
 
-p {
+.about-page p {
   line-height: 1.7;
   color: var(--medium-gray);
   margin-bottom: 1.5rem;
@@ -168,60 +168,60 @@ p {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
-  .about-hero {
+  .about-page .about-hero {
     padding: 3rem 0;
   }
   
-  .page-title {
+  .about-page .page-title {
     font-size: 2.2rem;
   }
   
-  .hero-subtitle {
+  .about-page .hero-subtitle {
     font-size: 1.1rem;
   }
   
-  .section-title {
+  .about-page .section-title {
     font-size: 2rem;
   }
   
-  .areas-grid {
+  .about-page .areas-grid {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 0.75rem;
   }
   
-  .areas-grid span {
+  .about-page .areas-grid span {
     padding: 0.6rem 0.8rem;
     font-size: 0.85rem;
   }
   
-  .about-cta {
+  .about-page .about-cta {
     padding: 2rem;
   }
   
-  .about-cta h3 {
+  .about-page .about-cta h3 {
     font-size: 1.6rem;
   }
   
-  .about-cta .btn-primary {
+  .about-page .about-cta .btn-primary {
     padding: 0.8rem 1.5rem;
     font-size: 0.95rem;
   }
 }
 
 @media (max-width: 576px) {
-  .page-title {
+  .about-page .page-title {
     font-size: 1.8rem;
   }
   
-  .hero-subtitle {
+  .about-page .hero-subtitle {
     font-size: 1rem;
   }
   
-  .areas-grid {
+  .about-page .areas-grid {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   }
   
-  .feature-icon {
+  .about-page .feature-icon {
     font-size: 2.5rem;
   }
 }
