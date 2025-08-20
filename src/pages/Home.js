@@ -114,7 +114,7 @@ function Home() {
                     <i className="fas fa-download me-2"></i>
                     Download Flyer
                   </Button>
-                  <Button variant="dark" className="mb-2">
+                  <Button variant="dark" className="mb-2" href="/quote">
                     <i className="fas fa-calculator me-2"></i>
                     Get Quote
                   </Button>
@@ -224,9 +224,9 @@ function Home() {
             <Col lg={8}>
               <h2 className="cta-title">CUSTOM QUOTE</h2>
               <p className="cta-description">
-                We provide quotes in writing for every project. Contact us today for a custom quote.
+                Contact us today for a custom quote.
               </p>
-              <Button variant="outline-light" size="lg" className="cta-button">
+              <Button variant="outline-light" size="lg" className="cta-button" href="/quote">
                 GET QUOTE
               </Button>
             </Col>
