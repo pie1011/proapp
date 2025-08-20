@@ -108,3 +108,253 @@
     padding: 1.5rem;
   }
 }
+
+
+
+/* ------- -------  Form Section Styles ------- ------- */
+
+
+/* Form Section Styles - Modern Typography */
+.quote-page .form-section {
+  margin-bottom: 3rem;
+}
+
+.quote-page .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.quote-page .form-section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--dark-gray);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  /* Removed serif font - now uses modern sans-serif */
+}
+
+.quote-page .required-note {
+  font-size: 0.9rem;
+  color: var(--medium-gray);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.quote-page .required-asterisk {
+  color: #dc3545;
+  font-weight: 600;
+  margin-right: 0.25rem;
+}
+
+.quote-page .required-text {
+  color: #dc3545;
+  font-weight: 400;
+}
+
+.quote-page .section-divider {
+  height: 3px;
+  background-color: #000;
+  border: none;
+  margin-bottom: 2rem;
+}
+
+.quote-page .field-divider {
+  margin: 1.5rem 0;
+  border-color: #dee2e6;
+}
+
+/* Form Controls - Modern Styling */
+.quote-page .form-label {
+  font-weight: 500;
+  color: var(--dark-gray);
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.3px;
+}
+
+.quote-page .form-control {
+  font-size: 0.9rem;
+  font-weight: 400;
+  padding: 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  transition: all 0.15s ease-in-out;
+  background-color: #fff;
+}
+
+.quote-page .form-control:focus {
+  background-color: #edfbff;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 0.2rem rgba(40, 181, 208, 0.25);
+  outline: none;
+}
+
+.quote-page .form-control::placeholder {
+  font-style: italic;
+  color: #6c757d;
+  font-weight: 300;
+}
+
+/* Radio Groups - Modern Styling */
+.quote-page .radio-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.quote-page .radio-group.vertical {
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.quote-page .form-check {
+  display: flex;
+  align-items: center;
+}
+
+.quote-page .form-check-input {
+  margin-right: 0.75rem;
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.quote-page .form-check-input:checked {
+  background-color: var(--primary-blue);
+  border-color: var(--primary-blue);
+}
+
+.quote-page .form-check-label {
+  margin-bottom: 0;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: var(--dark-gray);
+  letter-spacing: 0.2px;
+}
+
+/* Form Notes - Consistent Typography */
+.quote-page .form-note {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
+
+.quote-page .note-text {
+  color: #dc3545;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Company Fields - Modern Card Style */
+.quote-page .company-fields {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-blue);
+  margin-top: 1rem;
+  animation: slideIn 0.3s ease-in-out;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .quote-page .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .quote-page .form-section-title {
+    font-size: 1.3rem;
+  }
+  
+  .quote-page .radio-group {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .quote-page .company-fields {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .quote-page .form-section-title {
+    font-size: 1.2rem;
+  }
+}
+
+
+
+/* ------- -------  Info Notes Styles ------- ------- */
+
+/* Info Notes for Site Assessment */
+.quote-page .info-note {
+  background-color: #e8f4fd;
+  border: 1px solid #bee5eb;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.quote-page .info-note.info-purchased {
+  border-left: 4px solid #28a745;
+  background-color: #f8fff9;
+}
+
+.quote-page .info-note.info-not-purchased {
+  border-left: 4px solid #ffc107;
+  background-color: #fffef7;
+}
+
+.quote-page .info-note .note-text {
+  color: #495057;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.quote-page .info-note .note-text strong {
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments for info notes */
+@media (max-width: 768px) {
+  .quote-page .info-note {
+    margin-top: 1rem;
+    padding: 0.75rem;
+  }
+  
+  .quote-page .info-note .note-text {
+    font-size: 0.85rem;
+  }
+}
