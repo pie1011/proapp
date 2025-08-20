@@ -4,18 +4,38 @@ import './CustomQuote.css';
 const CustomQuote = () => {
     // Form state
     const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        phone2: '',
-        phone2Type: '',
-        clientType: '',
-        otherCustomer: '',
-        companyName: '',
-        companyAddress: '',
-        companyPhone: '',
+        // ... existing fields ...
         purchased: '',
-        fieldMeasure: ''
+        fieldMeasure: '',
+        // Add all these new appliance fields:
+        appliances: {
+            range: false,
+            hood: false,
+            cooktop: false,
+            microwave: false,
+            oven: false,
+            dishwasher: false,
+            refrigerator: false,
+            wine: false,
+            ice: false,
+            disposal: false,
+            trash: false,
+            washer: false
+        },
+        applianceDetails: {
+            range: { brand: '', model: '', notes: '', specifics: [] },
+            hood: { brand: '', model: '', notes: '', specifics: [] },
+            cooktop: { brand: '', model: '', notes: '', specifics: [] },
+            microwave: { brand: '', model: '', notes: '', specifics: [] },
+            oven: { brand: '', model: '', notes: '', specifics: [] },
+            dishwasher: { brand: '', model: '', notes: '', specifics: [] },
+            refrigerator: { brand: '', model: '', notes: '', specifics: [] },
+            wine: { brand: '', model: '', notes: '', specifics: [] },
+            ice: { brand: '', model: '', notes: '', specifics: [] },
+            disposal: { brand: '', model: '', notes: '', specifics: [] },
+            trash: { brand: '', model: '', notes: '', specifics: [] },
+            washer: { brand: '', model: '', notes: '', specifics: [], pedestalModel: '' }
+        }
     });
 
     const handleInputChange = (e) => {
@@ -24,6 +44,52 @@ const CustomQuote = () => {
             ...prev,
             [name]: value
         }));
+    };
+
+    // Handle appliance checkbox changes
+    const handleApplianceChange = (appliance) => {
+        setFormData(prev => ({
+            ...prev,
+            appliances: {
+                ...prev.appliances,
+                [appliance]: !prev.appliances[appliance]
+            }
+        }));
+    };
+
+    // Handle appliance detail changes
+    const handleApplianceDetailChange = (appliance, field, value) => {
+        setFormData(prev => ({
+            ...prev,
+            applianceDetails: {
+                ...prev.applianceDetails,
+                [appliance]: {
+                    ...prev.applianceDetails[appliance],
+                    [field]: value
+                }
+            }
+        }));
+    };
+
+    // Handle appliance specifics (checkbox arrays)
+    const handleApplianceSpecificChange = (appliance, specific) => {
+        setFormData(prev => {
+            const currentSpecifics = prev.applianceDetails[appliance].specifics;
+            const newSpecifics = currentSpecifics.includes(specific)
+                ? currentSpecifics.filter(s => s !== specific)
+                : [...currentSpecifics, specific];
+
+            return {
+                ...prev,
+                applianceDetails: {
+                    ...prev.applianceDetails,
+                    [appliance]: {
+                        ...prev.applianceDetails[appliance],
+                        specifics: newSpecifics
+                    }
+                }
+            };
+        });
     };
 
     return (
@@ -347,6 +413,822 @@ const CustomQuote = () => {
                                                     </p>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
+
+
+                                    {/* Appliance Details Section */}
+                                    <div className="form-section">
+                                        <div className="section-header">
+                                            <h3 className="form-section-title">Appliance Details</h3>
+                                        </div>
+                                        <hr className="section-divider" />
+
+                                        <div className="row mb-4">
+                                            <div className="col-md-6">
+                                                <label className="form-label">
+                                                    Which appliances can we assist you with?<br />
+                                                    <span className="note-text">Check all that apply.</span>
+                                                </label>
+                                            </div>
+                                            <div className="col-md-6">
+                                                {/* Conditional disclaimer based on field measure */}
+                                                {formData.fieldMeasure === 'No' && (
+                                                    <div className="model-disclaimer">
+                                                        <p className="disclaimer-text">
+                                                            If you do not know the model numbers of your appliances, please call to discuss your project and receive a verbal estimate, or request a Pre-Install Site Assessment (above).
+                                                        </p>
+                                                    </div>
+                                                )}
+                                                {formData.fieldMeasure === 'Yes' && (
+                                                    <div className="model-note">
+                                                        <p className="note-text">Please provide model numbers, if known.</p>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+
+                                        {/* Appliance Grid */}
+                                        <div className="appliance-grid">
+
+                                            {/* Range */}
+                                            <div className="appliance-row">
+                                                <div className="appliance-checkbox">
+                                                    <div className="form-check">
+                                                        <input
+                                                            type="checkbox"
+                                                            className="form-check-input"
+                                                            checked={formData.appliances.range}
+                                                            onChange={() => handleApplianceChange('range')}
+                                                        />
+                                                        <label className="form-check-label appliance-label">Range</label>
+                                                    </div>
+
+                                                    {formData.appliances.range && (
+                                                        <div className="appliance-specifics">
+                                                            {['Wider than 36"', 'Downdraft Range', 'Liquid Propane Conversion'].map(specific => (
+                                                                <div key={specific} className="form-check">
+                                                                    <input
+                                                                        type="checkbox"
+                                                                        className="form-check-input"
+                                                                        checked={formData.applianceDetails.range.specifics.includes(specific)}
+                                                                        onChange={() => handleApplianceSpecificChange('range', specific)}
+                                                                    />
+                                                                    <label className="form-check-label">{specific}</label>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    )}
+                                                </div>
+
+                                                {formData.appliances.range && (
+                                                    <div className="appliance-details">
+                                                        <div className="detail-field">
+                                                            <label className="form-label">Brand and Model Name:</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.range.brand}
+                                                                onChange={(e) => handleApplianceDetailChange('range', 'brand', e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <div className="detail-field">
+                                                            <label className="form-label">
+                                                                Model Number:
+                                                                {formData.fieldMeasure === 'No' && <span className="required-asterisk"> *</span>}
+                                                            </label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.range.model}
+                                                                onChange={(e) => handleApplianceDetailChange('range', 'model', e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <div className="detail-field">
+                                                            <label className="form-label">Notes:</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.range.notes}
+                                                                onChange={(e) => handleApplianceDetailChange('range', 'notes', e.target.value)}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+
+                                            {/* Hood */}
+                                            <div className="appliance-row">
+                                                <div className="appliance-checkbox">
+                                                    <div className="form-check">
+                                                        <input
+                                                            type="checkbox"
+                                                            className="form-check-input"
+                                                            checked={formData.appliances.hood}
+                                                            onChange={() => handleApplianceChange('hood')}
+                                                        />
+                                                        <label className="form-check-label appliance-label">Hood</label>
+                                                    </div>
+
+                                                    {formData.appliances.hood && (
+                                                        <div className="appliance-specifics">
+                                                            {['44" or Wider', 'Chimney Hood', 'Island Hood', 'Internal Blower Only', 'Exterior Blower'].map(specific => (
+                                                                <div key={specific} className="form-check">
+                                                                    <input
+                                                                        type="checkbox"
+                                                                        className="form-check-input"
+                                                                        checked={formData.applianceDetails.hood.specifics.includes(specific)}
+                                                                        onChange={() => handleApplianceSpecificChange('hood', specific)}
+                                                                    />
+                                                                    <label className="form-check-label">{specific}</label>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    )}
+                                                </div>
+
+                                                {formData.appliances.hood && (
+                                                    <div className="appliance-details">
+                                                        <div className="detail-field">
+                                                            <label className="form-label">Brand and Model Name:</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.hood.brand}
+                                                                onChange={(e) => handleApplianceDetailChange('hood', 'brand', e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <div className="detail-field">
+                                                            <label className="form-label">
+                                                                Model Number:
+                                                                {formData.fieldMeasure === 'No' && <span className="required-asterisk"> *</span>}
+                                                            </label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.hood.model}
+                                                                onChange={(e) => handleApplianceDetailChange('hood', 'model', e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <div className="detail-field">
+                                                            <label className="form-label">Notes:</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.hood.notes}
+                                                                onChange={(e) => handleApplianceDetailChange('hood', 'notes', e.target.value)}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+
+                                            {/* Cooktop */}
+                                            <div className="appliance-row">
+                                                <div className="appliance-checkbox">
+                                                    <div className="form-check">
+                                                        <input
+                                                            type="checkbox"
+                                                            className="form-check-input"
+                                                            checked={formData.appliances.cooktop}
+                                                            onChange={() => handleApplianceChange('cooktop')}
+                                                        />
+                                                        <label className="form-check-label appliance-label">Cooktop</label>
+                                                    </div>
+
+                                                    {formData.appliances.cooktop && (
+                                                        <div className="appliance-specifics">
+                                                            {['44" or Wider', 'Downdraft Cooktop', 'Separate Downdraft Unit', 'Liquid Propane Conversion'].map(specific => (
+                                                                <div key={specific} className="form-check">
+                                                                    <input
+                                                                        type="checkbox"
+                                                                        className="form-check-input"
+                                                                        checked={formData.applianceDetails.cooktop.specifics.includes(specific)}
+                                                                        onChange={() => handleApplianceSpecificChange('cooktop', specific)}
+                                                                    />
+                                                                    <label className="form-check-label">{specific}</label>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    )}
+                                                </div>
+
+                                                {formData.appliances.cooktop && (
+                                                    <div className="appliance-details">
+                                                        <div className="detail-field">
+                                                            <label className="form-label">Brand and Model Name:</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.cooktop.brand}
+                                                                onChange={(e) => handleApplianceDetailChange('cooktop', 'brand', e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <div className="detail-field">
+                                                            <label className="form-label">
+                                                                Model Number:
+                                                                {formData.fieldMeasure === 'No' && <span className="required-asterisk"> *</span>}
+                                                            </label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.cooktop.model}
+                                                                onChange={(e) => handleApplianceDetailChange('cooktop', 'model', e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <div className="detail-field">
+                                                            <label className="form-label">Notes:</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.cooktop.notes}
+                                                                onChange={(e) => handleApplianceDetailChange('cooktop', 'notes', e.target.value)}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+
+                                            {/* Microwave */}
+                                            <div className="appliance-row">
+                                                <div className="appliance-checkbox">
+                                                    <div className="form-check">
+                                                        <input
+                                                            type="checkbox"
+                                                            className="form-check-input"
+                                                            checked={formData.appliances.microwave}
+                                                            onChange={() => handleApplianceChange('microwave')}
+                                                        />
+                                                        <label className="form-check-label appliance-label">Microwave</label>
+                                                    </div>
+
+                                                    {formData.appliances.microwave && (
+                                                        <div className="appliance-specifics">
+                                                            {['Over-the-Range Microwave', 'Built-In Microwave with Trim Kit', 'Under-Cabinet Microwave', 'Microwave Drawer'].map(specific => (
+                                                                <div key={specific} className="form-check">
+                                                                    <input
+                                                                        type="checkbox"
+                                                                        className="form-check-input"
+                                                                        checked={formData.applianceDetails.microwave.specifics.includes(specific)}
+                                                                        onChange={() => handleApplianceSpecificChange('microwave', specific)}
+                                                                    />
+                                                                    <label className="form-check-label">{specific}</label>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    )}
+                                                </div>
+
+                                                {formData.appliances.microwave && (
+                                                    <div className="appliance-details">
+                                                        <div className="detail-field">
+                                                            <label className="form-label">Brand and Model Name:</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.microwave.brand}
+                                                                onChange={(e) => handleApplianceDetailChange('microwave', 'brand', e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <div className="detail-field">
+                                                            <label className="form-label">
+                                                                Model Number:
+                                                                {formData.fieldMeasure === 'No' && <span className="required-asterisk"> *</span>}
+                                                            </label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.microwave.model}
+                                                                onChange={(e) => handleApplianceDetailChange('microwave', 'model', e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <div className="detail-field">
+                                                            <label className="form-label">Notes:</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.microwave.notes}
+                                                                onChange={(e) => handleApplianceDetailChange('microwave', 'notes', e.target.value)}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+
+                                            {/* Wall Oven */}
+                                            <div className="appliance-row">
+                                                <div className="appliance-checkbox">
+                                                    <div className="form-check">
+                                                        <input
+                                                            type="checkbox"
+                                                            className="form-check-input"
+                                                            checked={formData.appliances.oven}
+                                                            onChange={() => handleApplianceChange('oven')}
+                                                        />
+                                                        <label className="form-check-label appliance-label">Wall Oven</label>
+                                                    </div>
+
+                                                    {formData.appliances.oven && (
+                                                        <div className="appliance-specifics">
+                                                            {['Single Wall Oven', 'Double/Combo Wall Oven', 'Warming Drawer'].map(specific => (
+                                                                <div key={specific} className="form-check">
+                                                                    <input
+                                                                        type="checkbox"
+                                                                        className="form-check-input"
+                                                                        checked={formData.applianceDetails.oven.specifics.includes(specific)}
+                                                                        onChange={() => handleApplianceSpecificChange('oven', specific)}
+                                                                    />
+                                                                    <label className="form-check-label">{specific}</label>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    )}
+                                                </div>
+
+                                                {formData.appliances.oven && (
+                                                    <div className="appliance-details">
+                                                        <div className="detail-field">
+                                                            <label className="form-label">Brand and Model Name:</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.oven.brand}
+                                                                onChange={(e) => handleApplianceDetailChange('oven', 'brand', e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <div className="detail-field">
+                                                            <label className="form-label">
+                                                                Model Number:
+                                                                {formData.fieldMeasure === 'No' && <span className="required-asterisk"> *</span>}
+                                                            </label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.oven.model}
+                                                                onChange={(e) => handleApplianceDetailChange('oven', 'model', e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <div className="detail-field">
+                                                            <label className="form-label">Notes:</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.oven.notes}
+                                                                onChange={(e) => handleApplianceDetailChange('oven', 'notes', e.target.value)}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+
+                                            {/* Dishwasher */}
+                                            <div className="appliance-row">
+                                                <div className="appliance-checkbox">
+                                                    <div className="form-check">
+                                                        <input
+                                                            type="checkbox"
+                                                            className="form-check-input"
+                                                            checked={formData.appliances.dishwasher}
+                                                            onChange={() => handleApplianceChange('dishwasher')}
+                                                        />
+                                                        <label className="form-check-label appliance-label">Dishwasher</label>
+                                                    </div>
+
+                                                    {formData.appliances.dishwasher && (
+                                                        <div className="appliance-specifics">
+                                                            {['Has Air Gap', 'No Air Gap', 'Dishwasher Panel'].map(specific => (
+                                                                <div key={specific} className="form-check">
+                                                                    <input
+                                                                        type="checkbox"
+                                                                        className="form-check-input"
+                                                                        checked={formData.applianceDetails.dishwasher.specifics.includes(specific)}
+                                                                        onChange={() => handleApplianceSpecificChange('dishwasher', specific)}
+                                                                    />
+                                                                    <label className="form-check-label">{specific}</label>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    )}
+                                                </div>
+
+                                                {formData.appliances.dishwasher && (
+                                                    <div className="appliance-details">
+                                                        <div className="detail-field">
+                                                            <label className="form-label">Brand and Model Name:</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.dishwasher.brand}
+                                                                onChange={(e) => handleApplianceDetailChange('dishwasher', 'brand', e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <div className="detail-field">
+                                                            <label className="form-label">
+                                                                Model Number:
+                                                                {formData.fieldMeasure === 'No' && <span className="required-asterisk"> *</span>}
+                                                            </label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.dishwasher.model}
+                                                                onChange={(e) => handleApplianceDetailChange('dishwasher', 'model', e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <div className="detail-field">
+                                                            <label className="form-label">Notes:</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.dishwasher.notes}
+                                                                onChange={(e) => handleApplianceDetailChange('dishwasher', 'notes', e.target.value)}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+
+                                            {/* Refrigerator/Freezer */}
+                                            <div className="appliance-row">
+                                                <div className="appliance-checkbox">
+                                                    <div className="form-check">
+                                                        <input
+                                                            type="checkbox"
+                                                            className="form-check-input"
+                                                            checked={formData.appliances.refrigerator}
+                                                            onChange={() => handleApplianceChange('refrigerator')}
+                                                        />
+                                                        <label className="form-check-label appliance-label">Refrigerator/Freezer</label>
+                                                    </div>
+
+                                                    {formData.appliances.refrigerator && (
+                                                        <div className="appliance-specifics">
+                                                            {['Freestanding Refrigerator with Water Line', 'Built-In Refrigerator with Freezer', 'Built-In Refrigerator (Separate Unit)', 'Built-In Freezer (Separate Unit)', 'Under-Counter Refrigerator', 'Custom Panel(s)'].map(specific => (
+                                                                <div key={specific} className="form-check">
+                                                                    <input
+                                                                        type="checkbox"
+                                                                        className="form-check-input"
+                                                                        checked={formData.applianceDetails.refrigerator.specifics.includes(specific)}
+                                                                        onChange={() => handleApplianceSpecificChange('refrigerator', specific)}
+                                                                    />
+                                                                    <label className="form-check-label">{specific}</label>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    )}
+                                                </div>
+
+                                                {formData.appliances.refrigerator && (
+                                                    <div className="appliance-details">
+                                                        <div className="detail-field">
+                                                            <label className="form-label">Brand and Model Name(s):</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.refrigerator.brand}
+                                                                onChange={(e) => handleApplianceDetailChange('refrigerator', 'brand', e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <div className="detail-field">
+                                                            <label className="form-label">
+                                                                Model Number(s) of Each:
+                                                                {formData.fieldMeasure === 'No' && <span className="required-asterisk"> *</span>}
+                                                            </label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.refrigerator.model}
+                                                                onChange={(e) => handleApplianceDetailChange('refrigerator', 'model', e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <div className="detail-field">
+                                                            <label className="form-label">Notes:</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.refrigerator.notes}
+                                                                onChange={(e) => handleApplianceDetailChange('refrigerator', 'notes', e.target.value)}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+
+                                            {/* Wine Cooler */}
+                                            <div className="appliance-row">
+                                                <div className="appliance-checkbox">
+                                                    <div className="form-check">
+                                                        <input
+                                                            type="checkbox"
+                                                            className="form-check-input"
+                                                            checked={formData.appliances.wine}
+                                                            onChange={() => handleApplianceChange('wine')}
+                                                        />
+                                                        <label className="form-check-label appliance-label">Wine Cooler</label>
+                                                    </div>
+
+                                                    {formData.appliances.wine && (
+                                                        <div className="appliance-specifics">
+                                                            {['Built-In Wine Cooler', 'Under-Counter Wine Cooler'].map(specific => (
+                                                                <div key={specific} className="form-check">
+                                                                    <input
+                                                                        type="checkbox"
+                                                                        className="form-check-input"
+                                                                        checked={formData.applianceDetails.wine.specifics.includes(specific)}
+                                                                        onChange={() => handleApplianceSpecificChange('wine', specific)}
+                                                                    />
+                                                                    <label className="form-check-label">{specific}</label>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    )}
+                                                </div>
+
+                                                {formData.appliances.wine && (
+                                                    <div className="appliance-details">
+                                                        <div className="detail-field">
+                                                            <label className="form-label">Brand and Model Name:</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.wine.brand}
+                                                                onChange={(e) => handleApplianceDetailChange('wine', 'brand', e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <div className="detail-field">
+                                                            <label className="form-label">
+                                                                Model Number:
+                                                                {formData.fieldMeasure === 'No' && <span className="required-asterisk"> *</span>}
+                                                            </label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.wine.model}
+                                                                onChange={(e) => handleApplianceDetailChange('wine', 'model', e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <div className="detail-field">
+                                                            <label className="form-label">Notes:</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.wine.notes}
+                                                                onChange={(e) => handleApplianceDetailChange('wine', 'notes', e.target.value)}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+
+
+                                            {/* Under-Counter Ice Maker */}
+                                            <div className="appliance-row">
+                                                <div className="appliance-checkbox">
+                                                    <div className="form-check">
+                                                        <input
+                                                            type="checkbox"
+                                                            className="form-check-input"
+                                                            checked={formData.appliances.ice}
+                                                            onChange={() => handleApplianceChange('ice')}
+                                                        />
+                                                        <label className="form-check-label appliance-label">Under-Counter Ice Maker</label>
+                                                    </div>
+                                                </div>
+
+                                                {formData.appliances.ice && (
+                                                    <div className="appliance-details">
+                                                        <div className="detail-field">
+                                                            <label className="form-label">Brand and Model Name:</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.ice.brand}
+                                                                onChange={(e) => handleApplianceDetailChange('ice', 'brand', e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <div className="detail-field">
+                                                            <label className="form-label">
+                                                                Model Number:
+                                                                {formData.fieldMeasure === 'No' && <span className="required-asterisk"> *</span>}
+                                                            </label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.ice.model}
+                                                                onChange={(e) => handleApplianceDetailChange('ice', 'model', e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <div className="detail-field">
+                                                            <label className="form-label">Notes:</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.ice.notes}
+                                                                onChange={(e) => handleApplianceDetailChange('ice', 'notes', e.target.value)}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+
+                                            {/* Garbage Disposal */}
+                                            <div className="appliance-row">
+                                                <div className="appliance-checkbox">
+                                                    <div className="form-check">
+                                                        <input
+                                                            type="checkbox"
+                                                            className="form-check-input"
+                                                            checked={formData.appliances.disposal}
+                                                            onChange={() => handleApplianceChange('disposal')}
+                                                        />
+                                                        <label className="form-check-label appliance-label">Garbage Disposal</label>
+                                                    </div>
+
+                                                    {formData.appliances.disposal && (
+                                                        <div className="appliance-specifics">
+                                                            {['Replacement Installation', 'New Installation'].map(specific => (
+                                                                <div key={specific} className="form-check">
+                                                                    <input
+                                                                        type="checkbox"
+                                                                        className="form-check-input"
+                                                                        checked={formData.applianceDetails.disposal.specifics.includes(specific)}
+                                                                        onChange={() => handleApplianceSpecificChange('disposal', specific)}
+                                                                    />
+                                                                    <label className="form-check-label">{specific}</label>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    )}
+                                                </div>
+
+                                                {formData.appliances.disposal && (
+                                                    <div className="appliance-details">
+                                                        <div className="detail-field">
+                                                            <label className="form-label">Brand and Model Name:</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.disposal.brand}
+                                                                onChange={(e) => handleApplianceDetailChange('disposal', 'brand', e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <div className="detail-field">
+                                                            <label className="form-label">
+                                                                Model Number:
+                                                                {formData.fieldMeasure === 'No' && <span className="required-asterisk"> *</span>}
+                                                            </label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.disposal.model}
+                                                                onChange={(e) => handleApplianceDetailChange('disposal', 'model', e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <div className="detail-field">
+                                                            <label className="form-label">Notes:</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.disposal.notes}
+                                                                onChange={(e) => handleApplianceDetailChange('disposal', 'notes', e.target.value)}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+
+                                            {/* Trash Compactor */}
+                                            <div className="appliance-row">
+                                                <div className="appliance-checkbox">
+                                                    <div className="form-check">
+                                                        <input
+                                                            type="checkbox"
+                                                            className="form-check-input"
+                                                            checked={formData.appliances.trash}
+                                                            onChange={() => handleApplianceChange('trash')}
+                                                        />
+                                                        <label className="form-check-label appliance-label">Trash Compactor</label>
+                                                    </div>
+                                                </div>
+
+                                                {formData.appliances.trash && (
+                                                    <div className="appliance-details">
+                                                        <div className="detail-field">
+                                                            <label className="form-label">Brand and Model Name:</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.trash.brand}
+                                                                onChange={(e) => handleApplianceDetailChange('trash', 'brand', e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <div className="detail-field">
+                                                            <label className="form-label">
+                                                                Model Number:
+                                                                {formData.fieldMeasure === 'No' && <span className="required-asterisk"> *</span>}
+                                                            </label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.trash.model}
+                                                                onChange={(e) => handleApplianceDetailChange('trash', 'model', e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <div className="detail-field">
+                                                            <label className="form-label">Notes:</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.trash.notes}
+                                                                onChange={(e) => handleApplianceDetailChange('trash', 'notes', e.target.value)}
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+
+                                            {/* Washer/Dryer */}
+                                            <div className="appliance-row">
+                                                <div className="appliance-checkbox">
+                                                    <div className="form-check">
+                                                        <input
+                                                            type="checkbox"
+                                                            className="form-check-input"
+                                                            checked={formData.appliances.washer}
+                                                            onChange={() => handleApplianceChange('washer')}
+                                                        />
+                                                        <label className="form-check-label appliance-label">Washer/Dryer</label>
+                                                    </div>
+
+                                                    {formData.appliances.washer && (
+                                                        <div className="appliance-specifics">
+                                                            {['Washer', 'Dryer', 'Stacked Washer and Dryer', 'Pedestal(s) - Drawer', 'Pedestal(s) - Sidekick', 'Liquid Propane Conversion'].map(specific => (
+                                                                <div key={specific} className="form-check">
+                                                                    <input
+                                                                        type="checkbox"
+                                                                        className="form-check-input"
+                                                                        checked={formData.applianceDetails.washer.specifics.includes(specific)}
+                                                                        onChange={() => handleApplianceSpecificChange('washer', specific)}
+                                                                    />
+                                                                    <label className="form-check-label">{specific}</label>
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                    )}
+                                                </div>
+
+                                                {formData.appliances.washer && (
+                                                    <div className="appliance-details">
+                                                        <div className="detail-field">
+                                                            <label className="form-label">Brand and Model Name(s):</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.washer.brand}
+                                                                onChange={(e) => handleApplianceDetailChange('washer', 'brand', e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <div className="detail-field">
+                                                            <label className="form-label">
+                                                                Model Number(s) of Each:
+                                                                {formData.fieldMeasure === 'No' && <span className="required-asterisk"> *</span>}
+                                                            </label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.washer.model}
+                                                                onChange={(e) => handleApplianceDetailChange('washer', 'model', e.target.value)}
+                                                            />
+                                                        </div>
+                                                        <div className="detail-field">
+                                                            <label className="form-label">Notes:</label>
+                                                            <input
+                                                                type="text"
+                                                                className="form-control"
+                                                                value={formData.applianceDetails.washer.notes}
+                                                                onChange={(e) => handleApplianceDetailChange('washer', 'notes', e.target.value)}
+                                                            />
+                                                        </div>
+
+                                                        {/* Special pedestal field for washer/dryer */}
+                                                        {(formData.applianceDetails.washer.specifics.includes('Pedestal(s) - Drawer') ||
+                                                            formData.applianceDetails.washer.specifics.includes('Pedestal(s) - Sidekick')) && (
+                                                                <div className="detail-field pedestal-field">
+                                                                    <label className="form-label">
+                                                                        Pedestal Model Number(s):
+                                                                        {formData.fieldMeasure === 'No' && <span className="required-asterisk"> *</span>}
+                                                                    </label>
+                                                                    <input
+                                                                        type="text"
+                                                                        className="form-control"
+                                                                        value={formData.applianceDetails.washer.pedestalModel || ''}
+                                                                        onChange={(e) => handleApplianceDetailChange('washer', 'pedestalModel', e.target.value)}
+                                                                    />
+                                                                </div>
+                                                            )}
+                                                    </div>
+                                                )}
+                                            </div>
+
                                         </div>
                                     </div>
 
