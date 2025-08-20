@@ -1,0 +1,341 @@
+.service-areas-page {
+  padding-top: 0;
+}
+
+/* Hero Section */
+.service-hero {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, #1e90d4 100%);
+  color: white;
+  padding: 4rem 0;
+  margin-bottom: 0;
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+/* Section Styling */
+.service-content {
+  background-color: #f8f9fa;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--dark-gray);
+  margin-bottom: 1rem;
+}
+
+.title-underline {
+  width: 80px;
+  height: 4px;
+  background-color: var(--primary-blue);
+  margin: 0 auto 2rem auto;
+}
+
+.lead {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--medium-gray);
+}
+
+/* Counties Container */
+.counties-container {
+  background: white;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* County Sections */
+.county-section {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.county-section:last-of-type {
+  border-bottom: none;
+  margin-bottom: 1.5rem;
+}
+
+.county-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.county-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary-blue);
+}
+
+/* Cities List */
+.cities-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.city-item {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  color: var(--dark-gray);
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border: 2px solid transparent;
+  transition: all var(--transition-fast);
+  cursor: default;
+}
+/*
+.city-item:hover {
+  background: linear-gradient(135deg, var(--primary-blue), #1e90d4);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(40, 181, 208, 0.3);
+}
+  */
+
+/* Additional Information */
+.additional-info {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-blue);
+  margin-top: 1rem;
+}
+
+.info-text {
+  margin-bottom: 0.5rem;
+  color: var(--medium-gray);
+  font-size: 0.95rem;
+}
+
+.info-text:last-child {
+  margin-bottom: 0;
+}
+
+.quote-link {
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.quote-link:hover {
+  color: var(--primary-blue-dark);
+  text-decoration: underline;
+}
+
+/* Map Section */
+.map-container {
+  background: white;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.map-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--dark-gray);
+  margin-bottom: 2rem;
+}
+
+.map-wrapper {
+  text-align: center;
+}
+
+.service-map {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.map-disclaimer {
+  font-size: 0.9rem;
+  color: var(--medium-gray);
+  font-style: italic;
+  margin: 0;
+}
+
+/* Contact Section */
+/* Contact Section - Updated */
+.service-contact {
+  background: linear-gradient(135deg, var(--dark-gray) 0%, #34495e 100%);
+  color: white;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.service-contact h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.contact-info-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.contact-item-inline {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  text-align: center;
+}
+
+.contact-icon {
+  font-size: 1.5rem;
+  color: var(--primary-blue);
+  flex-shrink: 0;
+}
+
+.contact-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  text-align: left;
+}
+
+.contact-link {
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.contact-link:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.service-contact .btn-primary {
+  background-color: var(--primary-blue);
+  border-color: var(--primary-blue);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  padding: 1rem 2rem;
+  border-radius: 0;
+  transition: all var(--transition-fast);
+}
+
+.service-contact .btn-primary:hover {
+  background-color: var(--primary-blue-dark);
+  border-color: var(--primary-blue-dark);
+  transform: translateY(-1px);
+}
+
+/* Mobile adjustments for contact */
+@media (max-width: 768px) {
+  .contact-item-inline {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  
+  .contact-label {
+    min-width: auto;
+    text-align: center;
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .service-hero {
+    padding: 3rem 0;
+  }
+  
+  .page-title {
+    font-size: 2.2rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .counties-container {
+    padding: 2rem;
+  }
+  
+  .county-title {
+    font-size: 1.5rem;
+  }
+  
+  .cities-list {
+    gap: 0.5rem;
+  }
+  
+  .city-item {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .map-container {
+    padding: 2rem;
+  }
+  
+  .map-title {
+    font-size: 1.6rem;
+  }
+  
+  .service-contact {
+    padding: 2rem;
+  }
+  
+  .service-contact h3 {
+    font-size: 1.6rem;
+  }
+  
+  .service-contact .btn-primary {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .page-title {
+    font-size: 1.8rem;
+  }
+  
+  .counties-container {
+    padding: 1.5rem;
+  }
+  
+  .county-title {
+    font-size: 1.3rem;
+  }
+  
+  .city-item {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  .map-container {
+    padding: 1.5rem;
+  }
+}

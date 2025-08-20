@@ -8,6 +8,8 @@ import './styles/variables.css'; // Add this line
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Home from './pages/Home';
+import About from './pages/About';
+import ServiceAreas from './pages/ServiceAreas';
 
 function App() {
   return (
@@ -18,15 +20,16 @@ function App() {
   
         <main>
           <Routes>
-            <Route path="/" element={<Home />} />            <Route path="/about" element={<div className="p-5 text-center"><h1>About Us</h1></div>} />
-            <Route path="/service-areas" element={<div className="p-5 text-center"><h1>Service Areas</h1></div>} />
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/service-areas" element={<ServiceAreas />} />
             <Route path="/partnerships" element={<div className="p-5 text-center"><h1>Partnerships</h1></div>} />
             <Route path="/quote" element={<div className="p-5 text-center"><h1>Custom Quote</h1></div>} />
           </Routes>
         </main>
         
         <Footer />
-        
+
       </div>
     </Router>
   );
