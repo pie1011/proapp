@@ -75,8 +75,8 @@ const Footer = () => {
 
                     {/* Quote Link Section */}
                     <Col md={4} className="text-center text-md-end">
-                        <Link to="/quote" className="btn btn-outline-light footer-quote-btn">
-                            Request a Custom Quote
+                        <Link to="/quote" className="quote-button">
+                            <i className="fas fa-calculator me-2"></i> Request a Custom Quote
                         </Link>
                     </Col>
                 </Row>

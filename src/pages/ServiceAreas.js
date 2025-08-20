@@ -127,8 +127,8 @@ const ServiceAreas = () => {
                                 </div>
 
                                 <div className="text-center mt-4">
-                                    <a href="/quote" className="btn btn-primary btn-lg">
-                                        Request Your Free Quote
+                                    <a href="/quote" className="quote-button">
+                                      <i className="fas fa-calculator me-2"></i>  Request Your Free Quote
                                     </a>
                                 </div>
                             </div>

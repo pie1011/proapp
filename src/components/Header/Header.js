@@ -41,7 +41,7 @@ const Header = () => {
               <Nav.Link href="/about" className="nav-item">ABOUT US</Nav.Link>
               <Nav.Link href="/service-areas" className="nav-item">SERVICE AREAS</Nav.Link>
               <Nav.Link href="/partnerships" className="nav-item">PARTNERSHIPS</Nav.Link>
-              <Nav.Link href="/quote" className="nav-item quote-link">CUSTOM QUOTE</Nav.Link>
+              <Nav.Link href="/quote" className="quote-button quote-button-nav"><i className="fas fa-file-alt me-2"></i> Custom Quote</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
