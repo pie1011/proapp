@@ -6,20 +6,23 @@ import './Home.css';
 // Import your hero images
 import hero1 from '../assets/images/hero1.jpg';
 import hero2 from '../assets/images/hero2.jpg';
+import checkListImage from '../assets/images/img-check-list.png';
+import brandsImage from '../assets/images/brands.jpg';
 
 function Home() {
   return (
     <div className="home-page">
+
       {/* Hero Carousel Section */}
-      <Carousel 
-        fade 
-        interval={5000} 
-        controls={false} 
+      <Carousel
+        fade
+        interval={5000}
+        controls={false}
         indicators={true}
         className="hero-carousel"
       >
         <Carousel.Item>
-          <div 
+          <div
             className="hero-slide"
             style={{ backgroundImage: `url('${hero1}')` }}
           >
@@ -39,9 +42,9 @@ function Home() {
             </div>
           </div>
         </Carousel.Item>
-        
+
         <Carousel.Item>
-          <div 
+          <div
             className="hero-slide"
             style={{ backgroundImage: `url('${hero2}')` }}
           >
@@ -72,11 +75,11 @@ function Home() {
               <div className="title-underline"></div>
             </Col>
           </Row>
-          
+
           <Row>
             <Col lg={12}>
               <p className="lead text-center mb-5">
-                If you are looking for professional and experienced installers to assist you with your home appliance installation needs, 
+                If you are looking for professional and experienced installers to assist you with your home appliance installation needs,
                 our highly skilled team is ready to assist you with the efficiency and professionalism we have built our reputation upon.
               </p>
             </Col>
@@ -84,51 +87,28 @@ function Home() {
 
           {/* Features and Description Section */}
           <Row className="features-section">
+
             <Col lg={6}>
-              {/* NOTE: Replace these checkmark icons with your actual wrench-logo checkmark images */}
-              <div className="feature-item d-flex align-items-center mb-4">
-                <div className="feature-icon">
-                  {/* TODO: Replace with your wrench checkmark image */}
-                  <i className="fas fa-check-circle"></i>
-                </div>
-                <span className="feature-text">Fast Response Time</span>
-              </div>
-              
-              <div className="feature-item d-flex align-items-center mb-4">
-                <div className="feature-icon">
-                  {/* TODO: Replace with your wrench checkmark image */}
-                  <i className="fas fa-check-circle"></i>
-                </div>
-                <span className="feature-text">Dedicated to Customer Satisfaction</span>
-              </div>
-              
-              <div className="feature-item d-flex align-items-center mb-4">
-                <div className="feature-icon">
-                  {/* TODO: Replace with your wrench checkmark image */}
-                  <i className="fas fa-check-circle"></i>
-                </div>
-                <span className="feature-text">Professional, Experienced Installers</span>
-              </div>
-              
-              <div className="feature-item d-flex align-items-center mb-4">
-                <div className="feature-icon">
-                  {/* TODO: Replace with your wrench checkmark image */}
-                  <i className="fas fa-check-circle"></i>
-                </div>
-                <span className="feature-text">Fast Custom Quotes</span>
+              <div className="features-image text-center">
+                <img
+                  src={checkListImage}
+                  alt="Our Services: Fast Response Time, Dedicated to Customer Satisfaction, Professional Experienced Installers, Fast Custom Quotes"
+                  className="img-fluid"
+                />
               </div>
             </Col>
-            
+
+            {/* General info section */}
             <Col lg={6}>
               <div className="description-content">
                 <p className="description-text">
-                  Our stellar management and installation team is dedicated to excellent customer service. 
-                  By incorporating the latest routing and tracking technologies with time proven systems, 
-                  we have the logistical capacity to service the appliance installation requirements of 
-                  homeowners and retailers alike. Our extensively trained installers are prepared for any 
+                  Our stellar management and installation team is dedicated to excellent customer service.
+                  By incorporating the latest routing and tracking technologies with time proven systems,
+                  we have the logistical capacity to service the appliance installation requirements of
+                  homeowners and retailers alike. Our extensively trained installers are prepared for any
                   situation regarding the delivery, installation, and responsible disposal of existing appliances.
                 </p>
-                
+
                 <div className="action-buttons mt-4">
                   <Button variant="dark" className="me-3 mb-2">
                     <i className="fas fa-download me-2"></i>
@@ -145,8 +125,8 @@ function Home() {
         </Container>
       </section>
 
-      
-   {/* Brands Section */}
+
+      {/* Brands Section */}
       <section className="brands-section py-5 bg-white">
         <Container>
           <Row>
@@ -154,11 +134,11 @@ function Home() {
               <h2 className="section-title">BRANDS</h2>
               <div className="title-underline"></div>
               <div className="brands-image-container">
-                <div className="brands-placeholder">
-                  {/* TODO: Replace with your single brand logos image */}
-                  <p className="text-muted">Brand Logos Image Placeholder</p>
-                  <p className="text-muted small">(Single image with all brand logos)</p>
-                </div>
+                <img
+                  src={brandsImage}
+                  alt="Our Services: Fast Response Time, Dedicated to Customer Satisfaction, Professional Experienced Installers, Fast Custom Quotes"
+                  className="img-fluid"
+                />
               </div>
             </Col>
           </Row>
@@ -176,8 +156,8 @@ function Home() {
                 </div>
                 <h3 className="appliance-title text-white mb-4">Dishwashers</h3>
                 <p className="appliance-description text-white">
-                  Dishwashers bring speedy cleanliness to a kitchen relieving stress and hours of tedious work from the homeowner. 
-                  Pro Appliance Installation can help you install a top of the line dishwasher which will become the kitchen helpmate of your dreams! 
+                  Dishwashers bring speedy cleanliness to a kitchen relieving stress and hours of tedious work from the homeowner.
+                  Pro Appliance Installation can help you install a top of the line dishwasher which will become the kitchen helpmate of your dreams!
                   Dishwashers are one of our most commonly installed appliances.
                 </p>
                 <div className="carousel-dots mt-4">

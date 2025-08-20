@@ -83,3 +83,294 @@
   letter-spacing: 1px;
   opacity: 0.9;
 }
+
+/* Main Content Section */
+.main-content {
+  background-color: var(--bg-light);
+}
+
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  letter-spacing: 1px;
+  line-height: 1.4;
+}
+
+.title-underline {
+  width: 100px;
+  height: 3px;
+  background-color: var(--primary-blue);
+  margin: 2rem auto;
+}
+
+.lead {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Features Section */
+.features-section {
+  margin-top: 4rem;
+  align-items: center;
+}
+
+.feature-item {
+  margin-bottom: 2rem;
+}
+
+.feature-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.5rem;
+  flex-shrink: 0;
+}
+
+.feature-icon i {
+  font-size: 2.5rem;
+  color: var(--primary-blue);
+}
+
+.feature-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+/* Description Content */
+.description-content {
+  padding-left: 2rem;
+}
+
+.description-text {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.action-buttons .btn {
+  padding: 0.75rem 1.5rem;
+  font-weight: 500;
+  border-radius: 0;
+  transition: all var(--transition-fast);
+}
+
+.action-buttons .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Brands Section */
+.brands-section {
+  padding: 4rem 0;
+}
+
+.brands-image-container {
+  margin-top: 2rem;
+}
+
+.brands-placeholder {
+  background-color: var(--bg-light);
+  border: 2px dashed var(--border-gray);
+  border-radius: 10px;
+  padding: 3rem 2rem;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.brands-placeholder p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* Appliance Showcase Section */
+.appliance-showcase {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+              url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 5rem 0;
+}
+
+.appliance-item {
+  text-align: center;
+}
+
+.appliance-icon {
+  background: rgba(255, 255, 255, 0.1);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.appliance-title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.appliance-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.dot.active {
+  background-color: var(--primary-blue);
+  transform: scale(1.2);
+}
+
+.dot:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Custom Quote CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-blue-dark) 100%);
+  color: white;
+  padding: 5rem 0;
+}
+
+.cta-title {
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.cta-description {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.cta-button {
+  padding: 1rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  border: 2px solid white;
+  border-radius: 0;
+  transition: all var(--transition-fast);
+}
+
+.cta-button:hover {
+  background-color: white;
+  color: var(--primary-blue);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .hero-tagline {
+    font-size: 1rem;
+  }
+  
+  .section-title {
+    font-size: 1.1rem;
+  }
+  
+  .features-section {
+    margin-top: 2rem;
+  }
+  
+  .description-content {
+    padding-left: 0;
+    margin-top: 2rem;
+  }
+  
+  .feature-item {
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .action-buttons {
+    text-align: center;
+  }
+  
+  .action-buttons .btn {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+  
+  .appliance-title {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+  
+  .appliance-description {
+    font-size: 1rem;
+  }
+  
+  .cta-title {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+  
+  .cta-description {
+    font-size: 1rem;
+  }
+  
+  .cta-button {
+    width: 100%;
+    padding: 1rem 2rem;
+  }
+}
+
+
+
+
+.features-image {
+  max-width: 100%;
+  height: auto;
+  padding: 30px 40px 30px 0px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+
