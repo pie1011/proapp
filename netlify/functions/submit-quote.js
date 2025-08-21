@@ -363,13 +363,30 @@ exports.handler = async (event, context) => {
         console.log('Generating email...');
         const emailContent = generateEmailContent(quoteData, applianceDetails, uploadedFiles);
 
+        // Prepare email attachments from the original files array
+        const emailAttachments = files.map(file => ({
+            filename: file.filename,
+            content: file.content, // This is already a Buffer
+            contentType: file.contentType
+        }));
+        
+        console.log(`Preparing email with ${emailAttachments.length} attachments`);
+
         try {
-            const { data: emailData, error: emailError } = await resend.emails.send({
+            const emailPayload = {
                 from: 'Pro Appliance Installation <onboarding@resend.dev>',
                 to: ['pie10101011@gmail.com'],
                 subject: `New Installation Quote Request - ${quoteData.customer_name || 'Customer'}`,
                 html: emailContent
-            });
+            };
+            
+            // Add attachments if any files were uploaded
+            if (emailAttachments.length > 0) {
+                emailPayload.attachments = emailAttachments;
+                console.log('Email attachments:', emailAttachments.map(a => `${a.filename} (${a.contentType})`));
+            }
+            
+            const { data: emailData, error: emailError } = await resend.emails.send(emailPayload);
 
             if (emailError) {
                 console.error('Error sending email:', emailError);
@@ -522,12 +539,24 @@ function generateEmailContent(quoteData, applianceDetails, uploadedFiles) {
     // Files Section
     let filesSection = '';
     if (uploadedFiles.length > 0) {
-        filesSection = `<ul style="padding-left: 20px;">`;
+        filesSection = `
+            <div style="background: #e8f4fd; padding: 15px; border-radius: 5px; border-left: 4px solid #3498db;">
+                <p style="margin: 0; color: #2c3e50;">
+                    <strong>📎 ${uploadedFiles.length} file${uploadedFiles.length > 1 ? 's' : ''} attached to this email:</strong>
+                </p>
+                <ul style="margin: 10px 0 0 20px; color: #57606f;">`;
+        
         uploadedFiles.forEach(file => {
             const sizeKB = Math.round(file.size / 1024);
-            filesSection += `<li style="margin: 5px 0;">${file.name} (${sizeKB}KB, ${file.type})</li>`;
+            filesSection += `<li style="margin: 5px 0;">${file.name} (${sizeKB}KB)</li>`;
         });
-        filesSection += `</ul>`;
+        
+        filesSection += `
+                </ul>
+                <p style="margin: 10px 0 0 0; font-size: 14px; color: #57606f; font-style: italic;">
+                    Files are attached to this email and can be downloaded directly from your email client.
+                </p>
+            </div>`;
     }
 
     // Combine all sections
@@ -558,7 +587,7 @@ function generateEmailContent(quoteData, applianceDetails, uploadedFiles) {
             ${services ? formatSection('Services Requested', services) : ''}
             ${siteDetails ? formatSection('Site Details', siteDetails) : ''}
             ${projectDetails ? formatSection('Project Details', projectDetails) : ''}
-            ${filesSection ? formatSection(`Uploaded Files (${uploadedFiles.length})`, filesSection) : ''}
+            ${filesSection ? formatSection(`Attached Files`, filesSection) : ''}
             
             <div style="background: #f1f2f6; padding: 20px; border-radius: 5px; margin-top: 30px; text-align: center;">
                 <p style="margin: 0; color: #57606f; font-style: italic;">
