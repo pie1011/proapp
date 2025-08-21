@@ -19,8 +19,8 @@ exports.handler = async (event, context) => {
     console.log('Content-Type:', event.headers['content-type']);
     console.log('Raw body length:', event.body ? event.body.length : 'No body');
     console.log('Raw body preview:', event.body ? event.body.substring(0, 200) : 'No body');
-    
-    
+
+
     // Set CORS headers
     const headers = {
         'Access-Control-Allow-Origin': '*',
@@ -49,11 +49,18 @@ exports.handler = async (event, context) => {
 
     try {
         console.log('Processing quote submission...');
-        
+
         // Parse multipart form data (handles both form fields and files)
         const result = await multipart.parse(event);
         const formFields = result.fields || {};
         const files = result.files || [];
+
+        // Debugging output for parsed data
+        console.log('=== PARSED DATA DEBUG ===');
+        console.log('All formFields keys:', Object.keys(formFields));
+        console.log('Sample formField values:', formFields);
+        console.log('Files array length:', files.length);
+
 
         console.log('Form fields received:', Object.keys(formFields));
         console.log('Files received:', files.length);
@@ -74,25 +81,25 @@ exports.handler = async (event, context) => {
         const parseAppliancesFromForm = () => {
             const appliances = {};
             const applianceDetails = {};
-            
+
             // Get selected appliances
-            const applianceTypes = ['range', 'hood', 'cooktop', 'microwave', 'oven', 'dishwasher', 
-                                  'refrigerator', 'wine', 'ice', 'disposal', 'trash', 'washer'];
-            
+            const applianceTypes = ['range', 'hood', 'cooktop', 'microwave', 'oven', 'dishwasher',
+                'refrigerator', 'wine', 'ice', 'disposal', 'trash', 'washer'];
+
             applianceTypes.forEach(type => {
                 if (getFieldValue(`appliances.${type}`) === 'true') {
                     appliances[type] = true;
-                    
+
                     // Get details for this appliance
                     const details = {};
                     const brand = getFieldValue(`applianceDetails.${type}.brand`);
                     const model = getFieldValue(`applianceDetails.${type}.model`);
                     const notes = getFieldValue(`applianceDetails.${type}.notes`);
-                    
+
                     if (brand) details.brand = brand;
                     if (model) details.model = model;
                     if (notes) details.notes = notes;
-                    
+
                     // Handle specifics (array of checkboxes)
                     const specifics = [];
                     let i = 0;
@@ -102,19 +109,19 @@ exports.handler = async (event, context) => {
                         i++;
                     }
                     if (specifics.length > 0) details.specifics = specifics;
-                    
+
                     // Handle washer pedestal model
                     if (type === 'washer') {
                         const pedestalModel = getFieldValue(`applianceDetails.${type}.pedestalModel`);
                         if (pedestalModel) details.pedestalModel = pedestalModel;
                     }
-                    
+
                     if (Object.keys(details).length > 0) {
                         applianceDetails[type] = details;
                     }
                 }
             });
-            
+
             return { appliances, applianceDetails };
         };
 
@@ -124,13 +131,13 @@ exports.handler = async (event, context) => {
         const parsePreferredTimes = () => {
             const times = [];
             const timeOptions = ['Morning (8:00 AM - 12:00 PM)', 'Afternoon (12:00 PM - 5:00 PM)', 'Evening (5:00 PM - 8:00 PM)'];
-            
+
             timeOptions.forEach(time => {
                 if (getFieldValue(`preferredTime.${time}`) === 'true') {
                     times.push(time);
                 }
             });
-            
+
             return times;
         };
 
@@ -140,30 +147,30 @@ exports.handler = async (event, context) => {
             customer_name: getFieldValue('name') || null,
             email: getFieldValue('email') || null,
             phone_primary: getFieldValue('phone') || null,
-            phone_secondary: getFieldValue('phone2') ? 
+            phone_secondary: getFieldValue('phone2') ?
                 `${getFieldValue('phone2')} (${getFieldValue('phone2Type') || 'Mobile'})` : null,
             client_type: getFieldValue('clientType') || null,
             company_name: getFieldValue('companyName') || null,
             company_address: getFieldValue('companyAddress') || null,
             company_phone: getFieldValue('companyPhone') || null,
-            
+
             // Pre-install Assessment
             purchased: getFieldValue('purchased') || null,
             field_measure: getFieldValue('fieldMeasure') || null,
-            
+
             // Installation Address
             street: getFieldValue('street') || null,
             unit: getFieldValue('unit') || null,
             city: getFieldValue('city') || null,
             zip: getFieldValue('zip') || null,
-            
+
             // Services
             delivery: getFieldValue('delivery') || null,
             pickup_location: getFieldValue('pickupLocation') || null,
             pickup_date: getFieldValue('pickupDate') || null,
             uninstall: getFieldValue('uninstall') || null,
             haul_away: getFieldValue('haulAway') || null,
-            
+
             // Site Details
             home_type: getFieldValue('homeType') || null,
             floor: getFieldValue('floor') || null,
@@ -173,15 +180,15 @@ exports.handler = async (event, context) => {
             parking: getFieldValue('parking') || null,
             parking_notes: getFieldValue('parkingNotes') || null,
             gate_code: getFieldValue('gateCode') || null,
-            
+
             // Project Details
             preferred_date: getFieldValue('preferredDate') || null,
             preferred_time: parsePreferredTimes(),
             additional_details: getFieldValue('additionalDetails') || null,
-            
+
             // Selected appliances
             selected_appliances: Object.keys(appliances),
-            
+
             // Store complete raw form data for backup
             raw_form_data: {
                 formFields: formFields,
@@ -245,7 +252,7 @@ exports.handler = async (event, context) => {
                 // Generate unique filename
                 const fileExtension = file.filename.split('.').pop();
                 const uniqueFileName = `${quote.id}/${Date.now()}-${i + 1}.${fileExtension}`;
-                
+
                 // Upload to Supabase Storage
                 const { data: uploadData, error: uploadError } = await supabase.storage
                     .from('quote-files')
@@ -290,7 +297,7 @@ exports.handler = async (event, context) => {
         // Generate and send email
         console.log('Generating email...');
         const emailContent = generateEmailContent(quoteData, applianceDetails, uploadedFiles);
-        
+
         try {
             const { data: emailData, error: emailError } = await resend.emails.send({
                 from: 'Pro Appliance Installation <onboarding@resend.dev>',
@@ -304,13 +311,13 @@ exports.handler = async (event, context) => {
                 // Don't throw - we still want to return success for the form submission
             } else {
                 console.log('Email sent successfully:', emailData.id);
-                
+
                 // Update quote to mark email as sent
                 await supabase
                     .from('quotes')
-                    .update({ 
-                        email_sent: true, 
-                        email_sent_at: new Date().toISOString() 
+                    .update({
+                        email_sent: true,
+                        email_sent_at: new Date().toISOString()
                     })
                     .eq('id', quote.id);
             }
@@ -333,7 +340,7 @@ exports.handler = async (event, context) => {
 
     } catch (error) {
         console.error('Function error:', error);
-        
+
         return {
             statusCode: 500,
             headers,
@@ -406,15 +413,15 @@ function generateEmailContent(quoteData, applianceDetails, uploadedFiles) {
             trash: 'Trash Compactor',
             washer: 'Washer/Dryer'
         };
-        
+
         appliancesSection += `
             <div style="background: #f8f9fa; padding: 15px; margin: 10px 0; border-left: 4px solid #3498db;">
                 <h4 style="margin: 0 0 10px 0; color: #2c3e50;">${applianceNames[applianceType] || applianceType}</h4>
                 ${formatField('Brand', details.brand)}
                 ${formatField('Model', details.model)}
                 ${formatField('Notes', details.notes)}
-                ${details.specifics && details.specifics.length > 0 ? 
-                    formatField('Special Requirements', details.specifics.join(', ')) : ''}
+                ${details.specifics && details.specifics.length > 0 ?
+                formatField('Special Requirements', details.specifics.join(', ')) : ''}
                 ${details.pedestalModel ? formatField('Pedestal Model', details.pedestalModel) : ''}
             </div>
         `;
@@ -469,14 +476,14 @@ function generateEmailContent(quoteData, applianceDetails, uploadedFiles) {
         <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px;">
             <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; margin-bottom: 30px; border-radius: 10px;">
                 <h1 style="margin: 0; font-size: 24px;">New Installation Quote Request</h1>
-                <p style="margin: 10px 0 0 0; font-size: 16px;">Submitted on ${new Date().toLocaleDateString('en-US', { 
-                    weekday: 'long', 
-                    year: 'numeric', 
-                    month: 'long', 
-                    day: 'numeric',
-                    hour: '2-digit',
-                    minute: '2-digit'
-                })}</p>
+                <p style="margin: 10px 0 0 0; font-size: 16px;">Submitted on ${new Date().toLocaleDateString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    })}</p>
             </div>
             
             ${formatSection('Client Information', clientInfo)}
