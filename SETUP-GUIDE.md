@@ -258,7 +258,7 @@ When everything is working correctly, you should see:
 ✅ Appliance details appear in `appliance_details` table  
 ✅ Files appear in Supabase Storage `quote-files` bucket  
 ✅ File records appear in `quote_files` table  
-✅ Professional email arrives at `info@proapplianceinstallation.com`  
+✅ Professional email arrives at `pie10101011@gmail.com`  
 ✅ Email is marked as sent in `quotes` table  
 
 ## Maintenance

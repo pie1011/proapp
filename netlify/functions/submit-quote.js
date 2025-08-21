@@ -1,6 +1,6 @@
 const { createClient } = require('@supabase/supabase-js');
 const { Resend } = require('resend');
-const multipart = require('lambda-multipart-parser');
+const busboy = require('busboy');
 
 // Initialize Supabase client
 const supabase = createClient(
@@ -10,6 +10,72 @@ const supabase = createClient(
 
 // Initialize Resend client
 const resend = new Resend(process.env.RESEND_API_KEY);
+
+// Custom parser function for multipart form data
+const parseMultipartForm = (event) => {
+    return new Promise((resolve, reject) => {
+        const fields = {};
+        const files = [];
+        
+        // Parse content-type header to get boundary
+        const contentType = event.headers['content-type'] || event.headers['Content-Type'];
+        
+        const bb = busboy({ 
+            headers: { 'content-type': contentType },
+            limits: {
+                fileSize: 5 * 1024 * 1024, // 5MB limit per file
+                files: 5 // Max 5 files
+            }
+        });
+        
+        // Handle form fields
+        bb.on('field', (fieldname, val) => {
+            console.log(`Field [${fieldname}]: value: %j`, val);
+            fields[fieldname] = val;
+        });
+        
+        // Handle file uploads
+        bb.on('file', (fieldname, file, info) => {
+            const { filename, encoding, mimeType } = info;
+            console.log(`File [${fieldname}]: filename: %j, encoding: %j, mimeType: %j`, filename, encoding, mimeType);
+            
+            const chunks = [];
+            file.on('data', (data) => {
+                chunks.push(data);
+            });
+            
+            file.on('end', () => {
+                const buffer = Buffer.concat(chunks);
+                files.push({
+                    fieldname,
+                    filename,
+                    contentType: mimeType,
+                    content: buffer
+                });
+            });
+        });
+        
+        // Handle completion
+        bb.on('close', () => {
+            console.log('Busboy parsing completed');
+            resolve({ fields, files });
+        });
+        
+        // Handle errors
+        bb.on('error', (err) => {
+            console.error('Busboy parsing error:', err);
+            reject(err);
+        });
+        
+        // Convert base64 body to buffer and pipe to busboy
+        const body = event.isBase64Encoded 
+            ? Buffer.from(event.body, 'base64')
+            : Buffer.from(event.body, 'binary');
+            
+        bb.write(body);
+        bb.end();
+    });
+};
 
 exports.handler = async (event, context) => {
 
@@ -50,17 +116,16 @@ exports.handler = async (event, context) => {
     try {
         console.log('Processing quote submission...');
 
-        // Parse multipart form data (handles both form fields and files)
-        const result = await multipart.parse(event);
+        // Parse multipart form data using busboy
+        const result = await parseMultipartForm(event);
         const formFields = result.fields || {};
         const files = result.files || [];
 
         // Debugging output for parsed data
         console.log('=== PARSED DATA DEBUG ===');
         console.log('All formFields keys:', Object.keys(formFields));
-        console.log('Sample formField values:', formFields);
+        console.log('Sample formField values:', JSON.stringify(formFields, null, 2));
         console.log('Files array length:', files.length);
-
 
         console.log('Form fields received:', Object.keys(formFields));
         console.log('Files received:', files.length);

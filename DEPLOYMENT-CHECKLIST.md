@@ -50,7 +50,7 @@ Use this checklist to ensure everything is properly set up and working.
 - [ ] All data looks correct and complete
 
 ### ✅ Email Verification
-- [ ] Check inbox: `info@proapplianceinstallation.com`
+- [ ] Check inbox: `pie10101011@gmail.com`
 - [ ] Professional formatted email received
 - [ ] Email contains all submitted information
 - [ ] Appliances section shows selected items with details
