@@ -27,55 +27,133 @@
 
 <body>
   <!-- Hidden form for Netlify bots to detect -->
-  <form name="custom-quote-form" netlify netlify-honeypot="bot-field" hidden>
-    <!-- Client Information -->
-    <input type="text" name="name" />
-    <input type="email" name="email" />
-    <input type="tel" name="phone" />
-    <input type="tel" name="phone2" />
-    <input type="text" name="phone2Type" />
-    <input type="text" name="clientType" />
-    <input type="text" name="otherCustomer" />
-    <input type="text" name="companyName" />
-    <input type="text" name="companyAddress" />
-    <input type="tel" name="companyPhone" />
-
-    <!-- Assessment -->
-    <input type="text" name="purchased" />
-    <input type="text" name="fieldMeasure" />
-
-    <!-- Services -->
-    <input type="text" name="delivery" />
-    <input type="text" name="pickupLocation" />
-    <input type="text" name="pickupDate" />
-    <input type="text" name="uninstall" />
-    <input type="text" name="haulAway" />
-
-    <!-- Address -->
-    <input type="text" name="street" />
-    <input type="text" name="unit" />
-    <input type="text" name="city" />
-    <input type="text" name="zip" />
-
-    <!-- Site Details -->
-    <input type="text" name="homeType" />
-    <input type="text" name="floor" />
-    <input type="text" name="stairs" />
-    <input type="text" name="stairsNumber" />
-    <input type="text" name="stairsTurns" />
-    <input type="text" name="parking" />
-    <input type="text" name="parkingNotes" />
-    <input type="text" name="gateCode" />
-
-    <!-- Project Details -->
-    <input type="text" name="preferredDate" />
-    <input type="text" name="preferredTime" />
-    <textarea name="additionalDetails"></textarea>
-
-    <!-- Appliances Summary -->
-    <input type="text" name="selectedAppliances" />
-    <textarea name="applianceDetails"></textarea>
-  </form>
+<!-- Hidden form for Netlify bots to detect - ALL FIELDS -->
+<form name="custom-quote-form" netlify netlify-honeypot="bot-field" hidden>
+  <!-- Client Information -->
+  <input type="text" name="name" />
+  <input type="email" name="email" />
+  <input type="tel" name="phone" />
+  <input type="tel" name="phone2" />
+  <input type="text" name="phone2Type" />
+  <input type="text" name="clientType" />
+  <input type="text" name="otherCustomer" />
+  <input type="text" name="companyName" />
+  <input type="text" name="companyAddress" />
+  <input type="tel" name="companyPhone" />
+  
+  <!-- Assessment -->
+  <input type="text" name="purchased" />
+  <input type="text" name="fieldMeasure" />
+  
+  <!-- Services -->
+  <input type="text" name="delivery" />
+  <input type="text" name="pickupLocation" />
+  <input type="text" name="pickupDate" />
+  <input type="text" name="uninstall" />
+  <input type="text" name="haulAway" />
+  
+  <!-- Address -->
+  <input type="text" name="street" />
+  <input type="text" name="unit" />
+  <input type="text" name="city" />
+  <input type="text" name="zip" />
+  
+  <!-- Site Details -->
+  <input type="text" name="homeType" />
+  <input type="text" name="floor" />
+  <input type="text" name="stairs" />
+  <input type="text" name="stairsNumber" />
+  <input type="text" name="stairsTurns" />
+  <input type="text" name="parking" />
+  <input type="text" name="parkingNotes" />
+  <input type="text" name="gateCode" />
+  
+  <!-- Project Details -->
+  <input type="text" name="preferredDate" />
+  <input type="text" name="preferredTime" />
+  <textarea name="additionalDetails"></textarea>
+  
+  <!-- Appliances - Selected -->
+  <input type="text" name="selectedAppliances" />
+  
+  <!-- Range Details -->
+  <input type="text" name="rangeBrand" />
+  <input type="text" name="rangeModel" />
+  <input type="text" name="rangeNotes" />
+  <input type="text" name="rangeSpecifics" />
+  
+  <!-- Hood Details -->
+  <input type="text" name="hoodBrand" />
+  <input type="text" name="hoodModel" />
+  <input type="text" name="hoodNotes" />
+  <input type="text" name="hoodSpecifics" />
+  
+  <!-- Cooktop Details -->
+  <input type="text" name="cooktopBrand" />
+  <input type="text" name="cooktopModel" />
+  <input type="text" name="cooktopNotes" />
+  <input type="text" name="cooktopSpecifics" />
+  
+  <!-- Microwave Details -->
+  <input type="text" name="microwaveBrand" />
+  <input type="text" name="microwaveModel" />
+  <input type="text" name="microwaveNotes" />
+  <input type="text" name="microwaveSpecifics" />
+  
+  <!-- Oven Details -->
+  <input type="text" name="ovenBrand" />
+  <input type="text" name="ovenModel" />
+  <input type="text" name="ovenNotes" />
+  <input type="text" name="ovenSpecifics" />
+  
+  <!-- Dishwasher Details -->
+  <input type="text" name="dishwasherBrand" />
+  <input type="text" name="dishwasherModel" />
+  <input type="text" name="dishwasherNotes" />
+  <input type="text" name="dishwasherSpecifics" />
+  
+  <!-- Refrigerator Details -->
+  <input type="text" name="refrigeratorBrand" />
+  <input type="text" name="refrigeratorModel" />
+  <input type="text" name="refrigeratorNotes" />
+  <input type="text" name="refrigeratorSpecifics" />
+  
+  <!-- Wine Details -->
+  <input type="text" name="wineBrand" />
+  <input type="text" name="wineModel" />
+  <input type="text" name="wineNotes" />
+  <input type="text" name="wineSpecifics" />
+  
+  <!-- Ice Details -->
+  <input type="text" name="iceBrand" />
+  <input type="text" name="iceModel" />
+  <input type="text" name="iceNotes" />
+  
+  <!-- Disposal Details -->
+  <input type="text" name="disposalBrand" />
+  <input type="text" name="disposalModel" />
+  <input type="text" name="disposalNotes" />
+  <input type="text" name="disposalSpecifics" />
+  
+  <!-- Trash Details -->
+  <input type="text" name="trashBrand" />
+  <input type="text" name="trashModel" />
+  <input type="text" name="trashNotes" />
+  
+  <!-- Washer Details -->
+  <input type="text" name="washerBrand" />
+  <input type="text" name="washerModel" />
+  <input type="text" name="washerNotes" />
+  <input type="text" name="washerSpecifics" />
+  <input type="text" name="washerPedestalModel" />
+  
+  <!-- File uploads -->
+  <input type="file" name="uploadFile1" />
+  <input type="file" name="uploadFile2" />
+  <input type="file" name="uploadFile3" />
+  <input type="file" name="uploadFile4" />
+  <input type="file" name="uploadFile5" />
+</form>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
   <!--

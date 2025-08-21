@@ -289,6 +289,7 @@ const CustomQuote = () => {
     // };
 
     // Handle form submission
+    // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
@@ -302,52 +303,141 @@ const CustomQuote = () => {
                     .join("&");
             };
 
-            // Prepare form data - flatten the nested objects
+            // Helper function to get appliance details safely
+            const getApplianceData = (appliance) => {
+                const details = formData.applianceDetails[appliance];
+                return {
+                    brand: details?.brand || '',
+                    model: details?.model || '',
+                    notes: details?.notes || '',
+                    specifics: details?.specifics?.join(', ') || '',
+                    pedestalModel: details?.pedestalModel || '' // for washer only
+                };
+            };
+
+            // Prepare complete form data - flatten everything
             const submitData = {
                 "form-name": "custom-quote-form",
-                // Client info
-                name: formData.name,
-                email: formData.email,
-                phone: formData.phone,
-                phone2: formData.phone2,
-                phone2Type: formData.phone2Type,
-                clientType: formData.clientType,
-                otherCustomer: formData.otherCustomer,
-                companyName: formData.companyName,
-                companyAddress: formData.companyAddress,
-                companyPhone: formData.companyPhone,
-                // Assessment
-                purchased: formData.purchased,
-                fieldMeasure: formData.fieldMeasure,
+
+                // Client Information
+                name: formData.name || '',
+                email: formData.email || '',
+                phone: formData.phone || '',
+                phone2: formData.phone2 || '',
+                phone2Type: formData.phone2Type || '',
+                clientType: formData.clientType || '',
+                otherCustomer: formData.otherCustomer || '',
+                companyName: formData.companyName || '',
+                companyAddress: formData.companyAddress || '',
+                companyPhone: formData.companyPhone || '',
+
+                // Pre-Install Assessment
+                purchased: formData.purchased || '',
+                fieldMeasure: formData.fieldMeasure || '',
+
                 // Services
-                delivery: formData.delivery,
-                pickupLocation: formData.pickupLocation,
-                pickupDate: formData.pickupDate,
-                uninstall: formData.uninstall,
-                haulAway: formData.haulAway,
-                // Address
-                street: formData.street,
-                unit: formData.unit,
-                city: formData.city,
-                zip: formData.zip,
-                // Site details
-                homeType: formData.homeType,
-                floor: formData.floor,
-                stairs: formData.stairs,
-                stairsNumber: formData.stairsNumber,
-                stairsTurns: formData.stairsTurns,
-                parking: formData.parking,
-                parkingNotes: formData.parkingNotes,
-                gateCode: formData.gateCode,
-                // Project details
-                preferredDate: formData.preferredDate,
-                preferredTime: formData.preferredTime.join(', '),
-                additionalDetails: formData.additionalDetails,
-                // Appliances (convert to readable format)
+                delivery: formData.delivery || '',
+                pickupLocation: formData.pickupLocation || '',
+                pickupDate: formData.pickupDate || '',
+                uninstall: formData.uninstall || '',
+                haulAway: formData.haulAway || '',
+
+                // Installation Address
+                street: formData.street || '',
+                unit: formData.unit || '',
+                city: formData.city || '',
+                zip: formData.zip || '',
+
+                // Site Details
+                homeType: formData.homeType || '',
+                floor: formData.floor || '',
+                stairs: formData.stairs || '',
+                stairsNumber: formData.stairsNumber || '',
+                stairsTurns: formData.stairsTurns || '',
+                parking: formData.parking || '',
+                parkingNotes: formData.parkingNotes || '',
+                gateCode: formData.gateCode || '',
+
+                // Project Details
+                preferredDate: formData.preferredDate || '',
+                preferredTime: formData.preferredTime?.join(', ') || '',
+                additionalDetails: formData.additionalDetails || '',
+
+                // Selected Appliances Summary
                 selectedAppliances: Object.keys(formData.appliances)
                     .filter(key => formData.appliances[key])
-                    .join(', '),
-                // You'll need to add appliance details in a readable format too
+                    .join(', ') || 'None selected',
+
+                // Range Details
+                rangeBrand: formData.appliances.range ? getApplianceData('range').brand : '',
+                rangeModel: formData.appliances.range ? getApplianceData('range').model : '',
+                rangeNotes: formData.appliances.range ? getApplianceData('range').notes : '',
+                rangeSpecifics: formData.appliances.range ? getApplianceData('range').specifics : '',
+
+                // Hood Details
+                hoodBrand: formData.appliances.hood ? getApplianceData('hood').brand : '',
+                hoodModel: formData.appliances.hood ? getApplianceData('hood').model : '',
+                hoodNotes: formData.appliances.hood ? getApplianceData('hood').notes : '',
+                hoodSpecifics: formData.appliances.hood ? getApplianceData('hood').specifics : '',
+
+                // Cooktop Details
+                cooktopBrand: formData.appliances.cooktop ? getApplianceData('cooktop').brand : '',
+                cooktopModel: formData.appliances.cooktop ? getApplianceData('cooktop').model : '',
+                cooktopNotes: formData.appliances.cooktop ? getApplianceData('cooktop').notes : '',
+                cooktopSpecifics: formData.appliances.cooktop ? getApplianceData('cooktop').specifics : '',
+
+                // Microwave Details
+                microwaveBrand: formData.appliances.microwave ? getApplianceData('microwave').brand : '',
+                microwaveModel: formData.appliances.microwave ? getApplianceData('microwave').model : '',
+                microwaveNotes: formData.appliances.microwave ? getApplianceData('microwave').notes : '',
+                microwaveSpecifics: formData.appliances.microwave ? getApplianceData('microwave').specifics : '',
+
+                // Oven Details
+                ovenBrand: formData.appliances.oven ? getApplianceData('oven').brand : '',
+                ovenModel: formData.appliances.oven ? getApplianceData('oven').model : '',
+                ovenNotes: formData.appliances.oven ? getApplianceData('oven').notes : '',
+                ovenSpecifics: formData.appliances.oven ? getApplianceData('oven').specifics : '',
+
+                // Dishwasher Details
+                dishwasherBrand: formData.appliances.dishwasher ? getApplianceData('dishwasher').brand : '',
+                dishwasherModel: formData.appliances.dishwasher ? getApplianceData('dishwasher').model : '',
+                dishwasherNotes: formData.appliances.dishwasher ? getApplianceData('dishwasher').notes : '',
+                dishwasherSpecifics: formData.appliances.dishwasher ? getApplianceData('dishwasher').specifics : '',
+
+                // Refrigerator Details
+                refrigeratorBrand: formData.appliances.refrigerator ? getApplianceData('refrigerator').brand : '',
+                refrigeratorModel: formData.appliances.refrigerator ? getApplianceData('refrigerator').model : '',
+                refrigeratorNotes: formData.appliances.refrigerator ? getApplianceData('refrigerator').notes : '',
+                refrigeratorSpecifics: formData.appliances.refrigerator ? getApplianceData('refrigerator').specifics : '',
+
+                // Wine Details
+                wineBrand: formData.appliances.wine ? getApplianceData('wine').brand : '',
+                wineModel: formData.appliances.wine ? getApplianceData('wine').model : '',
+                wineNotes: formData.appliances.wine ? getApplianceData('wine').notes : '',
+                wineSpecifics: formData.appliances.wine ? getApplianceData('wine').specifics : '',
+
+                // Ice Details
+                iceBrand: formData.appliances.ice ? getApplianceData('ice').brand : '',
+                iceModel: formData.appliances.ice ? getApplianceData('ice').model : '',
+                iceNotes: formData.appliances.ice ? getApplianceData('ice').notes : '',
+
+                // Disposal Details
+                disposalBrand: formData.appliances.disposal ? getApplianceData('disposal').brand : '',
+                disposalModel: formData.appliances.disposal ? getApplianceData('disposal').model : '',
+                disposalNotes: formData.appliances.disposal ? getApplianceData('disposal').notes : '',
+                disposalSpecifics: formData.appliances.disposal ? getApplianceData('disposal').specifics : '',
+
+                // Trash Details
+                trashBrand: formData.appliances.trash ? getApplianceData('trash').brand : '',
+                trashModel: formData.appliances.trash ? getApplianceData('trash').model : '',
+                trashNotes: formData.appliances.trash ? getApplianceData('trash').notes : '',
+
+                // Washer Details
+                washerBrand: formData.appliances.washer ? getApplianceData('washer').brand : '',
+                washerModel: formData.appliances.washer ? getApplianceData('washer').model : '',
+                washerNotes: formData.appliances.washer ? getApplianceData('washer').notes : '',
+                washerSpecifics: formData.appliances.washer ? getApplianceData('washer').specifics : '',
+                washerPedestalModel: formData.appliances.washer ? getApplianceData('washer').pedestalModel : '',
             };
 
             // Submit to Netlify
