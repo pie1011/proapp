@@ -284,7 +284,7 @@ exports.handler = async (event, context) => {
         
         try {
             const { data: emailData, error: emailError } = await resend.emails.send({
-                from: 'Pro Appliance Installation <pie10101011@gmail.com>',
+                from: 'Pro Appliance Installation <onboarding@resend.dev>',
                 to: ['pie10101011@gmail.com'],
                 subject: `New Installation Quote Request - ${quoteData.customer_name || 'Customer'}`,
                 html: emailContent
