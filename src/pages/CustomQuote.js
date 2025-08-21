@@ -291,6 +291,7 @@ const CustomQuote = () => {
     // Handle form submission
     // Handle form submission
     // Handle form submission
+    // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
@@ -298,22 +299,8 @@ const CustomQuote = () => {
 
         try {
             // Helper function to filter out empty/undefined values
-            const filterEmpty = (obj) => {
-                const filtered = {};
-                Object.keys(obj).forEach(key => {
-                    const value = obj[key];
-                    if (value && value !== '' && value !== 'undefined' && value !== null) {
-                        // For arrays, only include if not empty
-                        if (Array.isArray(value)) {
-                            if (value.length > 0) {
-                                filtered[key] = value.join(', ');
-                            }
-                        } else {
-                            filtered[key] = value;
-                        }
-                    }
-                });
-                return filtered;
+            const filterEmpty = (value) => {
+                return value && value !== '' && value !== 'undefined' && value !== null;
             };
 
             // Helper function to get appliance details safely
@@ -333,104 +320,96 @@ const CustomQuote = () => {
                 return Object.keys(data).length > 0 ? data : null;
             };
 
-            // Build organized submission data in the order you want to receive it
+            // Build organized submission data with proper field names
             const organizedData = {};
 
-            // 1. PROJECT SPECS - Customer Info (always first)
-            organizedData['=== PROJECT SPECS ==='] = '--- CUSTOMER INFO ---';
-            if (formData.name) organizedData['Customer'] = formData.name;
-            if (formData.phone) organizedData['Phone 1'] = formData.phone;
-            if (formData.phone2) organizedData['Phone 2'] = `${formData.phone2} (${formData.phone2Type || 'Mobile'})`;
-            if (formData.email) organizedData['Email'] = formData.email;
-            if (formData.clientType) organizedData['Customer Type'] = formData.clientType;
-            if (formData.companyName) organizedData['Company Name'] = formData.companyName;
-            if (formData.companyAddress) organizedData['Company Address'] = formData.companyAddress;
-            if (formData.companyPhone) organizedData['Company Phone'] = formData.companyPhone;
+            // 1. Customer Information
+            if (filterEmpty(formData.name)) organizedData['Customer_Name'] = formData.name;
+            if (filterEmpty(formData.phone)) organizedData['Phone_Primary'] = formData.phone;
+            if (filterEmpty(formData.phone2)) organizedData['Phone_Secondary'] = `${formData.phone2} (${formData.phone2Type || 'Mobile'})`;
+            if (filterEmpty(formData.email)) organizedData['Email_Address'] = formData.email;
+            if (filterEmpty(formData.clientType)) organizedData['Customer_Type'] = formData.clientType;
+            if (filterEmpty(formData.companyName)) organizedData['Company_Name'] = formData.companyName;
+            if (filterEmpty(formData.companyAddress)) organizedData['Company_Address'] = formData.companyAddress;
+            if (filterEmpty(formData.companyPhone)) organizedData['Company_Phone'] = formData.companyPhone;
 
-            // 2. SERVICE LOCATION
-            organizedData['=== SERVICE LOCATION ==='] = '--- ADDRESS ---';
-            if (formData.address) organizedData['Installation Address'] = formData.address;
-            if (formData.city) organizedData['City'] = formData.city;
-            if (formData.state) organizedData['State'] = formData.state;
-            if (formData.zipCode) organizedData['Zip Code'] = formData.zipCode;
+            // 2. Service Location
+            if (filterEmpty(formData.address)) organizedData['Installation_Address'] = formData.address;
+            if (filterEmpty(formData.city)) organizedData['City'] = formData.city;
+            if (filterEmpty(formData.state)) organizedData['State'] = formData.state;
+            if (filterEmpty(formData.zipCode)) organizedData['Zip_Code'] = formData.zipCode;
 
-            // 3. SERVICES CATEGORY
-            organizedData['=== SERVICES CATEGORY ==='] = '--- SERVICES ---';
-            if (formData.uninstall) organizedData['Uninstall?'] = formData.uninstall;
-            if (formData.haulAway) organizedData['Haul Away?'] = formData.haulAway;
-            if (formData.delivery) organizedData['Delivery?'] = formData.delivery;
-            if (formData.pickupLocation) organizedData['Pickup Location'] = formData.pickupLocation;
-            if (formData.pickupDate) organizedData['Pickup Date'] = formData.pickupDate;
+            // 3. Services
+            if (filterEmpty(formData.uninstall)) organizedData['Uninstall_Service'] = formData.uninstall;
+            if (filterEmpty(formData.haulAway)) organizedData['Haul_Away_Service'] = formData.haulAway;
+            if (filterEmpty(formData.delivery)) organizedData['Delivery_Service'] = formData.delivery;
+            if (filterEmpty(formData.pickupLocation)) organizedData['Pickup_Location'] = formData.pickupLocation;
+            if (filterEmpty(formData.pickupDate)) organizedData['Pickup_Date'] = formData.pickupDate;
 
-            // 4. APPLIANCES (only selected ones)
+            // 4. Appliances (only selected ones)
             const selectedAppliances = Object.keys(formData.appliances).filter(app => formData.appliances[app]);
             if (selectedAppliances.length > 0) {
-                organizedData['=== APPLIANCES ==='] = '--- SELECTED APPLIANCES ---';
-
                 selectedAppliances.forEach(appliance => {
                     const applianceNames = {
-                        range: 'Range/Cooktop',
-                        hood: 'Range Hood',
+                        range: 'Range_Cooktop',
+                        hood: 'Range_Hood',
                         cooktop: 'Cooktop',
                         microwave: 'Microwave',
-                        wallOven: 'Wall Oven',
+                        wallOven: 'Wall_Oven',
                         dishwasher: 'Dishwasher',
-                        refrigerator: 'Refrigerator/Freezer',
-                        wine: 'Wine Cooler',
-                        ice: 'Ice Maker',
-                        disposal: 'Garbage Disposal',
-                        trash: 'Trash Compactor',
-                        washer: 'Washer/Dryer'
+                        refrigerator: 'Refrigerator_Freezer',
+                        wine: 'Wine_Cooler',
+                        ice: 'Ice_Maker',
+                        disposal: 'Garbage_Disposal',
+                        trash: 'Trash_Compactor',
+                        washer: 'Washer_Dryer'
                     };
 
                     const appData = getApplianceData(appliance);
+                    const appName = applianceNames[appliance];
+
                     if (appData) {
-                        organizedData[`${applianceNames[appliance]} - Brand`] = appData.brand || 'Not specified';
-                        organizedData[`${applianceNames[appliance]} - Model`] = appData.model || 'Not specified';
-                        if (appData.specifics) organizedData[`${applianceNames[appliance]} - Specifics`] = appData.specifics;
-                        if (appData.notes) organizedData[`${applianceNames[appliance]} - Notes`] = appData.notes;
-                        if (appData.pedestalModel) organizedData[`${applianceNames[appliance]} - Pedestal Model`] = appData.pedestalModel;
+                        if (appData.brand) organizedData[`${appName}_Brand`] = appData.brand;
+                        if (appData.model) organizedData[`${appName}_Model`] = appData.model;
+                        if (appData.specifics) organizedData[`${appName}_Specifics`] = appData.specifics;
+                        if (appData.notes) organizedData[`${appName}_Notes`] = appData.notes;
+                        if (appData.pedestalModel) organizedData[`${appName}_Pedestal_Model`] = appData.pedestalModel;
                     }
                 });
             }
 
-            // 5. PROJECT DETAILS
-            organizedData['=== PROJECT DETAILS ==='] = '--- SITE INFO ---';
-            if (formData.homeType) organizedData['Home Type'] = formData.homeType;
-            if (formData.floorLevel) organizedData['Floor/Level'] = formData.floorLevel;
-            if (formData.stairs) organizedData['Stairs'] = formData.stairs;
-            if (formData.stairCount) organizedData['Number of Stairs'] = formData.stairCount;
-            if (formData.stairTurns) organizedData['Turns?'] = formData.stairTurns;
-            if (formData.parking) organizedData['Parking'] = formData.parking;
-            if (formData.gateCode) organizedData['Gate Code'] = formData.gateCode;
-            if (formData.gateCodeDetails) organizedData['Gate Code Details'] = formData.gateCodeDetails;
+            // 5. Project Details
+            if (filterEmpty(formData.homeType)) organizedData['Home_Type'] = formData.homeType;
+            if (filterEmpty(formData.floorLevel)) organizedData['Floor_Level'] = formData.floorLevel;
+            if (filterEmpty(formData.stairs)) organizedData['Stairs_Present'] = formData.stairs;
+            if (filterEmpty(formData.stairCount)) organizedData['Number_of_Stairs'] = formData.stairCount;
+            if (filterEmpty(formData.stairTurns)) organizedData['Stair_Turns'] = formData.stairTurns;
+            if (filterEmpty(formData.parking)) organizedData['Parking_Available'] = formData.parking;
+            if (filterEmpty(formData.gateCode)) organizedData['Gate_Code_Required'] = formData.gateCode;
+            if (filterEmpty(formData.gateCodeDetails)) organizedData['Gate_Code_Details'] = formData.gateCodeDetails;
 
-            // 6. REQUESTED SCHEDULE
-            organizedData['=== REQUESTED SCHEDULE ==='] = '--- TIMING ---';
-            if (formData.preferredDate) organizedData['Preferred Date'] = formData.preferredDate;
+            // 6. Schedule Preferences
+            if (filterEmpty(formData.preferredDate)) organizedData['Preferred_Date'] = formData.preferredDate;
             if (formData.preferredTime && formData.preferredTime.length > 0) {
-                organizedData['Preferred Time'] = formData.preferredTime.join(', ');
+                organizedData['Preferred_Time'] = formData.preferredTime.join(', ');
             }
 
-            // 7. ADDITIONAL DETAILS
-            organizedData['=== ADDITIONAL DETAILS ==='] = '--- EXTRA INFO ---';
-            if (formData.purchased) organizedData['Purchased?'] = formData.purchased;
-            if (formData.fieldMeasure) organizedData['Pre-Install Site Assessment Requested?'] = formData.fieldMeasure;
-            if (formData.additionalInfo) organizedData['Additional Information'] = formData.additionalInfo;
+            // 7. Additional Information
+            if (filterEmpty(formData.purchased)) organizedData['Already_Purchased'] = formData.purchased;
+            if (filterEmpty(formData.fieldMeasure)) organizedData['Site_Assessment_Requested'] = formData.fieldMeasure;
+            if (filterEmpty(formData.additionalInfo)) organizedData['Additional_Information'] = formData.additionalInfo;
 
-            // 8. SUBMISSION INFO
+            // 8. Submission Timestamp
             const now = new Date();
-            organizedData['=== SUBMISSION INFO ==='] = '--- TIMESTAMP ---';
-            organizedData['Date Submitted'] = now.toLocaleDateString('en-US', {
+            organizedData['Submission_Date'] = now.toLocaleDateString('en-US', {
                 year: 'numeric', month: 'long', day: 'numeric'
             });
-            organizedData['Time Submitted'] = now.toLocaleTimeString('en-US', {
+            organizedData['Submission_Time'] = now.toLocaleTimeString('en-US', {
                 hour: 'numeric', minute: '2-digit', hour12: true
             });
 
-            // Filter out empty sections and encode for Netlify
-            const finalData = filterEmpty(organizedData);
-            finalData["form-name"] = "custom-quote-form";
+            // Add form name for Netlify
+            organizedData["form-name"] = "custom-quote-form";
 
             const encode = (data) => {
                 return Object.keys(data)
@@ -442,7 +421,7 @@ const CustomQuote = () => {
             await fetch("/", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: encode(finalData)
+                body: encode(organizedData)
             });
 
             // Success!
