@@ -288,150 +288,83 @@ const CustomQuote = () => {
     //     }
     // };
 
-    // Handle form submission
-    // Handle form submission
-    // Handle form submission
-    // Handle form submission
+    // Handle form submission using custom Netlify Function
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
         setSubmitStatus(null);
 
         try {
-            // Helper function to filter out empty/undefined values
-            const filterEmpty = (value) => {
-                return value && value !== '' && value !== 'undefined' && value !== null;
-            };
+            // Create FormData object to handle both form fields and file uploads
+            const formDataToSubmit = new FormData();
 
-            // Helper function to get appliance details safely
-            const getApplianceData = (appliance) => {
-                const details = formData.applianceDetails[appliance];
-                if (!details) return null;
-
-                const data = {};
-                if (details.brand) data.brand = details.brand;
-                if (details.model) data.model = details.model;
-                if (details.notes) data.notes = details.notes;
-                if (details.specifics && details.specifics.length > 0) {
-                    data.specifics = details.specifics.join(', ');
+            // Add all form fields to FormData
+            Object.keys(formData).forEach(key => {
+                const value = formData[key];
+                
+                if (key === 'appliances') {
+                    // Handle appliances object
+                    Object.keys(value).forEach(applianceKey => {
+                        if (value[applianceKey]) {
+                            formDataToSubmit.append(`appliances.${applianceKey}`, 'true');
+                        }
+                    });
+                } else if (key === 'applianceDetails') {
+                    // Handle appliance details object
+                    Object.keys(value).forEach(applianceKey => {
+                        const details = value[applianceKey];
+                        if (details && typeof details === 'object') {
+                            Object.keys(details).forEach(detailKey => {
+                                const detailValue = details[detailKey];
+                                if (detailKey === 'specifics' && Array.isArray(detailValue)) {
+                                    // Handle specifics array
+                                    detailValue.forEach((specific, index) => {
+                                        formDataToSubmit.append(`applianceDetails.${applianceKey}.specifics.${index}`, specific);
+                                    });
+                                } else if (detailValue !== '' && detailValue != null) {
+                                    formDataToSubmit.append(`applianceDetails.${applianceKey}.${detailKey}`, detailValue);
+                                }
+                            });
+                        }
+                    });
+                } else if (key === 'preferredTime' && Array.isArray(value)) {
+                    // Handle preferred time array
+                    value.forEach(time => {
+                        formDataToSubmit.append(`preferredTime.${time}`, 'true');
+                    });
+                } else if (key.startsWith('uploadFile') && value instanceof File) {
+                    // Handle file uploads
+                    formDataToSubmit.append(key, value);
+                } else if (value !== '' && value != null && !key.startsWith('uploadFile')) {
+                    // Handle regular form fields
+                    formDataToSubmit.append(key, value);
                 }
-                if (details.pedestalModel) data.pedestalModel = details.pedestalModel;
+            });
 
-                return Object.keys(data).length > 0 ? data : null;
-            };
+            // Submit to our custom Netlify Function
+            const response = await fetch('/.netlify/functions/submit-quote', {
+                method: 'POST',
+                body: formDataToSubmit
+            });
 
-            // Build organized submission data with proper field names
-            const organizedData = {};
+            const result = await response.json();
 
-            // 1. Customer Information
-            if (filterEmpty(formData.name)) organizedData['Customer_Name'] = formData.name;
-            if (filterEmpty(formData.phone)) organizedData['Phone_Primary'] = formData.phone;
-            if (filterEmpty(formData.phone2)) organizedData['Phone_Secondary'] = `${formData.phone2} (${formData.phone2Type || 'Mobile'})`;
-            if (filterEmpty(formData.email)) organizedData['Email_Address'] = formData.email;
-            if (filterEmpty(formData.clientType)) organizedData['Customer_Type'] = formData.clientType;
-            if (filterEmpty(formData.companyName)) organizedData['Company_Name'] = formData.companyName;
-            if (filterEmpty(formData.companyAddress)) organizedData['Company_Address'] = formData.companyAddress;
-            if (filterEmpty(formData.companyPhone)) organizedData['Company_Phone'] = formData.companyPhone;
-
-            // 2. Service Location
-            if (filterEmpty(formData.address)) organizedData['Installation_Address'] = formData.address;
-            if (filterEmpty(formData.city)) organizedData['City'] = formData.city;
-            if (filterEmpty(formData.state)) organizedData['State'] = formData.state;
-            if (filterEmpty(formData.zipCode)) organizedData['Zip_Code'] = formData.zipCode;
-
-            // 3. Services
-            if (filterEmpty(formData.uninstall)) organizedData['Uninstall_Service'] = formData.uninstall;
-            if (filterEmpty(formData.haulAway)) organizedData['Haul_Away_Service'] = formData.haulAway;
-            if (filterEmpty(formData.delivery)) organizedData['Delivery_Service'] = formData.delivery;
-            if (filterEmpty(formData.pickupLocation)) organizedData['Pickup_Location'] = formData.pickupLocation;
-            if (filterEmpty(formData.pickupDate)) organizedData['Pickup_Date'] = formData.pickupDate;
-
-            // 4. Appliances (only selected ones)
-            const selectedAppliances = Object.keys(formData.appliances).filter(app => formData.appliances[app]);
-            if (selectedAppliances.length > 0) {
-                selectedAppliances.forEach(appliance => {
-                    const applianceNames = {
-                        range: 'Range_Cooktop',
-                        hood: 'Range_Hood',
-                        cooktop: 'Cooktop',
-                        microwave: 'Microwave',
-                        wallOven: 'Wall_Oven',
-                        dishwasher: 'Dishwasher',
-                        refrigerator: 'Refrigerator_Freezer',
-                        wine: 'Wine_Cooler',
-                        ice: 'Ice_Maker',
-                        disposal: 'Garbage_Disposal',
-                        trash: 'Trash_Compactor',
-                        washer: 'Washer_Dryer'
-                    };
-
-                    const appData = getApplianceData(appliance);
-                    const appName = applianceNames[appliance];
-
-                    if (appData) {
-                        if (appData.brand) organizedData[`${appName}_Brand`] = appData.brand;
-                        if (appData.model) organizedData[`${appName}_Model`] = appData.model;
-                        if (appData.specifics) organizedData[`${appName}_Specifics`] = appData.specifics;
-                        if (appData.notes) organizedData[`${appName}_Notes`] = appData.notes;
-                        if (appData.pedestalModel) organizedData[`${appName}_Pedestal_Model`] = appData.pedestalModel;
-                    }
-                });
+            if (!response.ok) {
+                throw new Error(result.error || `Server error: ${response.status}`);
             }
 
-            // 5. Project Details
-            if (filterEmpty(formData.homeType)) organizedData['Home_Type'] = formData.homeType;
-            if (filterEmpty(formData.floorLevel)) organizedData['Floor_Level'] = formData.floorLevel;
-            if (filterEmpty(formData.stairs)) organizedData['Stairs_Present'] = formData.stairs;
-            if (filterEmpty(formData.stairCount)) organizedData['Number_of_Stairs'] = formData.stairCount;
-            if (filterEmpty(formData.stairTurns)) organizedData['Stair_Turns'] = formData.stairTurns;
-            if (filterEmpty(formData.parking)) organizedData['Parking_Available'] = formData.parking;
-            if (filterEmpty(formData.gateCode)) organizedData['Gate_Code_Required'] = formData.gateCode;
-            if (filterEmpty(formData.gateCodeDetails)) organizedData['Gate_Code_Details'] = formData.gateCodeDetails;
+            if (result.success) {
+                // Success!
+                setSubmitStatus('success');
+                setIsSubmitting(false);
 
-            // 6. Schedule Preferences
-            if (filterEmpty(formData.preferredDate)) organizedData['Preferred_Date'] = formData.preferredDate;
-            if (formData.preferredTime && formData.preferredTime.length > 0) {
-                organizedData['Preferred_Time'] = formData.preferredTime.join(', ');
-            }
-
-            // 7. Additional Information
-            if (filterEmpty(formData.purchased)) organizedData['Already_Purchased'] = formData.purchased;
-            if (filterEmpty(formData.fieldMeasure)) organizedData['Site_Assessment_Requested'] = formData.fieldMeasure;
-            if (filterEmpty(formData.additionalInfo)) organizedData['Additional_Information'] = formData.additionalInfo;
-
-            // 8. Submission Timestamp
-            const now = new Date();
-            organizedData['Submission_Date'] = now.toLocaleDateString('en-US', {
-                year: 'numeric', month: 'long', day: 'numeric'
-            });
-            organizedData['Submission_Time'] = now.toLocaleTimeString('en-US', {
-                hour: 'numeric', minute: '2-digit', hour12: true
-            });
-
-            // Add form name for Netlify
-            organizedData["form-name"] = "custom-quote-form";
-
-            const encode = (data) => {
-                return Object.keys(data)
-                    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-                    .join("&");
-            };
-
-            // Submit to Netlify
-            await fetch("/", {
-                method: "POST",
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: encode(organizedData)
-            });
-
-            // Success!
-            setSubmitStatus('success');
-            setIsSubmitting(false);
-
-            // Scroll to success message at bottom
-            const submitSection = document.querySelector('.submit-section');
-            if (submitSection) {
-                submitSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Scroll to success message at bottom
+                const submitSection = document.querySelector('.submit-section');
+                if (submitSection) {
+                    submitSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            } else {
+                throw new Error(result.message || 'Submission failed');
             }
 
         } catch (error) {
@@ -488,7 +421,7 @@ const CustomQuote = () => {
                             </div>
 
                             <div className="quote-form-container">
-                                <form className="quote-form" onSubmit={handleSubmit} netlify data-netlify="true" encType="multipart/form-data">
+                                <form className="quote-form" onSubmit={handleSubmit} encType="multipart/form-data">
                                     <input type="hidden" name="form-name" value="custom-quote-form" />
 
                                     {/* Client Information Section */}
