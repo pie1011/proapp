@@ -13,7 +13,6 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 exports.handler = async (event, context) => {
 
-    exports.handler = async (event, context) => {
     // Add these debug lines right at the start
     console.log('=== DEBUGGING FORM SUBMISSION ===');
     console.log('HTTP Method:', event.httpMethod);
