@@ -108,8 +108,7 @@
   cursor: default;
 }
 
-.about-page .areas-grid span:hover {
-  transform: translateY(-2px);
+.about-page .areas-grid span:hover {form: translateY(-2px);
   box-shadow: 0 4px 15px rgba(40, 181, 208, 0.3);
 }
 

@@ -62,16 +62,16 @@
   cursor: pointer;
 }
 
-.quote-button-nav {
-  padding: 0.5rem 1.5rem;
-  margin: 1rem;
+/* Reusable Quote Button Styling */
+.quote-button {
   background: linear-gradient(135deg, var(--primary-blue) 0%, #1e90d4 100%);
   border: none;
+  padding: 1rem 2rem;
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.5px;
   border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(40, 181, 208, 0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
   color: white;
   text-decoration: none;
@@ -82,23 +82,41 @@
   min-width: 180px;
   cursor: pointer;
 }
+
+.quote-button-nav {
+  padding: 0.5rem 1.5rem;
+  margin: 1rem;
+  background: linear-gradient(135deg, var(--primary-blue) 0%, #1e90d4 100%);
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  color: white;
+  text-decoration: none;
+  text-shadow: var(--primary-blue-dark) 0 1px 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 180px;
+  cursor: pointer;
+}
+
 .quote-button:hover:not(:disabled) {
-  transform: translateY(-2px);
-  background: var(--primary-blue-dark);
-  box-shadow: 0 6px 20px rgba(40, 181, 208, 0.4);
+  background: var(--dark-gray);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
   color: white;
   text-decoration: none;
 }
 
 .quote-button-nav:hover:not(:disabled) {
-  transform: translateY(-2px);
-  background: var(--primary-blue-dark);
-  box-shadow: 0 6px 20px rgba(40, 181, 208, 0.4);
+  background: var(--dark-gray);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
   color: white;
   text-decoration: none;
 }
-
-
 
 .quote-button:active {
   transform: translateY(0);

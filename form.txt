@@ -1,0 +1,58 @@
+From: Installs Pro Appliance Installation <installs@email.com>
+Sent: Wednesday, August 20, 2025 9:10:26 AM
+To: Installs Pro Appliance Installation <installs@email.com>
+Subject: CUSTOM QUOTE - john.smith@email.com
+ 
+PROJECT SPECS:
+
+Customer: John Smith
+Phone 1: 5552223333
+
+Email: john.smith@email.com
+
+Customer Type: Homeowner
+
+SERVICE LOCATION:
+
+Installation Address:
+123 MAIN ST
+SANTA CRUZ, CA 95062
+
+Category:
+Uninstall? Yes
+Haul Away? Yes
+Delivery? Yes
+
+Appliance(s):
+
+Refrigerator/Freezer
+201ADUSX5N
+Fisher Paykel
+
+CUSTOM FIELDS
+Customer Type: Homeowner
+Uninstall? Yes
+Haul-Away? Yes
+Delivery? Yes
+
+Home Type: Single-Family Home
+Floor/Level: 2nd
+Stairs: Yes
+Number of Stairs: 20 APPRX / Turns? Yes
+Parking: Yes
+Gate Code: No
+
+REQUESTED SCHEDULE:
+
+Preferred date: 8/26, 27,28
+Preferred time: Morning
+
+ADDITIONAL DETAILS:
+
+APPLIANCE INFORMATION:
+
+Purchased? Yes
+Pre-Install Site Assessment Requested? Yes
+
+Date Submitted: August 20, 2025
+Time Submitted: 9:10 am

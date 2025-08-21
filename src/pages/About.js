@@ -117,20 +117,18 @@ const About = () => {
                                 <Col lg={8} className="mx-auto">
                                     <div className="service-areas">
                                         <div className="areas-grid">
-                                            <span>Campbell</span>
-                                            <span>Cupertino</span>
-                                            <span>Gilroy</span>
-                                            <span>Los Altos</span>
-                                            <span>Los Altos Hills</span>
-                                            <span>Los Gatos</span>
-                                            <span>Milpitas</span>
-                                            <span>Monte Sereno</span>
-                                            <span>Morgan Hill</span>
-                                            <span>Mountain View</span>
-                                            <span>Palo Alto</span>
-                                            <span>San Jose</span>
-                                            <span>Santa Clara</span>
-                                            <span>Saratoga</span>
+                                            <span>Santa Clara County</span>
+                                            <span>San Mateo County</span>
+                                            <span>Santa Cruz Area</span>
+                                            <span>Alameda County</span>
+                                        </div>
+                                        <div className="text-center mt-4">
+                                            <p className="mb-3">
+                                                <em>Select areas within these counties</em>
+                                            </p>
+                                            <a href="/service-areas" className="btn btn-outline-primary">
+                                                View Complete Service Areas
+                                            </a>
                                         </div>
                                     </div>
                                 </Col>
@@ -144,7 +142,7 @@ const About = () => {
                             <div className="about-cta">
                                 <h3>Ready to Get Started?</h3>
                                 <p>Contact us today for your free custom quote and experience the Pro Appliance Installation difference.</p>
-                                <a href="/quote" className="btn btn-primary btn-lg">Get Your Free Quote</a>
+                                <a href="/quote" className="quote-button">Get Your Free Quote</a>
                             </div>
                         </Col>
                     </Row>
