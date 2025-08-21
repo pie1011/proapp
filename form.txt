@@ -1,3 +1,5 @@
+SAMPLE EMAIL #1
+
 From: Installs Pro Appliance Installation <installs@email.com>
 Sent: Wednesday, August 20, 2025 9:10:26 AM
 To: Installs Pro Appliance Installation <installs@email.com>
@@ -56,3 +58,65 @@ Pre-Install Site Assessment Requested? Yes
 
 Date Submitted: August 20, 2025
 Time Submitted: 9:10 am
+
+-------------------------------------------
+SAMPLE EMAIL #2
+From: Installs Pro Appliance Installation <installs@email.com>
+Sent: Tuesday, August 19, 2025 3:48:31 PM
+To: Installs Pro Appliance Installation <installs@email.com>
+Subject: CUSTOM QUOTE - Rachel Smith
+ 
+PROJECT SPECS:
+
+Customer: Rachel Smith
+Phone 1: 5551112222
+
+Email: rachel@email.com
+
+Customer Type: Homeowner
+
+SERVICE LOCATION:
+
+Installation Address:
+222 Average Ave
+Los Altos, CA 94022
+
+Category:
+Uninstall? No
+Haul Away? No
+Delivery? No
+
+Appliance(s):
+
+Refrigerator/Freezer
+BI-36UFDID/S
+Built-In Refrigerator with Freezer
+Subzero Legacy Model – 36" Classic French Door Refrigerator
+
+CUSTOM FIELDS
+Customer Type: Homeowner
+Uninstall? No
+Haul-Away? No
+Delivery? No
+
+Home Type: Single-Family Home
+Floor/Level: 1st
+Stairs: No
+
+Parking: Yes
+Gate Code: No
+
+REQUESTED SCHEDULE:
+
+Preferred date: Early Sept
+Preferred time: Afternoon
+
+ADDITIONAL DETAILS:
+
+APPLIANCE INFORMATION:
+
+Purchased? Yes
+Pre-Install Site Assessment Requested? Yes
+
+Date Submitted: August 19, 2025
+Time Submitted: 3:48 pm
