@@ -3,18 +3,18 @@
   padding-top: 0;
 }
 
-/* Hero Section - CONDENSED: 4rem → 2.5rem */
+/* Hero Section */
 .quote-page .quote-hero {
   background: linear-gradient(135deg, var(--primary-blue) 0%, #1e90d4 100%);
   color: white;
-  padding: 2.5rem 0;
+  padding: 4rem 0;
   margin-bottom: 0;
 }
 
 .quote-page .page-title {
   font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
+  margin-bottom: 1rem;
   letter-spacing: 1px;
 }
 
@@ -35,22 +35,22 @@
   font-size: 2.5rem;
   font-weight: 600;
   color: var(--dark-gray);
-  margin-bottom: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
+  margin-bottom: 1rem;
 }
 
 .quote-page .title-underline {
   width: 80px;
   height: 4px;
   background-color: var(--primary-blue);
-  margin: 0 auto 1.5rem auto; /* CONDENSED: 2rem → 1.5rem */
+  margin: 0 auto 2rem auto;
 }
 
-/* Form Container - CONDENSED: 3rem → 2rem */
+/* Form Container */
 .quote-page .quote-form-container {
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  padding: 2rem;
+  padding: 3rem;
 }
 
 .quote-page .quote-form {
@@ -69,13 +69,13 @@
 .quote-page p {
   line-height: 1.7;
   color: var(--medium-gray);
-  margin-bottom: 1rem; /* CONDENSED: 1.5rem → 1rem */
+  margin-bottom: 1.5rem;
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .quote-page .quote-hero {
-    padding: 2rem 0; /* CONDENSED: 3rem → 2rem */
+    padding: 3rem 0;
   }
   
   .quote-page .page-title {
@@ -91,7 +91,7 @@
   }
   
   .quote-page .quote-form-container {
-    padding: 1.5rem; /* CONDENSED: 2rem → 1.5rem */
+    padding: 2rem;
   }
 }
 
@@ -105,7 +105,7 @@
   }
   
   .quote-page .quote-form-container {
-    padding: 1rem; /* CONDENSED: 1.5rem → 1rem */
+    padding: 1.5rem;
   }
 }
 
@@ -114,16 +114,16 @@
 /* ------- -------  Form Section Styles ------- ------- */
 
 
-/* Form Section Styles - Modern Typography - CONDENSED */
+/* Form Section Styles - Modern Typography */
 .quote-page .form-section {
-  margin-bottom: 2rem; /* CONDENSED: 3rem → 2rem */
+  margin-bottom: 3rem;
 }
 
 .quote-page .section-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
+  margin-bottom: 1rem;
 }
 
 .quote-page .form-section-title {
@@ -158,11 +158,11 @@
   height: 3px;
   background-color: #000;
   border: none;
-  margin-bottom: 1.5rem; /* CONDENSED: 2rem → 1.5rem */
+  margin-bottom: 2rem;
 }
 
 .quote-page .field-divider {
-  margin: 1rem 0; /* CONDENSED: 1.5rem → 1rem */
+  margin: 1.5rem 0;
   border-color: #dee2e6;
 }
 
@@ -170,7 +170,7 @@
 .quote-page .form-label {
   font-weight: 500;
   color: var(--dark-gray);
-  margin-bottom: 0.4rem; /* CONDENSED: 0.5rem → 0.4rem */
+  margin-bottom: 0.5rem;
   font-size: 0.95rem;
   letter-spacing: 0.3px;
 }
@@ -178,7 +178,7 @@
 .quote-page .form-control {
   font-size: 0.9rem;
   font-weight: 400;
-  padding: 0.6rem; /* CONDENSED: 0.75rem → 0.6rem */
+  padding: 0.75rem;
   border: 1px solid #ced4da;
   border-radius: 6px;
   transition: all 0.15s ease-in-out;
@@ -207,7 +207,7 @@
 
 .quote-page .radio-group.vertical {
   flex-direction: column;
-  gap: 0.5rem; /* CONDENSED: 0.75rem → 0.5rem */
+  gap: 0.75rem;
 }
 
 .quote-page .form-check {
@@ -238,7 +238,7 @@
 /* Form Notes - Consistent Typography */
 .quote-page .form-note {
   font-size: 0.85rem;
-  margin-top: 0.4rem; /* CONDENSED: 0.5rem → 0.4rem */
+  margin-top: 0.5rem;
   line-height: 1.4;
 }
 
@@ -248,13 +248,13 @@
   font-weight: 400;
 }
 
-/* Company Fields - Modern Card Style - CONDENSED */
+/* Company Fields - Modern Card Style */
 .quote-page .company-fields {
   background-color: #f8f9fa;
-  padding: 1rem; /* CONDENSED: 1.5rem → 1rem */
+  padding: 1.5rem;
   border-radius: 8px;
   border-left: 4px solid var(--primary-blue);
-  margin-top: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
+  margin-top: 1rem;
   animation: slideIn 0.3s ease-in-out;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
@@ -361,8 +361,7 @@
 
 
 
-/* ------- -------  Appliances Section Styles ------- ------- */
-
+/* ------- -------  Appliance Details Styles ------- ------- */
 
 /* Appliance Details Styling */
 .quote-page .model-disclaimer {
@@ -392,14 +391,14 @@
 .quote-page .appliance-grid {
   display: flex;
   flex-direction: column;
-  gap: 1rem; /* CONDENSED: 1.5rem → 1rem */
+  gap: 2rem;
 }
 
 .quote-page .appliance-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  padding: .5rem 1rem;
+  gap: 2rem;
+  padding: 1.5rem;
   background-color: #f8f9fa;
   border-radius: 8px;
   border: 1px solid #e9ecef;
@@ -418,36 +417,36 @@
 }
 
 .quote-page .appliance-specifics {
-  margin-top: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
+  margin-top: 1rem;
   padding-left: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem; /* CONDENSED: 0.5rem → 0.4rem */
+  gap: 0.5rem;
 }
 
 .quote-page .appliance-details {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
+  gap: 1rem;
   animation: slideIn 0.3s ease-in-out;
 }
 
 .quote-page .detail-field .form-label {
   font-size: 0.9rem;
-  margin-bottom: 0.2rem; /* CONDENSED: 0.25rem → 0.2rem */
+  margin-bottom: 0.25rem;
 }
 
 .quote-page .detail-field .form-control {
   font-size: 0.85rem;
 }
 
-/* Special styling for pedestal field - CONDENSED */
+/* Special styling for pedestal field */
 .quote-page .pedestal-field {
   background-color: #fff3cd;
   border: 1px solid #ffeaa7;
   border-radius: 6px;
-  padding: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
-  margin-top: 0.4rem; /* CONDENSED: 0.5rem → 0.4rem */
+  padding: 1rem;
+  margin-top: 0.5rem;
 }
 
 .quote-page .pedestal-field .form-label {
@@ -478,7 +477,7 @@
 }
 
 .quote-page .appliance-checkbox .form-check {
-  margin-bottom: 0.4rem; /* CONDENSED: 0.5rem → 0.4rem */
+  margin-bottom: 0.5rem;
 }
 
 /* Mobile Responsiveness */
@@ -486,7 +485,7 @@
   .quote-page .appliance-row {
     grid-template-columns: 1fr;
     gap: 1rem;
-    padding: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
+    padding: 1rem;
   }
   
   .quote-page .appliance-specifics {
@@ -498,15 +497,15 @@
 
 /* ------- -------  Services Section Styles ------- ------- */
 
-/* Services Section Styling - Compact Layout - CONDENSED */
+/* Services Section Styling - Compact Layout */
 .quote-page .services-grid {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
+  gap: 1rem;
 }
 
 .quote-page .service-row {
-  padding: 1rem; /* CONDENSED: 1.5rem → 1rem */
+  padding: 1.5rem;
   background-color: #f8f9fa;
   border-radius: 8px;
   border: 1px solid #e9ecef;
@@ -541,13 +540,13 @@
 }
 
 .quote-page .service-details {
-  margin-top: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
+  margin-top: 1rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
+  gap: 1rem;
   animation: slideIn 0.3s ease-in-out;
   background-color: white;
-  padding: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
+  padding: 1rem;
   border-radius: 6px;
   border: 1px solid #dee2e6;
 }
@@ -555,7 +554,7 @@
 .quote-page .service-details .detail-field {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem; /* CONDENSED: 0.5rem → 0.4rem */
+  gap: 0.5rem;
 }
 
 .quote-page .service-details .form-label {
@@ -572,13 +571,13 @@
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .quote-page .service-row {
-    padding: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
+    padding: 1rem;
   }
   
   .quote-page .service-question {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
+    gap: 1rem;
   }
   
   .quote-page .service-question .form-label {
@@ -587,7 +586,7 @@
   
   .quote-page .service-details {
     grid-template-columns: 1fr;
-    padding: 0.6rem; /* CONDENSED: 0.75rem → 0.6rem */
+    padding: 0.75rem;
   }
 }
 
@@ -595,7 +594,7 @@
   .quote-page .service-question .radio-group {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.4rem; /* CONDENSED: 0.5rem → 0.4rem */
+    gap: 0.5rem;
   }
 }
 
@@ -606,9 +605,9 @@
 /* ------- -------  Installation Address Section Styles ------- ------- */
 
 
-/* Installation Address & Site Details Styling - CONDENSED */
+/* Installation Address & Site Details Styling */
 .quote-page .address-grid {
-  margin-bottom: 1.5rem; /* CONDENSED: 2rem → 1.5rem */
+  margin-bottom: 2rem;
 }
 
 .quote-page .input-group-text {
@@ -622,15 +621,15 @@
   max-width: 150px;
 }
 
-/* Site Details - Using compact style like Services - CONDENSED */
+/* Site Details - Using compact style like Services */
 .quote-page .site-details-grid {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
+  gap: 1rem;
 }
 
 .quote-page .site-detail-row {
-  padding: 1rem; /* CONDENSED: 1.5rem → 1rem */
+  padding: 1.5rem;
   background-color: #f8f9fa;
   border-radius: 8px;
   border: 1px solid #e9ecef;
@@ -664,16 +663,16 @@
   align-items: center;
 }
 
-/* Conditional Details - CONDENSED */
+/* Conditional Details */
 .quote-page .stairs-details,
 .quote-page .parking-details {
-  margin-top: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
+  margin-top: 1rem;
   display: flex;
   gap: 2rem;
   align-items: end;
   animation: slideIn 0.3s ease-in-out;
   background-color: white;
-  padding: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
+  padding: 1rem;
   border-radius: 6px;
   border: 1px solid #dee2e6;
   flex-wrap: wrap;
@@ -682,7 +681,7 @@
 .quote-page .stairs-field {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem; /* CONDENSED: 0.5rem → 0.4rem */
+  gap: 0.5rem;
 }
 
 .quote-page .stairs-input {
@@ -692,7 +691,7 @@
 .quote-page .parking-details {
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.4rem; /* CONDENSED: 0.5rem → 0.4rem */
+  gap: 0.5rem;
 }
 
 .quote-page .stairs-details .form-label,
@@ -710,13 +709,13 @@
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .quote-page .site-detail-row {
-    padding: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
+    padding: 1rem;
   }
   
   .quote-page .site-question {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
+    gap: 1rem;
   }
   
   .quote-page .site-question .form-label {
@@ -726,7 +725,7 @@
   .quote-page .stairs-details {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
+    gap: 1rem;
   }
   
   .quote-page .zip-input {
@@ -738,12 +737,12 @@
   .quote-page .site-question .radio-group {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.4rem; /* CONDENSED: 0.5rem → 0.4rem */
+    gap: 0.5rem;
   }
   
   .quote-page .stairs-details .radio-group {
     flex-direction: column;
-    gap: 0.4rem; /* CONDENSED: 0.5rem → 0.4rem */
+    gap: 0.5rem;
   }
 }
 
@@ -751,15 +750,15 @@
 
 /* ------- -------  Additional Project Details Section Styles ------- ------- */
 
-/* Additional Project Details Styling - CONDENSED */
+/* Additional Project Details Styling */
 .quote-page .project-details-grid {
   display: flex;
   flex-direction: column;
-  gap: 1rem; /* CONDENSED: 1.5rem → 1rem */
+  gap: 1.5rem;
 }
 
 .quote-page .detail-row {
-  padding: 1rem; /* CONDENSED: 1.5rem → 1rem */
+  padding: 1.5rem;
   background-color: #f8f9fa;
   border-radius: 8px;
   border: 1px solid #e9ecef;
@@ -781,7 +780,7 @@
 .quote-page .detail-question.full-width {
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
+  gap: 1rem;
 }
 
 .quote-page .detail-question .form-label {
@@ -803,18 +802,18 @@
 
 .quote-page .checkbox-group {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   align-items: center;
 }
 
-/* Scheduling Notes - CONDENSED */
+/* Scheduling Notes */
 .quote-page .scheduling-note {
   background-color: #fff3cd;
   border: 1px solid #ffeaa7;
   border-left: 4px solid #f39c12;
   border-radius: 6px;
-  padding: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
-  margin: 0.4rem 0; /* CONDENSED: 0.5rem → 0.4rem */
+  padding: 1rem;
+  margin: 0.5rem 0;
 }
 
 .quote-page .scheduling-note .note-text {
@@ -825,7 +824,7 @@
   font-style: italic;
 }
 
-/* Comments Section - CONDENSED */
+/* Comments Section */
 .quote-page .comments-row {
   background-color: white;
   border: 2px solid var(--primary-blue);
@@ -834,7 +833,7 @@
 .quote-page .comments-textarea {
   width: 100%;
   resize: vertical;
-  min-height: 100px; /* CONDENSED: 120px → 100px */
+  min-height: 120px;
   font-family: inherit;
   line-height: 1.5;
 }
@@ -843,7 +842,7 @@
   text-align: right;
   font-size: 0.8rem;
   color: var(--medium-gray);
-  margin-top: 0.4rem; /* CONDENSED: 0.5rem → 0.4rem */
+  margin-top: 0.5rem;
 }
 
 .quote-page .character-count {
@@ -857,13 +856,13 @@
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .quote-page .detail-row {
-    padding: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
+    padding: 1rem;
   }
   
   .quote-page .detail-question {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
+    gap: 1rem;
   }
   
   .quote-page .detail-question .form-label {
@@ -884,7 +883,7 @@
   .quote-page .checkbox-group {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.4rem; /* CONDENSED: 0.5rem → 0.4rem */
+    gap: 0.5rem;
   }
 }
 
@@ -892,9 +891,9 @@
 
 /* ------- -------  File Upload Placeholder Styles ------- ------- */
 
-/* File Upload Placeholder Styling - CONDENSED */
+/* File Upload Placeholder Styling */
 .quote-page .file-upload-placeholder {
-  padding: 2rem 1.5rem; /* CONDENSED: 3rem 2rem → 2rem 1.5rem */
+  padding: 3rem 2rem;
   background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   border: 2px dashed #ced4da;
   border-radius: 12px;
@@ -913,9 +912,9 @@
 }
 
 .quote-page .placeholder-icon {
-  font-size: 3.5rem; /* CONDENSED: 4rem → 3.5rem */
+  font-size: 4rem;
   color: #6c757d;
-  margin-bottom: 1rem; /* CONDENSED: 1.5rem → 1rem */
+  margin-bottom: 1.5rem;
   transition: color 0.3s ease;
 }
 
@@ -924,24 +923,24 @@
 }
 
 .quote-page .placeholder-title {
-  font-size: 1.4rem; /* CONDENSED: 1.5rem → 1.4rem */
+  font-size: 1.5rem;
   font-weight: 600;
   color: var(--dark-gray);
-  margin-bottom: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
+  margin-bottom: 1rem;
 }
 
 .quote-page .placeholder-description {
   color: var(--medium-gray);
   font-size: 1rem;
   line-height: 1.6;
-  margin-bottom: 1rem; /* CONDENSED: 1.5rem → 1rem */
+  margin-bottom: 1.5rem;
 }
 
 .quote-page .placeholder-note {
   background-color: rgba(40, 181, 208, 0.1);
   border: 1px solid rgba(40, 181, 208, 0.3);
   border-radius: 6px;
-  padding: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
+  padding: 1rem;
 }
 
 .quote-page .placeholder-note .note-text {
@@ -954,15 +953,15 @@
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .quote-page .file-upload-placeholder {
-    padding: 1.5rem 1rem; /* CONDENSED: 2rem 1rem → 1.5rem 1rem */
+    padding: 2rem 1rem;
   }
   
   .quote-page .placeholder-icon {
-    font-size: 2.5rem; /* CONDENSED: 3rem → 2.5rem */
+    font-size: 3rem;
   }
   
   .quote-page .placeholder-title {
-    font-size: 1.2rem; /* CONDENSED: 1.3rem → 1.2rem */
+    font-size: 1.3rem;
   }
 }
 
@@ -970,9 +969,9 @@
 
 /* ------- -------  Submit Section Styles ------- ------- */
 
-/* Submit Section Styling - CONDENSED */
+/* Submit Section Styling */
 .quote-page .submit-section {
-  margin-top: 1.5rem; /* CONDENSED: 2rem → 1.5rem */
+  margin-top: 2rem;
   margin-bottom: 0;
 }
 
@@ -980,49 +979,49 @@
   height: 4px;
   background: linear-gradient(135deg, var(--primary-blue) 0%, #1e90d4 100%);
   border: none;
-  margin-bottom: 1.5rem; /* CONDENSED: 2rem → 1.5rem */
+  margin-bottom: 2rem;
 }
 
-/* Submit Content - CONDENSED */
+/* Submit Content */
 .quote-page .submit-content {
   text-align: center;
-  padding: 1.5rem; /* CONDENSED: 2rem → 1.5rem */
+  padding: 2rem;
   background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
   border-radius: 12px;
   border: 1px solid #e9ecef;
 }
 
 .quote-page .submit-title {
-  font-size: 1.6rem; /* CONDENSED: 1.8rem → 1.6rem */
+  font-size: 1.8rem;
   font-weight: 600;
   color: var(--dark-gray);
-  margin-bottom: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
+  margin-bottom: 1rem;
 }
 
 .quote-page .submit-description {
   font-size: 1.1rem;
   color: var(--medium-gray);
-  margin-bottom: 1rem; /* CONDENSED: 1.5rem → 1rem */
+  margin-bottom: 1.5rem;
   line-height: 1.6;
 }
 
 
-/* Submit Button - CONDENSED */
+/* Submit Button */
 .quote-page .submit-button-container {
-  margin-bottom: 1rem; /* CONDENSED: 1.5rem → 1rem */
+  margin-bottom: 1.5rem;
 }
 
 .quote-page .submit-button {
   background: linear-gradient(135deg, var(--primary-blue) 0%, #1e90d4 100%);
   border: none;
-  padding: 0.85rem 2.5rem; /* CONDENSED: 1rem 3rem → 0.85rem 2.5rem */
+  padding: 1rem 3rem;
   font-size: 1.1rem;
   font-weight: 600;
   letter-spacing: 0.5px;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(40, 181, 208, 0.3);
   transition: all 0.3s ease;
-  min-width: 220px; /* CONDENSED: 250px → 220px */
+  min-width: 250px;
 }
 
 .quote-page .submit-button:hover:not(:disabled) {
@@ -1037,7 +1036,7 @@
 }
 
 .quote-page .privacy-note {
-  margin-top: 0.75rem; /* CONDENSED: 1rem → 0.75rem */
+  margin-top: 1rem;
 }
 
 .quote-page .privacy-text {
@@ -1047,17 +1046,17 @@
   font-style: italic;
 }
 
-/* Success/Error Messages - CONDENSED */
+/* Success/Error Messages */
 .quote-page .submit-message {
-  padding: 1.5rem; /* CONDENSED: 2rem → 1.5rem */
+  padding: 2rem;
   border-radius: 12px;
   text-align: center;
-  margin-bottom: 1.5rem; /* CONDENSED: 2rem → 1.5rem */
+  margin-bottom: 2rem;
 }
 
 .quote-page .success-message {
   background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
-  border: 1px solid #c3e6cb;
+  border: 2px solid #28a745;
   color: #155724;
 }
 
