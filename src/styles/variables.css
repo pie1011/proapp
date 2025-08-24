@@ -110,7 +110,6 @@
   color: white;
   text-decoration: none;
 }
-
 .quote-button-nav:hover:not(:disabled) {
   background: var(--dark-gray);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
