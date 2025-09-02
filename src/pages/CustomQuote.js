@@ -391,7 +391,7 @@ const CustomQuote = () => {
             <div className="quote-content">
                 <div className="container py-5">
                     <div className="row justify-content-center">
-                        <div className="col-lg-10 text-center">
+                        <div className="col-lg-10">
                             {/* Intro text */}
                             <div className="text-center mb-4">
                                 <p className="lead">
@@ -2216,7 +2216,7 @@ const CustomQuote = () => {
                             </div>
 
                                 {/* TEMPORARY TEST BUTTON - REMOVE BEFORE PRODUCTION */}
-                                <div className="mt-3 mb-3">
+                                <div className="mt-3 mb-3 w-100 text-center">
                                     <button
                                         type="button"
                                         className="btn btn-warning btn-sm"
