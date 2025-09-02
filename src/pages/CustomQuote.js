@@ -391,35 +391,14 @@ const CustomQuote = () => {
             <div className="quote-content">
                 <div className="container py-5">
                     <div className="row justify-content-center">
-                        <div className="col-lg-10">
+                        <div className="col-lg-10 text-center">
                             {/* Intro text */}
                             <div className="text-center mb-4">
                                 <p className="lead">
                                     Fill out the form below and a representative will contact you via email or phone with your custom quote.
                                     The details submitted will only be used to provide you pricing and information about your appliance installation project.
                                 </p>
-
-                                {/* TEMPORARY TEST BUTTON - REMOVE BEFORE PRODUCTION */}
-                                <div className="mt-3 mb-3">
-                                    <button
-                                        type="button"
-                                        className="btn btn-warning btn-sm"
-                                        onClick={populateTestData}
-                                        style={{
-                                            backgroundColor: '#ff6b35',
-                                            borderColor: '#ff6b35',
-                                            color: 'white',
-                                            fontWeight: 'bold'
-                                        }}
-                                    >
-                                        🧪 FILL TEST DATA (DEV ONLY)
-                                    </button>
-                                    <div className="small text-muted mt-1">
-                                        Click to populate form with sample data for testing
-                                    </div>
-                                </div>
                             </div>
-
                             <div className="quote-form-container">
                                 <form className="quote-form" onSubmit={handleSubmit} encType="multipart/form-data">
                                     <input type="hidden" name="form-name" value="custom-quote-form" />
@@ -2235,6 +2214,27 @@ const CustomQuote = () => {
 
                                 </form>
                             </div>
+
+                                {/* TEMPORARY TEST BUTTON - REMOVE BEFORE PRODUCTION */}
+                                <div className="mt-3 mb-3">
+                                    <button
+                                        type="button"
+                                        className="btn btn-warning btn-sm"
+                                        onClick={populateTestData}
+                                        style={{
+                                            backgroundColor: '#ff6b35',
+                                            borderColor: '#ff6b35',
+                                            color: 'white',
+                                            fontWeight: 'bold'
+                                        }}
+                                    >
+                                        🧪 FILL TEST DATA (DEV ONLY)
+                                    </button>
+                                    <div className="small text-muted mt-1">
+                                        Click to populate form with sample data for testing
+                                    </div>
+                                </div>
+                            
                         </div>
                     </div>
                 </div>
