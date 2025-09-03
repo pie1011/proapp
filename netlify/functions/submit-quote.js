@@ -382,6 +382,9 @@ exports.handler = async (event, context) => {
                 html: emailContent
             };
 
+            console.log('Email recipients:', emailPayload.to);
+
+
             // Add attachments if any files were uploaded
             if (emailAttachments.length > 0) {
                 emailPayload.attachments = emailAttachments;
