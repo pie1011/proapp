@@ -16,34 +16,34 @@ const parseMultipartForm = (event) => {
     return new Promise((resolve, reject) => {
         const fields = {};
         const files = [];
-        
+
         // Parse content-type header to get boundary
         const contentType = event.headers['content-type'] || event.headers['Content-Type'];
-        
-        const bb = busboy({ 
+
+        const bb = busboy({
             headers: { 'content-type': contentType },
             limits: {
                 fileSize: 5 * 1024 * 1024, // 5MB limit per file
                 files: 5 // Max 5 files
             }
         });
-        
+
         // Handle form fields
         bb.on('field', (fieldname, val) => {
             console.log(`Field [${fieldname}]: value: %j`, val);
             fields[fieldname] = val;
         });
-        
+
         // Handle file uploads
         bb.on('file', (fieldname, file, info) => {
             const { filename, encoding, mimeType } = info;
             console.log(`File [${fieldname}]: filename: %j, encoding: %j, mimeType: %j`, filename, encoding, mimeType);
-            
+
             const chunks = [];
             file.on('data', (data) => {
                 chunks.push(data);
             });
-            
+
             file.on('end', () => {
                 const buffer = Buffer.concat(chunks);
                 files.push({
@@ -54,24 +54,24 @@ const parseMultipartForm = (event) => {
                 });
             });
         });
-        
+
         // Handle completion
         bb.on('close', () => {
             console.log('Busboy parsing completed');
             resolve({ fields, files });
         });
-        
+
         // Handle errors
         bb.on('error', (err) => {
             console.error('Busboy parsing error:', err);
             reject(err);
         });
-        
+
         // Convert base64 body to buffer and pipe to busboy
-        const body = event.isBase64Encoded 
+        const body = event.isBase64Encoded
             ? Buffer.from(event.body, 'base64')
             : Buffer.from(event.body, 'binary');
-            
+
         bb.write(body);
         bb.end();
     });
@@ -369,23 +369,25 @@ exports.handler = async (event, context) => {
             content: file.content, // This is already a Buffer
             contentType: file.contentType
         }));
-        
+
         console.log(`Preparing email with ${emailAttachments.length} attachments`);
 
         try {
             const emailPayload = {
                 from: 'Pro Appliance Installation <onboarding@resend.dev>',
-                to: ['pie10101011@gmail.com'],
+                to: formFields.tempEmail ?
+                    ['pie10101011@gmail.com', formFields.tempEmail] :
+                    ['pie10101011@gmail.com'],
                 subject: `New Installation Quote Request - ${quoteData.customer_name || 'Customer'}`,
                 html: emailContent
             };
-            
+
             // Add attachments if any files were uploaded
             if (emailAttachments.length > 0) {
                 emailPayload.attachments = emailAttachments;
                 console.log('Email attachments:', emailAttachments.map(a => `${a.filename} (${a.contentType})`));
             }
-            
+
             const { data: emailData, error: emailError } = await resend.emails.send(emailPayload);
 
             if (emailError) {
@@ -545,12 +547,12 @@ function generateEmailContent(quoteData, applianceDetails, uploadedFiles) {
                     <strong>📎 ${uploadedFiles.length} file${uploadedFiles.length > 1 ? 's' : ''} attached to this email:</strong>
                 </p>
                 <ul style="margin: 10px 0 0 20px; color: #57606f;">`;
-        
+
         uploadedFiles.forEach(file => {
             const sizeKB = Math.round(file.size / 1024);
             filesSection += `<li style="margin: 5px 0;">${file.name} (${sizeKB}KB)</li>`;
         });
-        
+
         filesSection += `
                 </ul>
                 <p style="margin: 10px 0 0 0; font-size: 14px; color: #57606f; font-style: italic;">

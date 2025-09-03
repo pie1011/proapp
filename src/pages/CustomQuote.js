@@ -72,6 +72,7 @@ const CustomQuote = () => {
     // State for form submission
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
+    const [tempEmail, setTempEmail] = useState(''); // For temporary email routing
 
 
 
@@ -301,7 +302,7 @@ const CustomQuote = () => {
             // Add all form fields to FormData
             Object.keys(formData).forEach(key => {
                 const value = formData[key];
-                
+
                 if (key === 'appliances') {
                     // Handle appliances object
                     Object.keys(value).forEach(applianceKey => {
@@ -341,6 +342,10 @@ const CustomQuote = () => {
                 }
             });
 
+            // Add temporary email for testing, if provided
+            if (tempEmail.trim()) {
+                formDataToSubmit.append('tempEmail', tempEmail.trim());
+            }
             // Submit to our custom Netlify Function
             const response = await fetch('/.netlify/functions/submit-quote', {
                 method: 'POST',
@@ -2120,12 +2125,29 @@ const CustomQuote = () => {
                                                 </p>
                                             </div>
                                         </div>
+
+                                    </div>
+
+                                    {/* Temporary Email Input for Testing */}
+                                    <div className="temp-email-container mb-3">
+                                        <hr className="final-divider" />
+
+                                        <label className="form-label temp-email-label">
+                                            <i className="fas fa-envelope me-2"></i>
+                                            Send Copy To (Optional - For Testing):
+                                        </label>
+                                        <input
+                                            type="email"
+                                            className="form-control temp-email-input"
+                                            value={tempEmail}
+                                            onChange={(e) => setTempEmail(e.target.value)}
+                                            placeholder="Enter email to receive a copy of this quote..."
+                                        />
                                     </div>
 
 
                                     {/* Submit Section */}
                                     <div className="form-section submit-section">
-                                        <hr className="final-divider" />
 
                                         {/* Success Message */}
                                         {submitStatus === 'success' && (
@@ -2182,6 +2204,8 @@ const CustomQuote = () => {
                                                     </p>
                                                 </div>
 
+
+
                                                 <div className="submit-button-container">
                                                     <button
                                                         type="submit"
@@ -2215,26 +2239,26 @@ const CustomQuote = () => {
                                 </form>
                             </div>
 
-                                {/* TEMPORARY TEST BUTTON - REMOVE BEFORE PRODUCTION */}
-                                <div className="mt-3 mb-3 w-100 text-center">
-                                    <button
-                                        type="button"
-                                        className="btn btn-warning btn-sm"
-                                        onClick={populateTestData}
-                                        style={{
-                                            backgroundColor: '#ff6b35',
-                                            borderColor: '#ff6b35',
-                                            color: 'white',
-                                            fontWeight: 'bold'
-                                        }}
-                                    >
-                                        🧪 FILL TEST DATA (DEV ONLY)
-                                    </button>
-                                    <div className="small text-muted mt-1">
-                                        Click to populate form with sample data for testing
-                                    </div>
+                            {/* TEMPORARY TEST BUTTON - REMOVE BEFORE PRODUCTION */}
+                            <div className="mt-3 mb-3 w-100 text-center">
+                                <button
+                                    type="button"
+                                    className="btn btn-warning btn-sm"
+                                    onClick={populateTestData}
+                                    style={{
+                                        backgroundColor: '#ff6b35',
+                                        borderColor: '#ff6b35',
+                                        color: 'white',
+                                        fontWeight: 'bold'
+                                    }}
+                                >
+                                    🧪 FILL TEST DATA (DEV ONLY)
+                                </button>
+                                <div className="small text-muted mt-1">
+                                    Click to populate form with sample data for testing
                                 </div>
-                            
+                            </div>
+
                         </div>
                     </div>
                 </div>
