@@ -375,14 +375,21 @@ exports.handler = async (event, context) => {
         try {
             const emailPayload = {
                 from: 'Pro Appliance Installation <onboarding@resend.dev>',
-                to: formFields.tempEmail ?
-                    ['pie10101011@gmail.com', formFields.tempEmail] :
-                    ['pie10101011@gmail.com'],
+                to: (() => {
+                    const recipients = ['pie10101011@gmail.com'];
+                    if (formFields.tempEmail && formFields.tempEmail.trim()) {
+                        recipients.push(formFields.tempEmail.trim());
+                    }
+                    return recipients;
+                })(),
                 subject: `New Installation Quote Request - ${quoteData.customer_name || 'Customer'}`,
                 html: emailContent
             };
 
+            console.log(' -------- EMAIL RECIPIENTS ------- ');
             console.log('Email recipients:', emailPayload.to);
+            console.log('Final recipients array:', emailPayload.to);
+            console.log('Recipients array length:', emailPayload.to.length);
 
 
             // Add attachments if any files were uploaded
