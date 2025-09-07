@@ -575,7 +575,7 @@ function generateEmailContent(quoteData, applianceDetails, uploadedFiles) {
             <title>New Installation Quote Request</title>
         </head>
         <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px;">
-            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; text-align: center; margin-bottom: 30px; border-radius: 10px;">
+            <div style="background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%); color: white; padding: 30px; text-align: center; margin-bottom: 30px; border-radius: 10px;">
                 <h1 style="margin: 0; font-size: 24px;">New Installation Quote Request</h1>
                 <p style="margin: 10px 0 0 0; font-size: 16px;">Submitted on ${new Date().toLocaleDateString('en-US', {
         weekday: 'long',
