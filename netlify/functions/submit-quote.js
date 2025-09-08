@@ -358,10 +358,9 @@ exports.handler = async (event, context) => {
                 // Continue with other files
             }
         }
-
-        // Generate and send email
+// Generate and send email
         console.log('Generating email...');
-        const emailContent = generateEmailContent(quoteData, applianceDetails, uploadedFiles);
+        const emailContent = generateEmailContent(quote, applianceDetails, uploadedFiles);
 
         // Prepare email attachments from the original files array
         const emailAttachments = files.map(file => ({
@@ -377,7 +376,7 @@ exports.handler = async (event, context) => {
                 from: 'Pro Appliance Installation <quotes@kevinteacheskatie.com>',
                 to: ['pie10101011@gmail.com'],
                 cc: formFields.tempEmail ? [formFields.tempEmail] : undefined,
-                subject: `New Installation Quote Request - ${quoteData.customer_name || 'Customer'}`,
+                subject: `New Installation Quote Request - ${quote.customer_name || 'Customer'}`,
                 html: emailContent
             };
 
@@ -443,7 +442,7 @@ exports.handler = async (event, context) => {
 };
 
 // Generate professional HTML email content
-function generateEmailContent(quoteData, applianceDetails, uploadedFiles) {
+function generateEmailContent(quote, applianceDetails, uploadedFiles) {
     const formatSection = (title, content) => {
         if (!content || (Array.isArray(content) && content.length === 0)) return '';
         return `
@@ -463,47 +462,25 @@ function generateEmailContent(quoteData, applianceDetails, uploadedFiles) {
 
     // Client Information Section
     let clientInfo = '';
-    clientInfo += formatField('Name', quoteData.customer_name);
-    clientInfo += formatField('Email', quoteData.email);
-    clientInfo += formatField('Phone', quoteData.phone_primary);
-    if (quoteData.phone_secondary) clientInfo += formatField('Secondary Phone', quoteData.phone_secondary);
-    clientInfo += formatField('Customer Type', quoteData.client_type);
-    if (quoteData.company_name) {
-        clientInfo += formatField('Company Name', quoteData.company_name);
-        clientInfo += formatField('Company Address', quoteData.company_address);
-        clientInfo += formatField('Company Phone', quoteData.company_phone);
+    clientInfo += formatField('Name', quote.customer_name);
+    clientInfo += formatField('Email', quote.email);
+    clientInfo += formatField('Phone', quote.phone_primary);
+    if (quote.phone_secondary) clientInfo += formatField('Secondary Phone', quote.phone_secondary);
+    clientInfo += formatField('Customer Type', quote.client_type);
+    if (quote.company_name) {
+        clientInfo += formatField('Company Name', quote.company_name);
+        clientInfo += formatField('Company Address', quote.company_address);
+        clientInfo += formatField('Company Phone', quote.company_phone);
     }
-
-
-    // Admin Portal Link Section - ADD THIS NEW SECTION
-    const adminPortalLink = `https://proapp-admin.netlify.app/quote/${quoteData.id}`;
-    let adminSection = `
-    <div style="background: linear-gradient(135deg, #029be8 0%, #0070a8 100%); padding: 20px; border-radius: 8px; text-align: center; margin: 20px 0;">
-        <h3 style="color: white; margin: 0 0 15px 0; font-size: 18px;">
-            <i class="fas fa-tools" style="margin-right: 8px;"></i>
-            Manage This Quote
-        </h3>
-        <a href="${adminPortalLink}" 
-           style="display: inline-block; background: white; color: #029be8; padding: 12px 24px; 
-                  border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 16px;
-                  box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.3s ease;">
-            📋 View in Admin Portal
-        </a>
-        <p style="color: #e8f4fd; margin: 10px 0 0 0; font-size: 14px;">
-            Click above to view full quote details, update status, and manage this request
-        </p>
-    </div>
-`;
-
 
     // Pre-install Assessment
     let assessment = '';
-    assessment += formatField('Appliances Purchased', quoteData.purchased);
-    assessment += formatField('Field Measure Requested', quoteData.field_measure);
+    assessment += formatField('Appliances Purchased', quote.purchased);
+    assessment += formatField('Field Measure Requested', quote.field_measure);
 
     // Installation Address
     let address = '';
-    const fullAddress = [quoteData.street, quoteData.unit, quoteData.city, quoteData.zip].filter(Boolean).join(', ');
+    const fullAddress = [quote.street, quote.unit, quote.city, quote.zip].filter(Boolean).join(', ');
     if (fullAddress) address += formatField('Installation Address', fullAddress);
 
     // Selected Appliances
@@ -540,30 +517,30 @@ function generateEmailContent(quoteData, applianceDetails, uploadedFiles) {
 
     // Services Section
     let services = '';
-    services += formatField('Delivery Service', quoteData.delivery);
-    if (quoteData.pickup_location) services += formatField('Pickup Location', quoteData.pickup_location);
-    if (quoteData.pickup_date) services += formatField('Pickup Date', quoteData.pickup_date);
-    services += formatField('Uninstall Service', quoteData.uninstall);
-    services += formatField('Haul Away Service', quoteData.haul_away);
+    services += formatField('Delivery Service', quote.delivery);
+    if (quote.pickup_location) services += formatField('Pickup Location', quote.pickup_location);
+    if (quote.pickup_date) services += formatField('Pickup Date', quote.pickup_date);
+    services += formatField('Uninstall Service', quote.uninstall);
+    services += formatField('Haul Away Service', quote.haul_away);
 
     // Site Details Section
     let siteDetails = '';
-    siteDetails += formatField('Home Type', quoteData.home_type);
-    siteDetails += formatField('Floor', quoteData.floor);
-    siteDetails += formatField('Stairs', quoteData.stairs);
-    if (quoteData.stairs_number) siteDetails += formatField('Number of Stairs', quoteData.stairs_number);
-    if (quoteData.stairs_turns) siteDetails += formatField('Stairs Have Turns', quoteData.stairs_turns);
-    siteDetails += formatField('Parking', quoteData.parking);
-    if (quoteData.parking_notes) siteDetails += formatField('Parking Notes', quoteData.parking_notes);
-    if (quoteData.gate_code) siteDetails += formatField('Gate Code', quoteData.gate_code);
+    siteDetails += formatField('Home Type', quote.home_type);
+    siteDetails += formatField('Floor', quote.floor);
+    siteDetails += formatField('Stairs', quote.stairs);
+    if (quote.stairs_number) siteDetails += formatField('Number of Stairs', quote.stairs_number);
+    if (quote.stairs_turns) siteDetails += formatField('Stairs Have Turns', quote.stairs_turns);
+    siteDetails += formatField('Parking', quote.parking);
+    if (quote.parking_notes) siteDetails += formatField('Parking Notes', quote.parking_notes);
+    if (quote.gate_code) siteDetails += formatField('Gate Code', quote.gate_code);
 
     // Project Details Section
     let projectDetails = '';
-    projectDetails += formatField('Preferred Date', quoteData.preferred_date);
-    if (quoteData.preferred_time && quoteData.preferred_time.length > 0) {
-        projectDetails += formatField('Preferred Times', quoteData.preferred_time.join(', '));
+    projectDetails += formatField('Preferred Date', quote.preferred_date);
+    if (quote.preferred_time && quote.preferred_time.length > 0) {
+        projectDetails += formatField('Preferred Times', quote.preferred_time.join(', '));
     }
-    projectDetails += formatField('Additional Details', quoteData.additional_details);
+    projectDetails += formatField('Additional Details', quote.additional_details);
 
     // Files Section
     let filesSection = '';
@@ -607,12 +584,16 @@ function generateEmailContent(quoteData, applianceDetails, uploadedFiles) {
         hour: '2-digit',
         minute: '2-digit'
     })}</p>
+                <a href="https://proapp-admin.netlify.app/quote/${quote.id}" 
+                   style="display: inline-block; background: white; color: #2c3e50; padding: 8px 16px; 
+                          border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 14px;
+                          margin-top: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+                    📋 View in Admin Portal
+                </a>
             </div>
             
             ${formatSection('Client Information', clientInfo)}
-            ${adminSection}
             ${formatSection('Pre-Install Assessment', assessment)}
-
             ${address ? formatSection('Installation Address', address) : ''}
             ${appliancesSection ? formatSection('Selected Appliances', appliancesSection) : ''}
             ${services ? formatSection('Services Requested', services) : ''}
