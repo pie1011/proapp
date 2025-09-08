@@ -476,7 +476,7 @@ function generateEmailContent(quoteData, applianceDetails, uploadedFiles) {
 
 
     // Admin Portal Link Section - ADD THIS NEW SECTION
-    const adminPortalLink = `https://proapp-admin.netlify.app/quote/${quoteDataid}`;
+    const adminPortalLink = `https://proapp-admin.netlify.app/quote/${quoteData.id}`;
     let adminSection = `
     <div style="background: linear-gradient(135deg, #029be8 0%, #0070a8 100%); padding: 20px; border-radius: 8px; text-align: center; margin: 20px 0;">
         <h3 style="color: white; margin: 0 0 15px 0; font-size: 18px;">
