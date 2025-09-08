@@ -474,6 +474,28 @@ function generateEmailContent(quoteData, applianceDetails, uploadedFiles) {
         clientInfo += formatField('Company Phone', quoteData.company_phone);
     }
 
+
+    // Admin Portal Link Section - ADD THIS NEW SECTION
+    const adminPortalLink = `https://proapp-admin.netlify.app/quote/${quote.id}`;
+    let adminSection = `
+    <div style="background: linear-gradient(135deg, #029be8 0%, #0070a8 100%); padding: 20px; border-radius: 8px; text-align: center; margin: 20px 0;">
+        <h3 style="color: white; margin: 0 0 15px 0; font-size: 18px;">
+            <i class="fas fa-tools" style="margin-right: 8px;"></i>
+            Manage This Quote
+        </h3>
+        <a href="${adminPortalLink}" 
+           style="display: inline-block; background: white; color: #029be8; padding: 12px 24px; 
+                  border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 16px;
+                  box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.3s ease;">
+            📋 View in Admin Portal
+        </a>
+        <p style="color: #e8f4fd; margin: 10px 0 0 0; font-size: 14px;">
+            Click above to view full quote details, update status, and manage this request
+        </p>
+    </div>
+`;
+
+
     // Pre-install Assessment
     let assessment = '';
     assessment += formatField('Appliances Purchased', quoteData.purchased);
@@ -588,7 +610,9 @@ function generateEmailContent(quoteData, applianceDetails, uploadedFiles) {
             </div>
             
             ${formatSection('Client Information', clientInfo)}
+            ${adminSection}
             ${formatSection('Pre-Install Assessment', assessment)}
+
             ${address ? formatSection('Installation Address', address) : ''}
             ${appliancesSection ? formatSection('Selected Appliances', appliancesSection) : ''}
             ${services ? formatSection('Services Requested', services) : ''}
