@@ -28,7 +28,7 @@ const Header = () => {
         <Container>
           <Navbar.Brand href="/" className="brand-container">
             <img
-              src="/images/img-logo.png"
+              src={isScrolled ? "/images/img-logo.png" : "/images/img-logo-dark.png"}
               alt="Pro Appliance Installation"
               className="navbar-logo"
             />
